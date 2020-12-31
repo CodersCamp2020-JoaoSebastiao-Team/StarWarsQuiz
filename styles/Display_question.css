@@ -1,5 +1,5 @@
 .main-header__wrapper{
-    min-height: 250px;
+    min-height: 352px;
 }
 
 .main-question__wrapper{
@@ -16,9 +16,13 @@
 }
 
 .questio-image__image{
-    height: 300px;
-    width: 200px;
-    background-color: aqua;
+    height: calc(21.4vw * 1.32);
+    width: 21.4vw;
+    min-width: 200px;
+    min-height: calc(200px * 1.32);
+    background-color: #fff;
+    background: url("../static/assets/img/modes/people/4.jpg") no-repeat 0px/cover;
+    border-radius: 16px;
 }
 
 .question-content__wrapper{
@@ -29,9 +33,19 @@
 .question-content--header{
     width: 100%;
     background-color: #fff;
-    height: 50px;
+    min-height: 100px;
     margin-bottom: 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.p-content--header-question{
+    font-size: 42px;
+    font-weight: bold;
+}
+
 .question-content--variants{
     width: 100%;
     display: grid;
@@ -41,5 +55,14 @@
 }
 .question-content--item{
     background-color: #fff;
-    height: 50px;
+    min-height: 100px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-content--item{
+    font-size: 42px;
+    color: #000;
 }
