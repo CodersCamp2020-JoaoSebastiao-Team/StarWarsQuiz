@@ -1,4 +1,8 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    background: black url("../static/assets/ui/QuizBackground.png") no-repeat;
+    background: #000 url('../static/assets/ui/QuizBackground.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
