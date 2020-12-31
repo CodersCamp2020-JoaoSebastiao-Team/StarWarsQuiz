@@ -1,3 +1,4 @@
 body {
     font-family: 'Montserrat', sans-serif;
+    background: black url("../static/assets/ui/QuizBackground.png") no-repeat;
 }
