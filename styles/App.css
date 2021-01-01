@@ -1,3 +1,8 @@
 body {
+    height: 100vh;
+    margin: 0;
+    background-image: url(../static/assets/ui/QuizBackground.png);
+    background-position: center;
+    background-size: cover;
     font-family: 'Montserrat', sans-serif;
 }
