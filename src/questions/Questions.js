@@ -26,15 +26,12 @@ export const Questions = async (APIurl, category) => {
         .then(data => {
             console.log(data)
             StarWarsData = data;
-            nextUrl = data.next;
+            //nextUrl = data.next;
             for (const element of data.results) {
                 fetchData.push(element);
             }
-
-
         })
         .catch(() => console.log("Can’t access " + APIurl + " response. Blocked by browser?"));
-
 
     const questionsAmount = StarWarsData.count;
     console.log("Amount of all questions", questionsAmount)
@@ -43,13 +40,11 @@ export const Questions = async (APIurl, category) => {
     const iterations = Math.ceil(questionsAmount / questionsLength);
     console.log("Iterations", iterations)
 
-    for (let i = 1; i < iterations; i++) {
-        nextUrl = "https://swapi.dev/api/people/?page=" + (i + 1);
-        getData(nextUrl);
-    }
+// tu bedzie funkcja
+    await getAllData();
+    const result = await waitForData(5000);
     console.log("Fetched data :", fetchData);
     console.log("Fetched data length: ", fetchData.length)
-    const result = await waitForData(3000);
     console.log(result);
     for (const names in fetchData) {
         QuestionsPeople[names] = fetchData[names].name
@@ -70,9 +65,15 @@ export const Questions = async (APIurl, category) => {
     });
 
     async function getData(url) {
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        await fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
-            .then(response => response.json())
+        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        //await fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
+        await fetch(url)
+            .then(response => {
+                if (response.ok){
+                    return response.json();
+                }
+                
+            })
             .then(data => {
                 console.log("New data!!")
                 for (const element of data.results) {
@@ -95,7 +96,7 @@ export const Questions = async (APIurl, category) => {
         let selectedQuestion;
         let selectedChoises = [];
         let optionsSelected = false;
-        let max = questions.length;
+        let max = questions.length-1;
         let min = 0;
         if (questions.length > selected.length) {
             do {
@@ -118,7 +119,10 @@ export const Questions = async (APIurl, category) => {
                 const randomChoise1 = Math.floor(Math.random() * (max - min + 1) + min);
                 const randomChoise2 = Math.floor(Math.random() * (max - min + 1) + min);
                 const randomChoise3 = Math.floor(Math.random() * (max - min + 1) + min);
-                if (randomChoise1 != randomChoise2 != randomChoise3 != selectedQuestion) {
+                if (selectedQuestion != randomChoise1 && selectedQuestion != randomChoise2 && selectedQuestion != randomChoise3 
+                    && randomChoise1 != selectedQuestion && randomChoise1 != randomChoise2 && randomChoise1 != randomChoise3
+                    && randomChoise2 != selectedQuestion && randomChoise2 != randomChoise1 && randomChoise2 != randomChoise3
+                    && randomChoise3 != selectedQuestion && randomChoise3 != randomChoise1 && randomChoise3 != randomChoise2){
                     optionsSelected = true;
                     selectedChoises.push(randomChoise1);
                     selectedChoises.push(randomChoise2);
@@ -188,6 +192,13 @@ export const Questions = async (APIurl, category) => {
         console.log("Poprawna ma byc: ", obj.good);
         console.log("zle maja byc: ",obj.bad[0],", ", obj.bad[1],", ", obj.bad[2],", ");
         return obj;
+    }
+    async function getAllData(){
+        for (let m = 1; m < iterations; m++) {
+            nextUrl = "https://swapi.dev/api/people/?page=" + (m + 1);
+            getData(nextUrl);
+            await waitForData(200);
+        }
     }
 }
 
