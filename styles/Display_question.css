@@ -23,7 +23,7 @@
     margin-left: 4.74vw;
 }
 
-.questio-image__image {
+.question-image__image {
     height: calc(21.4vw * 1.32);
     width: 21.4vw;
     min-width: 200px;
