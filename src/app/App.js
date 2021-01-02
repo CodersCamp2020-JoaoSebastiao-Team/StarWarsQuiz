@@ -1,7 +1,7 @@
 import {Questions} from "../questions/Questions";
 
 export const App = ({options}) => {
-    Questions(options.swApiBaseUrl + "/people/");
+    Questions(options.swApiBaseUrl,"people");
 }
 
 
