@@ -7,3 +7,8 @@ body {
     background-size: cover;
     margin: 0;
 }
+
+#swquiz-app{
+    min-width: 100vw;
+    min-height: 100vh;
+}

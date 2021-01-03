@@ -9,11 +9,20 @@ export const Questions = async (APIurl, category) => {
     }
 
     // Get picture and options HTML element to edit it according to data from API
+    let quiz = document.getElementById('swquiz-app');
+    let loader = document.getElementsByClassName('loader')[0];
+    let questionWrapper = document.getElementsByClassName('main-question__wrapper')[0];
     let picture = document.getElementsByClassName('question-image__image')[0];
     let options = document.getElementsByClassName('p-content--item');
     let optionWrapper = document.getElementsByClassName('question-content--item');
 
+    //Starting visibility
+    loader.style.display = "flex";
+    questionWrapper.style.display = "none";
+    quiz.style.backgroundColor = "rgba(0,0,0,0.5)";
+
     //declaration of used variables
+    let score = 0;
     var StarWarsData;
     let QuestionsPeople = [];
     let fetchData = [];
@@ -62,7 +71,13 @@ export const Questions = async (APIurl, category) => {
     optionWrapper[3].addEventListener("click", function () {
         showQuestion(3);
     });
-    
+
+    //change visibility:
+    loader.style.display = "none";
+    questionWrapper.style.display = "flex";
+    quiz.style.backgroundColor = "transparent";
+
+
     // async function to get single package data from API and put it to fetchData array.
     async function getData(url) {
         await fetch(url)
@@ -157,6 +172,8 @@ export const Questions = async (APIurl, category) => {
             optionWrapper[select].classList.add("selected");
             if (select == rightOption) {
                 optionWrapper[select].classList.add("good");
+                score += 1;
+                console.log("Gratualtions! This answer is correct! Your score is: ",score);
             }
             else {
                 optionWrapper[select].classList.add("bad");
