@@ -45,7 +45,7 @@
   text-align: center;
   font-size: 32px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: #00ff00;
   animation: text-color 120s linear forwards;
 }
@@ -96,5 +96,30 @@
 
   100% {
     color: #ff0000;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .timer {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .timer {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .timer {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .timer {
+    font-size: 16px;
   }
 }
