@@ -4,6 +4,12 @@ export const Questions = async (APIurl, category) => {
         case "people":
             APIurl = APIurl + "/people/";
             break;
+        case "starships":
+            APIurl = APIurl + "/starships/";
+            break;
+        case "vehicles":
+            APIurl = APIurl + "/vehicles/";
+            break;
         default:
             break;
     }
@@ -11,6 +17,9 @@ export const Questions = async (APIurl, category) => {
     // Get picture and options HTML element to edit it according to data from API
     let quiz = document.getElementById('swquiz-app');
     let loader = document.getElementsByClassName('loader')[0];
+    const questionEnd = document.getElementsByClassName('question-finish')[0];
+    const questionImage = document.getElementsByClassName('question-image__wrapper')[0];
+    const questionContent = document.getElementsByClassName('question-content__wrapper')[0];
     let questionWrapper = document.getElementsByClassName('main-question__wrapper')[0];
     let picture = document.getElementsByClassName('question-image__image')[0];
     let options = document.getElementsByClassName('p-content--item');
@@ -82,7 +91,7 @@ export const Questions = async (APIurl, category) => {
     async function getData(url) {
         await fetch(url)
             .then(response => {
-                if (response.ok){
+                if (response.ok) {
                     return response.json();
                 }
             })
@@ -114,7 +123,7 @@ export const Questions = async (APIurl, category) => {
         let selectedQuestion;
         let selectedChoises = [];
         let optionsSelected = false;
-        let max = questions.length-1;
+        let max = questions.length - 1;
         let min = 0;
         // this is done only if we have questions to show. If we show all of questions function returns -1;
         if (questions.length > selected.length) {
@@ -142,10 +151,10 @@ export const Questions = async (APIurl, category) => {
                 const randomChoise1 = Math.floor(Math.random() * (max - min + 1) + min);
                 const randomChoise2 = Math.floor(Math.random() * (max - min + 1) + min);
                 const randomChoise3 = Math.floor(Math.random() * (max - min + 1) + min);
-                if (selectedQuestion != randomChoise1 && selectedQuestion != randomChoise2 && selectedQuestion != randomChoise3 
+                if (selectedQuestion != randomChoise1 && selectedQuestion != randomChoise2 && selectedQuestion != randomChoise3
                     && randomChoise1 != selectedQuestion && randomChoise1 != randomChoise2 && randomChoise1 != randomChoise3
                     && randomChoise2 != selectedQuestion && randomChoise2 != randomChoise1 && randomChoise2 != randomChoise3
-                    && randomChoise3 != selectedQuestion && randomChoise3 != randomChoise1 && randomChoise3 != randomChoise2){
+                    && randomChoise3 != selectedQuestion && randomChoise3 != randomChoise1 && randomChoise3 != randomChoise2) {
                     optionsSelected = true;
                     selectedChoises.push(randomChoise1);
                     selectedChoises.push(randomChoise2);
@@ -173,7 +182,7 @@ export const Questions = async (APIurl, category) => {
             if (select == rightOption) {
                 optionWrapper[select].classList.add("good");
                 score += 1;
-                console.log("Gratualtions! This answer is correct! Your score is: ",score);
+                console.log("Gratualtions! This answer is correct! Your score is: ", score);
             }
             else {
                 optionWrapper[select].classList.add("bad");
@@ -197,15 +206,18 @@ export const Questions = async (APIurl, category) => {
             rightOption = indexOption.good;
         }
         else {
+            questionEnd.style.display = "flex";
+            questionImage.style.display = "none";
+            questionContent.style.display = "none";
             console.log("You answered all the questions!")
         }
     }
 
     // Function to put good answer in random option (1 of 4 element)
-    function randomOption(answers){
+    function randomOption(answers) {
         let max = 3;
         let min = 0;
-        const rest = [0,1,2,3];
+        const rest = [0, 1, 2, 3];
         const randomGood = Math.floor(Math.random() * (max - min + 1) + min);
         let index = rest.indexOf(randomGood);
         rest.splice(index, 1);
@@ -220,9 +232,9 @@ export const Questions = async (APIurl, category) => {
     }
 
     // Function to get rest of data from API - changing the url pages.
-    async function getAllData(){
+    async function getAllData() {
         for (let m = 1; m < iterations; m++) {
-            nextUrl = "https://swapi.dev/api/people/?page=" + (m + 1);
+            nextUrl = `https://swapi.dev/api/${category}/?page=` + (m + 1);
             getData(nextUrl);
             await waitForData(1000);
         }
