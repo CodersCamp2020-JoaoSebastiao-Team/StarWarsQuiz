@@ -27,7 +27,8 @@ export const Questions = async (APIurl, category) => {
 
     //Starting visibility
     loader.style.display = "flex";
-    questionWrapper.style.display = "none";
+    questionImage.style.display = "none";
+    questionContent.style.display = "none";
     quiz.style.backgroundColor = "rgba(0,0,0,0.5)";
 
     //declaration of used variables
