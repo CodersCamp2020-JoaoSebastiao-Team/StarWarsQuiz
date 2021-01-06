@@ -1,3 +1,70 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+ 
+}
+
+body{
+    background-color: blue;
+    background-image: url('../static/assets/ui/QuizBackground.png');
+}
+.rules{
+    margin-top: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    font-size: 1.75rem;
+    padding: 2rem;
+    width: 50%;
+    color: black;
+    border-radius: 10px;
+    margin: 10px;
+}
+.rules h2{
+    display: flex;
+    justify-content: center;
+}
+
+.rules p{
+    display: flex;
+    justify-content: left;
+    padding-left: 5%;
+}
+
+.buttons{
+
+    margin: 10px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+.hall-of-fame{
+
+    background-color: white;
+    border-radius: 10px;
+    width: 30%;
+    float: right;
+    font-size: large;
+    color: black;
+    min-width: 100px;
+}
+.play-the-game{
+
+    background-color: red;
+    border: red;
+    border-radius: 10px;
+    width: 30%;
+    color: white;
+    font-size: large;
+    float: left;
+    min-width: 100px;
+}
+.rules-buttons{
+
+    width: 100%;
+    
+}
