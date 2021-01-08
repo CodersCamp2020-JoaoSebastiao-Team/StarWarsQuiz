@@ -84,7 +84,8 @@ export const Questions = async (APIurl, category) => {
 
     //change visibility:
     loader.style.display = "none";
-    questionWrapper.style.display = "flex";
+    questionImage.style.display = "block";
+    questionContent.style.display = "block";
     quiz.style.backgroundColor = "transparent";
 
 
@@ -237,7 +238,7 @@ export const Questions = async (APIurl, category) => {
         for (let m = 1; m < iterations; m++) {
             nextUrl = `https://swapi.dev/api/${category}/?page=` + (m + 1);
             getData(nextUrl);
-            await waitForData(1000);
+            await waitForData(500);
         }
     }
 }
