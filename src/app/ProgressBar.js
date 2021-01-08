@@ -14,7 +14,7 @@ export const ProgressBar = () => {
     const timerInterval = setInterval(() => {
       timePassed += 1;
       timeLeft = timeLimit - timePassed;
-      document.querySelector('.timer>span').innerHTML = `Time left: ${formatTime(timeLeft)}`;
+      document.querySelector('.progress-bar-timer>span').innerHTML = `Time left: ${formatTime(timeLeft)}`;
       if (timeLeft === 0) {
         clearInterval(timerInterval);
       }
@@ -23,12 +23,12 @@ export const ProgressBar = () => {
 
   document.querySelector('#progress-bar').innerHTML =
      `<div class="progress-bar-wrapper">
-        <figure class="lightsaber-handle"><img src="static/assets/ui/LightsaberHandle.png" alt=""></figure>
-        <div class="lightsaber-empty">
-          <div class="lightsaber-full"></div>
+        <figure class="progress-bar-lightsaber-handle"><img src="static/assets/ui/LightsaberHandle.png" alt=""></figure>
+        <div class="progress-bar-lightsaber-empty">
+          <div class="progress-bar-lightsaber-full"></div>
         </div>
       </div>
-      <div class="timer">
+      <div class="progress-bar-timer">
         <span>Time left: ${formatTime(timeLeft)}</span>
       </div>`
   startTimer();
