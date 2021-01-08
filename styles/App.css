@@ -99,16 +99,30 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    text-transform: uppercase;
+
     font-weight: 700;
 }
 .swquiz-mode-title{
-    height: 4em;
+    text-transform: uppercase;
 }
 .swquiz-mode-content{
+    display: inline;
+    align-items: stretch;
     height: 10em;
 }
-
+.swquiz-mode-content h2, p{
+    text-align: center;
+}
+.swquiz-mode-content table{
+    table-layout: fixed;
+    width: 100%;
+}
+.swquiz-mode-content tr{
+    text-align: center;
+}
+.swquiz-mode-content p{
+    justify-items: left;
+}
 .sw-quiz-mode-buttons{
     width: 100%;
     display: flex;
