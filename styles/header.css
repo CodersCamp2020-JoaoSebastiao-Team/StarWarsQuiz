@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(../static/assets/ui/QuizBackground.png);
+    background-size: cover;
+}
+
+#swquiz-app {
+    height: 100vh;
+}
+
+.main-menu__wrapper {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+.main-menu__logo {
+    height: 80px;
+}
+
+.logo-image {
+    height: 100%;
+}
+
+.main-menu__modes {
+    list-style-type: none;
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
+    border-radius: 23px;
+    width: 60%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 700;
+
+}
+
+.main-menu--option {
+    cursor: pointer;
+}
+
+.selected {
+    color: white;
+    text-shadow:
+    0 0 5px rgba(255,0,0,.9),
+    0 0 10px rgba(255,0,0,.9),
+    0 0 20px rgba(255,0,0,.9),
+    0 0 40px rgba(255,0,0,.9),
+    0 0 80px rgba(255,0,0,.9),
+    0 0 90px rgba(255,0,0,.9),
+    0 0 100px rgba(255,0,0,.9),
+    0 0 150px rgba(255,0,0,.9);
+}
+
+@media (max-width: 768px) {
+    .main-menu__wrapper {
+        padding: 0 2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-menu__modes {
+        margin-top: 1rem;
+        width: 100%;
+        font-size: 1em;
+    }
+}

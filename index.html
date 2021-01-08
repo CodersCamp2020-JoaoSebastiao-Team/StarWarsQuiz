@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/App.css" />
     <link rel="stylesheet" href="styles/Display_question.css" />
     <link rel="stylesheet" href="styles/progress_bar.css">
+    <link rel="stylesheet" href="styles/header.css"/>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -18,7 +19,18 @@
 <body>
 
     <div id="swquiz-app">
-
+        <nav class="main-menu__wrapper">
+            <div class="main-menu__logo">
+                <a href="/index.html" class="logo-image">
+                    <img src="/static/assets/ui/StarWarsLogo.png" alt="Star Wars logo" class="logo-image">
+                </a>
+            </div>
+            <ul class="main-menu__modes">
+                <li class="main-menu--option selected" id="people">people</li>
+                <li class="main-menu--option" id="vehicles">vehicles</li>
+                <li class="main-menu--option" id="starships">starships</li>
+            </ul>
+        </nav>
         <section class="main-question__wrapper">
             <div class="loader">
                 <div class="lds-roller">
