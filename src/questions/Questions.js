@@ -197,7 +197,7 @@ export const Questions = async (APIurl, category) => {
         }
         let Answers = selectQuestion(QuestionsPeople, selected);
         if (Answers != -1) {
-            //console.log("Good anser is nr : ", Answers.good)
+            console.log("Good anser is nr : ", QuestionsPeople[Answers.good], "number: ", Answers.good)
             picture.style.backgroundImage = `url(../static/assets/img/modes/${category}/${Answers.good + 1}.jpg)`;
             //console.log("Bad choises: ", Answers.bad[0], Answers.bad[1], Answers.bad[2]);
             let indexOption = randomOption(Answers);
