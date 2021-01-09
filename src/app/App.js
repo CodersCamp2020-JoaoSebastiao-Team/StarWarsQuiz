@@ -54,13 +54,3 @@ listItems.forEach(item => item.addEventListener('click', handleModeUpdate));
 listItems.forEach(item =>{if(item.classList.contains('selected')){
   updateText(item);
 }})
-
-function handleModeUpdate(e) {
-  if (!e.target.classList.contains('selected')) {
-    for (var i = 0; i < listItems.length; i++) {
-      listItems[i].classList.remove('selected');
-    }
-    e.target.classList.add('selected');
-  }
-  updateText(e.target);
-}
