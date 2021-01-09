@@ -1,0 +1,43 @@
+{
+  "people":[
+    {
+      "name": "tee",
+      "score": 10,
+      "max_score": 20
+    },
+    {
+      "name": "tessse",
+      "score": 130,
+      "max_score": 208
+    },
+    {
+      "name": "teqqqssse",
+      "score": 10,
+      "max_score": 89
+    },
+    {
+      "name": "tess21se",
+      "score": 13,
+      "max_score": 108
+    }
+  ],
+  "vehicles":[
+    {
+      "name": "tse",
+      "score": 30,
+      "max_score": 208
+    }
+  ],
+  "starships":[
+    {
+      "name": "tse",
+      "score": 30,
+      "max_score": 208
+    },
+    {
+      "name": "ts2e",
+      "score": 302,
+      "max_score": 208
+    }
+  ]
+}
