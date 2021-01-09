@@ -1,4 +1,4 @@
-
+import {updateText} from './rankingAndMode'
 const listItems = document.querySelectorAll('.main-menu--option');
 export let category = "people";
 listItems.forEach(item => item.addEventListener('click', handleModeUpdate));
@@ -12,4 +12,5 @@ export function handleModeUpdate(e){
         console.log(e.target);   
         category = e.target.innerText.toLowerCase();
     }
+    updateText((e.target))
 }
