@@ -29,6 +29,15 @@
     }
   ],
   "starships":[
-
+    {
+      "name": "tse",
+      "score": 30,
+      "max_score": 208
+    },
+    {
+      "name": "ts2e",
+      "score": 302,
+      "max_score": 208
+    }
   ]
 }

@@ -3,6 +3,7 @@ const ranking = require('./ranking.json');
 export const App = ({ options }) => {
 };
 
+
 const textToView = {
   'people': {
     'title': 'people title',
@@ -18,19 +19,18 @@ const textToView = {
   },
 };
 
-
 function updateText(item) {
   //ranking sort, better if sort while saving score after game in file
   ranking[item.id].sort((a, b) =>
     (a.score / a.max_score > b.score / b.max_score) ? -1 :
       ((b.score / b.max_score > a.score / a.max_score) ? 1 : 0));
-
   modeTitle.textContent = textToView[item.textContent].title;
   modeContent.innerHTML = rulesRankingButton.textContent === 'Ranking' ?
     '<div><h2>Mode rules:</h2><p>' + textToView[item.textContent].Rules + '</p></div>' :
     '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
     ranking[item.id].filter((e, i) => i < 3).map((person, id) => {
-      return '<tr><td>' + id + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
+      const i = id+1;
+      return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
     }) +
     '</table></div>';
 }
