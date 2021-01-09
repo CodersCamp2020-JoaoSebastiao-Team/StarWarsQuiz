@@ -7,7 +7,7 @@
 /* Main display question section - wrapper*/
 
 .main-question__wrapper {
-    display: flex;
+    display: none;
     min-height: 400px;
     width: 100%;
     margin-bottom: 2rem;
@@ -21,6 +21,7 @@
     align-items: flex-start;
     flex-basis: 33.125%;
     margin-left: 4.74vw;
+    
 }
 
 .question-image__image {
@@ -32,8 +33,10 @@
     background: url("../static/assets/img/modes/people/4.jpg") no-repeat 0px/cover;
     border-radius: 16px;
     box-shadow: 4px 4px 40px rgba(255, 0, 0, 0.9);
-}
+    transition:1s all;
+    -webkit-transition:1s all;
 
+}
 /* Loading animation */
 
 .loader{

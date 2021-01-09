@@ -1,6 +1,6 @@
 
 const listItems = document.querySelectorAll('.main-menu--option');
-
+export let category = "people";
 listItems.forEach(item => item.addEventListener('click', handleModeUpdate));
 
 export function handleModeUpdate(e){
@@ -10,5 +10,6 @@ export function handleModeUpdate(e){
         }
         e.target.classList.add('selected');
         console.log(e.target);   
+        category = e.target.innerText.toLowerCase();
     }
 }

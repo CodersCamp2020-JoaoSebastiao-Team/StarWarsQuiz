@@ -26,6 +26,7 @@ export const Questions = async (APIurl, category) => {
     let optionWrapper = document.getElementsByClassName('question-content--item');
 
     //Starting visibility
+    questionWrapper.style.display = "flex";
     loader.style.display = "flex";
     questionImage.style.display = "none";
     questionContent.style.display = "none";
@@ -54,17 +55,12 @@ export const Questions = async (APIurl, category) => {
     //console.log("Iterations", iterations)
 
     //Get rest of data from REST API
-    await getAllData();
+    getAllData();
     //console.log("Fetched data :", fetchData);
     //console.log("Fetched data length: ", fetchData.length)
 
-    // Get from data objects only names and put it to one array.
-    //TODO - Put it in function with parameter name,wehicles etc.
-    for (const names in fetchData) {
-        QuestionsPeople[names] = fetchData[names].name
-    }
 
-    console.log("Fetched names of people :", QuestionsPeople);
+    //onsole.log("Fetched names of people :", QuestionsPeople);
     //Firstly, show question without argument - random question.
     showQuestion();
     //According to clicked option send argument to function and it's checks if answer is correct, or not.
@@ -105,6 +101,11 @@ export const Questions = async (APIurl, category) => {
                 }
             })
             .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"));
+    // Get from data objects only names and put it to one array.
+    //TODO - Put it in function with parameter name,wehicles etc.
+    for (const names in fetchData) {
+        QuestionsPeople[names] = fetchData[names].name
+    }
     }
 
     //Function with give possibility to wait some time to get properly data.
@@ -174,6 +175,8 @@ export const Questions = async (APIurl, category) => {
         else {
             return -1;
         }
+
+
     }
 
     //This function show question in HTML elements.
@@ -199,6 +202,7 @@ export const Questions = async (APIurl, category) => {
         if (Answers != -1) {
             console.log("Good anser is nr : ", QuestionsPeople[Answers.good], "number: ", Answers.good)
             picture.style.backgroundImage = `url(../static/assets/img/modes/${category}/${Answers.good + 1}.jpg)`;
+            await waitForData(100);
             //console.log("Bad choises: ", Answers.bad[0], Answers.bad[1], Answers.bad[2]);
             let indexOption = randomOption(Answers);
             options[indexOption.good].innerText = QuestionsPeople[Answers.good];
@@ -238,7 +242,7 @@ export const Questions = async (APIurl, category) => {
         for (let m = 1; m < iterations; m++) {
             nextUrl = `https://swapi.dev/api/${category}/?page=` + (m + 1);
             getData(nextUrl);
-            await waitForData(500);
+            await waitForData(800);
         }
     }
 }

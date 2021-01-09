@@ -21,7 +21,7 @@ export const ProgressBar = () => {
     }, 1000)
   }
 
-  document.querySelector('#progress-bar').innerHTML =
+  document.querySelector('.progress-bar').innerHTML =
      `<div class="progress-bar-wrapper">
         <figure class="progress-bar-lightsaber-handle"><img src="static/assets/ui/LightsaberHandle.png" alt=""></figure>
         <div class="progress-bar-lightsaber-empty">

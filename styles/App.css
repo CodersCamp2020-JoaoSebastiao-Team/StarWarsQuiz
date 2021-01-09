@@ -212,10 +212,6 @@ form p{
     display: none;
 }
 
-#swquiz-app {
-    height: 100vh;
-}
-
 .swquiz-header {
     margin-top: 1rem;
     height: 5em;
