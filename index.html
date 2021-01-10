@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles/header.css"/>
     <link rel="stylesheet" href="styles/ranking_and_mode.css"/>
     <link rel="stylesheet" href="styles/Display_question.css" />
+    <link rel="stylesheet" href="styles/end-game.css">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -114,14 +115,14 @@
         </div>
     </div>
         </section>
-        <section id="end-game">
-            <div id="end-result-modal" class="end-result-modal" style="display: flex;">
+        <section class="end-game">
+            <div id="end-result-modal" class="end-result-modal">
                 <div class="end-modal-content">
-                    <h2 style="margin-top: 0">GAME OVER</h2>
+                    <h2>GAME OVER</h2>
                     <p id="end-summary" class="end-sub-title">The force is strong in you young Padawan! During 2 minutes you have answered x / x questions. And Computer guessed x /  x.</p>
                     <div class="end-hall-off-fame">
                         <div class="end-yoda-answers">
-                            <div>
+                            <div class="end-yoda-container">
                             <img class="end-yoda" src="static/assets/ui/MasterYodaLeft.png" alt="Master Yoda">
                             </div>
                             <div class="end-answers">
@@ -137,14 +138,14 @@
                                 </div>
                             </div>
                         </div>
-                        <form id="hall-of-fame-save" style="display: flex; align-items: center">
+                        <form id="hall-of-fame-save">
                             <label for="end-player-name">
                                 <input id="player-name-hall-of-fame" name="player-name-hall-of-fame" class="end-player-name" type="text" minlength="3" maxlength="15" required="">
                             </label>
-                            <p style="font-size: 1.30rem; margin: 0; padding-left: 1rem; margin-top: 25px;">Please fill your name in order to receive eternal glory in the whole Galaxy!</p>
+                            <p>Please fill your name in order to receive eternal glory in the whole Galaxy!</p>
                         </form>
                     </div>
-                    <div style="text-align: center; margin-top: 4rem;">
+                    <div class="end-save-button-container">
                         <button type="submit" form="hall-of-fame-save" class="end-save-button" id="save-hall-of-fame-button">MAY THE FORCE BE WITH YOU!</button>
                     </div>
                 </div>
