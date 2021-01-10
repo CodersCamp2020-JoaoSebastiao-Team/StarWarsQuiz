@@ -24,6 +24,7 @@ export const Questions = async (APIurl, category) => {
     let picture = document.getElementsByClassName('question-image__image')[0];
     let options = document.getElementsByClassName('p-content--item');
     let optionWrapper = document.getElementsByClassName('question-content--item');
+    let questionAnswered = false;
 
     //Starting visibility
     questionWrapper.style.display = "flex";
@@ -182,7 +183,8 @@ export const Questions = async (APIurl, category) => {
     //This function show question in HTML elements.
     async function showQuestion(select) {
         // If we call function with argument (options button)
-        if (select >= 0 && select <= 3) {
+        if (select >= 0 && select <= 3 && !questionAnswered) {
+
             optionWrapper[select].classList.add("selected");
             if (select == rightOption) {
                 optionWrapper[select].classList.add("good");
@@ -192,11 +194,13 @@ export const Questions = async (APIurl, category) => {
             else {
                 optionWrapper[select].classList.add("bad");
             }
+            questionAnswered = true;
             // We show for one second a selected choise, with good or bad class.
             await waitForData(1000);
             optionWrapper[select].classList.remove("selected");
             optionWrapper[select].classList.remove("good");
             optionWrapper[select].classList.remove("bad");
+            questionAnswered = false;
         }
         let Answers = selectQuestion(QuestionsPeople, selected);
         if (Answers != -1) {
