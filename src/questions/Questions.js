@@ -24,9 +24,11 @@ export const Questions = async (APIurl, category) => {
     let picture = document.getElementsByClassName('question-image__image')[0];
     let options = document.getElementsByClassName('p-content--item');
     let optionWrapper = document.getElementsByClassName('question-content--item');
-    let questionAnswered = false;
+    const questionError = document.getElementsByClassName('question-api-error__wrapper')[0];
+    const questionErrorContent = document.getElementsByClassName('question-api-error--content')[0];
 
     //Starting visibility
+    questionError.style.display = "none";
     questionWrapper.style.display = "flex";
     loader.style.display = "flex";
     questionImage.style.display = "none";
@@ -41,72 +43,89 @@ export const Questions = async (APIurl, category) => {
     let nextUrl;
     let selected = [];
     let rightOption;
+    let responseStatus;
+    let responseOk = true;
 
     // Use cors-anywhere to avoid blocking trasnfer data from API in browser
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    //nextUrl = `../../swapi-json-server/${category}.JSON`;
+
     // Get data from API - first 10 elements
     await getData(proxyurl + APIurl);
+    //await getData(APIurl);
+    //await getData(nextUrl);
 
-    // get amount of whole questions and divided it into packages of 10 elements
-    const questionsAmount = StarWarsData.count;
-    //console.log("Amount of all questions", questionsAmount)
-    const questionsLength = StarWarsData.results.length;
-    //console.log("Length of each package", questionsLength)
-    const iterations = Math.ceil(questionsAmount / questionsLength);
-    //console.log("Iterations", iterations)
+    // If data fetched properly with status 200 -> success
+    if (responseOk) {
+            // get amount of whole questions and divided it into packages of 10 elements
+            const questionsAmount = StarWarsData.count;
+            //console.log("Amount of all questions", questionsAmount)
+            const questionsLength = StarWarsData.results.length;
+            //console.log("Length of each package", questionsLength)
+            const iterations = Math.ceil(questionsAmount / questionsLength);
+            //console.log("Iterations", iterations)
+    }
+        //Get rest of data from REST API
+        getAllData();
 
-    //Get rest of data from REST API
-    getAllData();
-    //console.log("Fetched data :", fetchData);
-    //console.log("Fetched data length: ", fetchData.length)
+        //onsole.log("Fetched names of people :", QuestionsPeople);
+        //Firstly, show question without argument - random question.
+        showQuestion();
+        //According to clicked option send argument to function and it's checks if answer is correct, or not.
+        //TODO - this also should be a separate function
+        optionWrapper[0].addEventListener("click",queston1Listener);
+        optionWrapper[1].addEventListener("click",queston2Listener);
+        optionWrapper[2].addEventListener("click",queston3Listener);
+        optionWrapper[3].addEventListener("click",queston4Listener);
 
+        //change visibility:
+        loader.style.display = "none";
+        questionImage.style.display = "block";
+        questionContent.style.display = "block";
+        quiz.style.backgroundColor = "transparent";
 
-    //onsole.log("Fetched names of people :", QuestionsPeople);
-    //Firstly, show question without argument - random question.
-    showQuestion();
-    //According to clicked option send argument to function and it's checks if answer is correct, or not.
-    //TODO - this also should be a separate function
-    optionWrapper[0].addEventListener("click", function () {
-        showQuestion(0);
-    });
-    optionWrapper[1].addEventListener("click", function () {
-        showQuestion(1);
-    });
-    optionWrapper[2].addEventListener("click", function () {
-        showQuestion(2);
-    });
-    optionWrapper[3].addEventListener("click", function () {
-        showQuestion(3);
-    });
-
-    //change visibility:
-    loader.style.display = "none";
-    questionImage.style.display = "block";
-    questionContent.style.display = "block";
-    quiz.style.backgroundColor = "transparent";
-
+    
 
     // async function to get single package data from API and put it to fetchData array.
     async function getData(url) {
         await fetch(url)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
+            .then(async response => {
+                    if (response.ok){
+                    let data = response.json();
+                    responseOk = true;
+                    responseStatus = response.status;
+                    return data;       
+                    }
             })
             .then(data => {
-                // console.log("New data!!")
+                console.log("New data!!");
                 StarWarsData = data;
                 for (const element of data.results) {
                     fetchData.push(element);
                 }
+                console.log("fetched data: ",fetchData)
             })
-            .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"));
-    // Get from data objects only names and put it to one array.
-    //TODO - Put it in function with parameter name,wehicles etc.
-    for (const names in fetchData) {
-        QuestionsPeople[names] = fetchData[names].name
-    }
+            .catch(() => {
+                const questionMessage = questionErrorContent.querySelector('h2');
+                if (!responseOk) {
+                    questionContent.style.display = "none";
+                    questionImage.style.display = "none";
+                    loader.style.display = "none";
+                    questionError.style.display = "flex";
+                    questionMessage.innerText = `${responseStatus} Error - sorry we have problem with API, try again later!`
+                    console.log(`${responseStatus} Error - sorry we have problem with API, try again later!`)
+                }
+                if (responseStatus != 200){
+                    responseOk = false;
+                }
+
+
+            });
+        // Get from data objects only names and put it to one array.
+        //TODO - Put it in function with parameter name,wehicles etc.
+        for (const names in fetchData) {
+            QuestionsPeople[names] = fetchData[names].name
+        }
     }
 
     //Function with give possibility to wait some time to get properly data.
@@ -183,7 +202,11 @@ export const Questions = async (APIurl, category) => {
     //This function show question in HTML elements.
     async function showQuestion(select) {
         // If we call function with argument (options button)
-        if (select >= 0 && select <= 3 && !questionAnswered) {
+        if (select >= 0 && select <= 3 ) {
+            optionWrapper[0].removeEventListener("click",queston1Listener , false);
+            optionWrapper[1].removeEventListener("click",queston2Listener , false);
+            optionWrapper[2].removeEventListener("click",queston3Listener , false);
+            optionWrapper[3].removeEventListener("click",queston4Listener , false);
 
             optionWrapper[select].classList.add("selected");
             if (select == rightOption) {
@@ -194,13 +217,16 @@ export const Questions = async (APIurl, category) => {
             else {
                 optionWrapper[select].classList.add("bad");
             }
-            questionAnswered = true;
             // We show for one second a selected choise, with good or bad class.
             await waitForData(1000);
             optionWrapper[select].classList.remove("selected");
             optionWrapper[select].classList.remove("good");
             optionWrapper[select].classList.remove("bad");
-            questionAnswered = false;
+
+            optionWrapper[0].addEventListener("click",queston1Listener);
+            optionWrapper[1].addEventListener("click",queston2Listener);
+            optionWrapper[2].addEventListener("click",queston3Listener);
+            optionWrapper[3].addEventListener("click",queston4Listener);
         }
         let Answers = selectQuestion(QuestionsPeople, selected);
         if (Answers != -1) {
@@ -223,6 +249,19 @@ export const Questions = async (APIurl, category) => {
         }
     }
 
+    function queston1Listener(){
+        showQuestion(0);
+    }
+    function queston2Listener(){
+        showQuestion(1);
+    }
+    function queston3Listener(){
+        showQuestion(2);
+    }
+    function queston4Listener(){
+        showQuestion(3);
+    }
+
     // Function to put good answer in random option (1 of 4 element)
     function randomOption(answers) {
         let max = 3;
@@ -243,10 +282,45 @@ export const Questions = async (APIurl, category) => {
 
     // Function to get rest of data from API - changing the url pages.
     async function getAllData() {
-        for (let m = 1; m < iterations; m++) {
-            nextUrl = `https://swapi.dev/api/${category}/?page=` + (m + 1);
-            getData(nextUrl);
-            await waitForData(800);
+        if (responseOk) {
+            for (let m = 1; m < iterations; m++) {
+                nextUrl = `https://swapi.dev/api/${category}/?page=` + (m + 1);
+                getData(nextUrl);
+                await waitForData(800);
+            }
+        }
+        else{
+            let data;
+            switch (category) {
+                case "people":
+                    data = require(`../../swapi-json-server/people.json`);
+                    console.log("people amount: ", data.length);
+                    for (let i = 0; i < data.length; i++) {
+                        QuestionsPeople.push(data[i].fields.name);
+                    }
+                    break;
+                case "starships":
+                    data = require(`../../swapi-json-server/starships.json`);
+                    console.log("starships amount: ", data.length);
+                    for (let i = 0; i < data.length; i++) {
+                        QuestionsPeople.push(data[i].fields.starship_class);
+                    }
+                    break;
+                case "vehicles":
+                    data = require(`../../swapi-json-server/vehicles.json`);
+                    console.log("vehicles amount: ", data.length);
+                    for (let i = 0; i < data.length; i++) {
+                        QuestionsPeople.push(data[i].fields.vehicle_class);
+                    }
+                    break;
+                default:
+                    data = require(`../../swapi-json-server/people.json`);
+                    for (let i = 0; i < data.length; i++) {
+                        QuestionsPeople.push(data[i].fields.name);
+                    }
+                    break;
+            }
+
         }
     }
 }
