@@ -225,6 +225,36 @@
   margin: 0 auto;
 }
 
+/* Question API error */
+
+.question-api-error__wrapper{
+  width: 100%;
+  min-height: 500px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.question-api-error--content{
+  /*background: transparent url('../static/assets/404-api-error.png') no-repeat center center;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.question-api-error--content h2{
+  text-align: center;
+  color: red;
+  font-size: 2rem;
+  filter: drop-shadow(1px 1px 5px rgb(63, 2, 2));
+}
+.question-api-error--content img{
+  max-height: 40vh;
+}
+
 @media only screen and (max-width: 1440px) {
 
     .p-content--item,
@@ -252,7 +282,7 @@
 @media only screen and (max-width: 768px) {
 
     .main-question__wrapper {
-        display: flex;
+       display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
