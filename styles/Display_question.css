@@ -216,6 +216,8 @@
     color: #000;
     text-align: center;
     padding: 3px;
+    box-shadow: none;
+    filter: none;
 }
 
 .question-finish{
