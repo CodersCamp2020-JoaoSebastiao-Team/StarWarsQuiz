@@ -1,4 +1,3 @@
-
 .end-result-modal {
     display: flex;
     justify-content: center;
@@ -10,16 +9,17 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0, 0, 0, .4);
 }
 
 .end-modal-content {
     background-color: #fefefe;
     padding: 4rem;
     width: 60%;
-    box-shadow: 0 4px 4px rgba(0,0,0,.25),4px 4px 40px rgba(255,0,0,.9);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .25), 4px 4px 40px rgba(255, 0, 0, .9);
     border-radius: 16px;
 }
+
 .end-modal-content h2 {
     margin-top: 0;
     text-align: center;
@@ -37,7 +37,7 @@
     align-items: end;
 }
 
-div.end-yoda-answers  {
+div.end-yoda-answers {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -58,17 +58,20 @@ div.end-yoda-answers  {
     flex-direction: column;
     align-self: flex-end;
 }
+
 .end-answers-header {
     grid-template-columns: 6rem 1fr 1fr 1fr;
     width: 100%;
 }
-.end-answers-header  {
+
+.end-answers-header {
     display: grid;
     padding: 0 1rem;
     align-items: center;
     font-weight: 600;
     border-bottom: 1px solid #c4c4c4;
 }
+
 .end-answers-table {
     width: 100%;
     height: 20rem;
@@ -76,12 +79,13 @@ div.end-yoda-answers  {
     display: inline;
 }
 
-#hall-of-fame-save{
+#hall-of-fame-save {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap-reverse;
 }
-form#hall-of-fame-save label{
+
+form#hall-of-fame-save label {
     width: 25rem;
 }
 
@@ -100,8 +104,8 @@ form#hall-of-fame-save label{
 }
 
 .end-save-button {
-    background: rgba(255,0,0,.8);
-    box-shadow: 0 4px 4px rgba(0,0,0,.25),0 4px 4px rgba(0,0,0,.25),4px 4px 40px rgba(255,0,0,.9);
+    background: rgba(255, 0, 0, .8);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .25), 0 4px 4px rgba(0, 0, 0, .25), 4px 4px 40px rgba(255, 0, 0, .9);
     border-radius: 16px;
     color: #fff;
     font-size: 2rem;
@@ -110,7 +114,8 @@ form#hall-of-fame-save label{
     font-weight: 500;
     padding: 1rem 2rem;
 }
-.end-save-button-container{
+
+.end-save-button-container {
     text-align: center;
     margin-top: 2rem;
 }
@@ -126,22 +131,22 @@ form#hall-of-fame-save label{
     align-items: center;
 }
 
-.end-yoda-answers  {
+.end-yoda-answers {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-form#hall-of-fame-save{
+form#hall-of-fame-save {
     display: flex;
     align-items: center;
 }
 
-form#hall-of-fame-save p{
-    font-size: 1.30rem; 
-    margin: 0; 
-    padding-left: 1rem; 
+form#hall-of-fame-save p {
+    font-size: 1.30rem;
+    margin: 0;
+    padding-left: 1rem;
     margin-top: 1.2rem;
     margin-bottom: 1rem;
 }
@@ -159,28 +164,31 @@ form#hall-of-fame-save p{
     height: 100%;
     border-radius: 16px;
 }
+
 .swquiz-yoda-answers-table-wrapper {
     width: 100%;
 }
 
-@media (max-width: 1230px){
-    div.end-yoda-answers{
+@media (max-width: 1230px) {
+    div.end-yoda-answers {
         flex-wrap: wrap;
     }
-    .end-answers{
+
+    .end-answers {
         width: 100%;
     }
-    div.end-modal-content{
+
+    div.end-modal-content {
         width: 70%;
     }
 }
 
-@media (max-width: 680px){
-    div.end-modal-content{
+@media (max-width: 680px) {
+    div.end-modal-content {
         width: 90%;
     }
 }
 
-section.end-game{
+section.end-game {
     display: none;
 }

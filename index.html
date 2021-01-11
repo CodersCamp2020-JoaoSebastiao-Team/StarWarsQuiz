@@ -8,10 +8,10 @@
     <title>CodersCamp2020 | Star Wars API QUIZ</title>
     <link rel="stylesheet" href="styles/App.css" />
     <link rel="stylesheet" href="styles/progress_bar.css">
-    <link rel="stylesheet" href="styles/header.css"/>
+    <link rel="stylesheet" href="styles/main_menu.css"/>
     <link rel="stylesheet" href="styles/ranking_and_mode.css"/>
-    <link rel="stylesheet" href="styles/Display_question.css" />
-    <link rel="stylesheet" href="styles/end-game.css">
+    <link rel="stylesheet" href="styles/question.css" />
+    <link rel="stylesheet" href="styles/end_game.css">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -19,8 +19,8 @@
 </head>
 
 <body>
-
     <div id="swquiz-app">
+
         <nav class="main-menu__wrapper">
             <div class="main-menu__logo">
                 <a href="/index.html" class="logo-image">
@@ -33,6 +33,7 @@
                 <li class="main-menu--option" id="starships">starships</li>
             </ul>
         </nav>
+
         <section class="rules-buttons">
             <div class="rules">
                 <h2> Mode Rules</h2>
@@ -48,6 +49,7 @@
                 <button class="play-the-game">PLAY THE GAME</button>
             </div>
         </section>
+
         <section class="main-question__wrapper">
             <div class="loader">
                 <div class="lds-roller">
@@ -98,23 +100,28 @@
                 </div>
             </div>
         </section>
+
         <section class="progress-bar"></section>
+
         <section class="flex-container">
-        <img src="/static/assets/img/modes/people/4.jpg" alt="Star Wars logo" style="width: 142px; height: 50%">
-    <div class="flex-item-ranking">
-        <div class="swquiz-mode-title"><p id="swquiz-mode-title-text">Do you recognize this vehicle?</p></div>
-        <div id="swquiz-mode-content" class="swquiz-mode-content">
-            <div>
-                <h2>Leaderboard is empty...</h2>
+            <img src="/static/assets/img/modes/people/4.jpg" alt="Star Wars logo" style="width: 142px; height: 50%">
+            <div class="flex-item-ranking">
+                <div class="swquiz-mode-title">
+                    <p id="swquiz-mode-title-text">Do you recognize this vehicle?</p>
+                </div>
+                <div id="swquiz-mode-content" class="swquiz-mode-content">
+                    <div>
+                        <h2>Leaderboard is empty...</h2>
+                    </div>
+                </div>
+                <div class="sw-quiz-mode-buttons">
+                    <button id="swquiz-mode-hall-of-fame-button" class="sw-quiz-mode-button-rules">Rules</button>
+                    <div style="width: 2rem"></div>
+                    <button class="sw-quiz-mode-button-play" id="play-the-game-button">PLAY THE GAME</button>
+                </div>
             </div>
-        </div>
-        <div class="sw-quiz-mode-buttons">
-            <button id="swquiz-mode-hall-of-fame-button" class="sw-quiz-mode-button-rules">Rules</button>
-            <div style="width: 2rem"></div>
-            <button class="sw-quiz-mode-button-play" id="play-the-game-button">PLAY THE GAME</button>
-        </div>
-    </div>
         </section>
+
         <section class="end-game">
             <div id="end-result-modal" class="end-result-modal">
                 <div class="end-modal-content">
@@ -151,8 +158,8 @@
                 </div>
             </div>
         </section>
-    </div>
 
+    </div>
     <script src="src/index.js"></script>
 </body>
 

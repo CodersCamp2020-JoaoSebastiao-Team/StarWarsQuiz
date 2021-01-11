@@ -1,4 +1,4 @@
-import {updateText} from './rankingAndMode'
+import {updateText} from './RankingAndMode'
 const listItems = document.querySelectorAll('.main-menu--option');
 export let category = "people";
 listItems.forEach(item => item.addEventListener('click', handleModeUpdate));

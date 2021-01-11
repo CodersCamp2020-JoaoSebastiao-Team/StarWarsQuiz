@@ -1,5 +1,5 @@
-import {Questions} from "../questions/Questions";
-import {handleModeUpdate, category} from "../app/main-menu";
+import {Questions} from "./Questions";
+import {handleModeUpdate, category} from "./MainMenu";
 import {handleRulesButtonClick} from "./rankingAndMode"
 export const App = ({options}) => {
   const start = document.getElementsByClassName('play-the-game')[0];

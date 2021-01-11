@@ -51,15 +51,23 @@
 }
 
 @keyframes progress-bar {
-  50% {
+  49% {
     box-shadow: 0 0 10px 4px #00ff00;
   }
 
-  62.5% {
+  51% {
+    box-shadow: 0 0 10px 4px #eeff00;
+  }
+
+  73% {
     box-shadow: 0 0 10px 4px #eeff00;
   }
 
   75% {
+    box-shadow: 0 0 10px 4px #ff8800;
+  }
+
+  85.5% {
     box-shadow: 0 0 10px 4px #ff8800;
   }
 
@@ -78,15 +86,23 @@
 }
 
 @keyframes text-color {
-  50% {
+  49% {
     color: #00ff00;
   }
 
-  62.5% {
+  51% {
+    color: #eeff00;
+  }
+
+  73% {
     color: #eeff00;
   }
 
   75% {
+    color: #ff8800;
+  }
+
+  85.5% {
     color: #ff8800;
   }
 

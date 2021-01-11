@@ -1,9 +1,9 @@
-
+/* 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-}
+} */
 
 body {
     height: 100vh;
@@ -12,13 +12,14 @@ body {
     background: #000 url('../static/assets/ui/QuizBackground.png') no-repeat center center fixed;
 }
 
-#swquiz-app{
+
+#swquiz-app {
     min-width: 100vw;
     min-height: 100vh;
 }
 
 
-.rules{
+.rules {
     margin-top: 2rem;
     background: #fff;
     border-radius: 16px;
@@ -30,19 +31,20 @@ body {
     margin: 10px;
     min-width: 300px;
 }
-.rules h2{
+
+.rules h2 {
     display: flex;
     justify-content: center;
 }
 
-.rules p{
+.rules p {
     display: flex;
     justify-content: left;
     padding-left: 5%;
 }
 
-.buttons{
-   
+.buttons {
+
     margin: 10px;
     height: 60px;
     display: flex;
@@ -50,17 +52,19 @@ body {
     width: 50%;
     min-width: 300px;
 }
-.hall-of-fame{
+
+.hall-of-fame {
 
     background-color: white;
     border-radius: 16px;
     width: 40%;
     font-size: x-large;
     color: black;
-  
+
     border: 1px solid wheat;
 }
-.play-the-game{
+
+.play-the-game {
 
     background-color: red;
     border: 1px solid white;
@@ -68,7 +72,7 @@ body {
     width: 40%;
     color: white;
     font-size: x-large;
-    
+
 }
 
 .swquiz-header {
@@ -87,7 +91,7 @@ body {
 .swquiz-menu {
     list-style-type: none;
     background-color: white;
-    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .25), 4px 4px 40px rgba(255, 0, 0, .9);
     border-radius: 23px;
     width: 60%;
     height: 70%;
