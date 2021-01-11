@@ -45,6 +45,7 @@ export const Questions = async (APIurl, category) => {
     let rightOption;
     let responseStatus;
     let responseOk = true;
+    let iterations;
 
     // Use cors-anywhere to avoid blocking trasnfer data from API in browser
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -55,6 +56,7 @@ export const Questions = async (APIurl, category) => {
     //await getData(APIurl);
     //await getData(nextUrl);
 
+
     // If data fetched properly with status 200 -> success
     if (responseOk) {
             // get amount of whole questions and divided it into packages of 10 elements
@@ -62,7 +64,7 @@ export const Questions = async (APIurl, category) => {
             //console.log("Amount of all questions", questionsAmount)
             const questionsLength = StarWarsData.results.length;
             //console.log("Length of each package", questionsLength)
-            const iterations = Math.ceil(questionsAmount / questionsLength);
+            iterations = Math.ceil(questionsAmount / questionsLength);
             //console.log("Iterations", iterations)
     }
         //Get rest of data from REST API
@@ -98,12 +100,12 @@ export const Questions = async (APIurl, category) => {
                     }
             })
             .then(data => {
-                console.log("New data!!");
+                //console.log("New data!!");
                 StarWarsData = data;
                 for (const element of data.results) {
                     fetchData.push(element);
                 }
-                console.log("fetched data: ",fetchData)
+                //console.log("fetched data: ",fetchData)
             })
             .catch(() => {
                 const questionMessage = questionErrorContent.querySelector('h2');
@@ -294,21 +296,21 @@ export const Questions = async (APIurl, category) => {
             switch (category) {
                 case "people":
                     data = require(`../../swapi-json-server/people.json`);
-                    console.log("people amount: ", data.length);
+                    //console.log("people amount: ", data.length);
                     for (let i = 0; i < data.length; i++) {
                         QuestionsPeople.push(data[i].fields.name);
                     }
                     break;
                 case "starships":
                     data = require(`../../swapi-json-server/starships.json`);
-                    console.log("starships amount: ", data.length);
+                    //console.log("starships amount: ", data.length);
                     for (let i = 0; i < data.length; i++) {
                         QuestionsPeople.push(data[i].fields.starship_class);
                     }
                     break;
                 case "vehicles":
                     data = require(`../../swapi-json-server/vehicles.json`);
-                    console.log("vehicles amount: ", data.length);
+                    //console.log("vehicles amount: ", data.length);
                     for (let i = 0; i < data.length; i++) {
                         QuestionsPeople.push(data[i].fields.vehicle_class);
                     }
