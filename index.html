@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/ranking_and_mode.css"/>
     <link rel="stylesheet" href="styles/question.css" />
     <link rel="stylesheet" href="styles/end_game.css">
+    <link rel="stylesheet" href="styles/game_rules.css"/>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -34,20 +35,32 @@
             </ul>
         </nav>
 
-        <section class="rules-buttons">
-            <div class="rules">
-                <h2> Mode Rules</h2>
-                <p>
-                    You have one minute (1m) to answer as many queestions as
-                    possible. During the game on each qustion you need to
-                    select who from Star Wars is showed on left (Jar Jar
-                    Binks ringt now) from available options
-                </p>
+        <section id="zasady_gry">
+            <div class="rules-buttons">
+                <div class="head-img-rules">
+                    <img src="/static/assets/img/modes/people/36.jpg" alt="random character" class="img-rules"></a>
+                </div>
+                <div class="rules-coontent">
+                    <div class="rules-head">
+                        <p> Who is this character? </p>
+                    </div>
+                    <div class="rules">
+                        <h2> Mode Rules</h2>
+                        <p class="rule-on-change">
+                            You have one minute (1m) to answer as many queestions as
+                            possible. During the game on each qustion you need to
+                            select who from Star Wars is showed on left (Jar Jar
+                            Binks ringt now) from available options.
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="hall-of-fame">Hall of fame</button>
+                        <button class="play-the-game">PLAY THE GAME</button>
+                    </div>
+                </div>
+             
             </div>
-            <div class="buttons">
-                <button class="hall-of-fame">Hall of fame</button>
-                <button class="play-the-game">PLAY THE GAME</button>
-            </div>
+            
         </section>
 
         <section class="main-question__wrapper">
@@ -161,6 +174,7 @@
 
     </div>
     <script src="src/index.js"></script>
+    <script src="src/app/game_rules.js"></script>
 </body>
 
 </html>
