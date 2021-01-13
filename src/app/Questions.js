@@ -210,20 +210,20 @@ export const Questions = async (APIurl, category) => {
             optionWrapper[2].removeEventListener("click",queston3Listener , false);
             optionWrapper[3].removeEventListener("click",queston4Listener , false);
 
-            optionWrapper[select].classList.add("selected");
+            optionWrapper[select].classList.add("answer-selected");
             if (select == rightOption) {
-                optionWrapper[select].classList.add("good");
+                optionWrapper[select].classList.add("answer-good");
                 score += 1;
                 console.log("Gratualtions! This answer is correct! Your score is: ", score);
             }
             else {
-                optionWrapper[select].classList.add("bad");
+                optionWrapper[select].classList.add("answer-bad");
             }
             // We show for one second a selected choise, with good or bad class.
             await waitForData(1000);
-            optionWrapper[select].classList.remove("selected");
-            optionWrapper[select].classList.remove("good");
-            optionWrapper[select].classList.remove("bad");
+            optionWrapper[select].classList.remove("answer-selected");
+            optionWrapper[select].classList.remove("answer-good");
+            optionWrapper[select].classList.remove("answer-bad");
 
             optionWrapper[0].addEventListener("click",queston1Listener);
             optionWrapper[1].addEventListener("click",queston2Listener);
@@ -232,9 +232,10 @@ export const Questions = async (APIurl, category) => {
         }
         let Answers = selectQuestion(QuestionsPeople, selected);
         if (Answers != -1) {
+            await waitForData(50);
             console.log("Good anser is nr : ", QuestionsPeople[Answers.good], "number: ", Answers.good)
             picture.style.backgroundImage = `url(../static/assets/img/modes/${category}/${Answers.good + 1}.jpg)`;
-            await waitForData(100);
+            await waitForData(250);
             //console.log("Bad choises: ", Answers.bad[0], Answers.bad[1], Answers.bad[2]);
             let indexOption = randomOption(Answers);
             options[indexOption.good].innerText = QuestionsPeople[Answers.good];

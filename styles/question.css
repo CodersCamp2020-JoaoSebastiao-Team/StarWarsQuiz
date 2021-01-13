@@ -30,7 +30,12 @@
     min-width: 200px;
     min-height: calc(200px * 1.32);
     background-color: #fff;
-    background: url("../static/assets/img/modes/people/4.jpg") no-repeat 0px/cover;
+    /* background: url("../static/assets/img/modes/people/4.jpg") no-repeat 0px/cover; */
+    background: transparent no-repeat center center;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;        
     border-radius: 16px;
     box-shadow: 4px 4px 40px rgba(255, 0, 0, 0.9);
     transition:1s all;
@@ -197,16 +202,16 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.question-content--item.selected {
+.question-content--item.answer-selected {
     font-weight: 600;
 }
 
-.question-content--item.good {
+.question-content--item.answer-good {
     background: #41ED25;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 30px #51FC00;
 }
 
-.question-content--item.bad {
+.question-content--item.answer-bad {
     background: #FF0000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 30px #FF0000;
 }

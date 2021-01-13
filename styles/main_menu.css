@@ -11,7 +11,8 @@ body {
 }
 
 #swquiz-app {
-    height: 100vh;
+    max-height: 100vh;
+    overflow-y: hidden;
 }
 
 .main-menu__wrapper {
