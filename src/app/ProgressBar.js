@@ -1,8 +1,10 @@
+
+export let timeLeft;
 export const ProgressBar = () => {
 
   const timeLimit = 120;
   let timePassed = 0;
-  let timeLeft = timeLimit;
+  timeLeft = timeLimit;
 
   const formatTime = (time) => {
     let minutes = Math.floor(time / 60) > 9 ? `${Math.floor(time / 60)}` : `0${Math.floor(time / 60)}`;

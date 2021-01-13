@@ -1,3 +1,6 @@
+import {ProgressBar, timeLeft} from "./ProgressBar";
+
+
 export const Questions = async (APIurl, category) => {
     //Adjust API url to category get from menu: // Now temporary get always people
     switch (category) {
@@ -26,6 +29,7 @@ export const Questions = async (APIurl, category) => {
     let optionWrapper = document.getElementsByClassName('question-content--item');
     const questionError = document.getElementsByClassName('question-api-error__wrapper')[0];
     const questionErrorContent = document.getElementsByClassName('question-api-error--content')[0];
+    const endGame = document.getElementsByClassName('end-game')[0];
 
     //Starting visibility
     questionError.style.display = "none";
@@ -46,6 +50,7 @@ export const Questions = async (APIurl, category) => {
     let responseStatus;
     let responseOk = true;
     let iterations;
+    let questionsEnd = false;
 
     // Use cors-anywhere to avoid blocking trasnfer data from API in browser
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -73,6 +78,7 @@ export const Questions = async (APIurl, category) => {
         //onsole.log("Fetched names of people :", QuestionsPeople);
         //Firstly, show question without argument - random question.
         showQuestion();
+        ProgressBar();
         //According to clicked option send argument to function and it's checks if answer is correct, or not.
         //TODO - this also should be a separate function
         optionWrapper[0].addEventListener("click",queston1Listener);
@@ -249,6 +255,9 @@ export const Questions = async (APIurl, category) => {
             questionImage.style.display = "none";
             questionContent.style.display = "none";
             console.log("You answered all the questions!")
+            await waitForData(4000);
+            questionEnd.style.display = "none";
+            endGame.style.display = "flex";
         }
     }
 
@@ -326,5 +335,16 @@ export const Questions = async (APIurl, category) => {
 
         }
     }
+
+    const timeToEnd= setInterval(() => {
+        if (timeLeft <= 0){
+            questionsEnd = true;
+            questionWrapper.style.display = "none";
+            endGame.style.display = "flex"
+        }
+        else{
+            questionsEnd = false;
+        }
+      }, 1000)
 }
 
