@@ -160,8 +160,10 @@ export const Questions = async (APIurl, category) => {
             questionsEnd = false;
         }
       }, 1000)   
-      console.log("try catch json! category: ",setCategory(category, APIurl, true),"data", require(setCategory(category, APIurl, true)));
-
+      let temparray = [];
+      console.log("try catch json! category: ",setCategory(category, APIurl, true),"data ->", require(setCategory(category, APIurl, true)));
+      transferData(require(setCategory(category, APIurl, true)), temparray, "fields", "name");
+      console.log("resulted array ->>>",temparray);
 }
 
 // ============== Functions definitions ================ /
@@ -252,16 +254,34 @@ export const Questions = async (APIurl, category) => {
             }
         }
         else{
-            let data = require(setCategory(category, APIurl, true));
+            let data;
             switch (category) {
                 case "people":
-                    transferData(data, QuestionsPeople, "fields","name");
+                    data = require(`../../swapi-json-server/people.json`);
+                    //console.log("people amount: ", data.length);
+                    for (let i = 0; i < data.length; i++) {
+                        QuestionsPeople.push(data[i].fields.name);
+                    }
                     break;
                 case "starships":
-                    transferData(data, QuestionsPeople, "fields","starship_class");
+                    data = require(`../../swapi-json-server/starships.json`);
+                    //console.log("starships amount: ", data.length);
+                    for (let i = 0; i < data.length; i++) {
+                        QuestionsPeople.push(data[i].fields.starship_class);
+                    }
                     break;
                 case "vehicles":
-                    transferData(data, QuestionsPeople, "fields","vehicle_class");
+                    data = require(`../../swapi-json-server/vehicles.json`);
+                    //console.log("vehicles amount: ", data.length);
+                    for (let i = 0; i < data.length; i++) {
+                        QuestionsPeople.push(data[i].fields.vehicle_class);
+                    }
+                    break;
+                default:
+                    data = require(`../../swapi-json-server/people.json`);
+                    for (let i = 0; i < data.length; i++) {
+                        QuestionsPeople.push(data[i].fields.name);
+                    }
                     break;
             }
 
