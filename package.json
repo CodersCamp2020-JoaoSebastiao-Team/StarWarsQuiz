@@ -29,14 +29,14 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "@testing-library/dom": "^7.26.6",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/user-event": "^12.2.2",
-    "babel-jest": "^26.5.0",
+    "babel-jest": "^26.6.3",
     "cssnano": "^4.1.10",
-    "jest": "^26.4.2",
+    "jest": "^26.6.3",
     "jest-fetch-mock": "^3.0.3",
     "msw": "^0.21.3",
     "parcel-bundler": "^1.12.4",
@@ -68,4 +68,3 @@
     ]
   }
 }
-
