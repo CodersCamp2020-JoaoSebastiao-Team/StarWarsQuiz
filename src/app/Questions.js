@@ -40,12 +40,22 @@ export const Questions = async (APIurl, category) => {
     let iterations;
     let questionsEnd = false;
 
+
+    // let temparray = [];
+    // console.log("try catch json! category: ",setCategory(category, APIurl, true),"data ->", require(setCategory(category, APIurl, true)));
+    // transferData(require(setCategory(category, APIurl, true)), temparray, "fields", "name");
+    // console.log("resulted array ->>>",temparray);
+
+
+
+
+
     // Use cors-anywhere to avoid blocking trasnfer data from API in browser
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
     // Get data from API - first 10 elements
     var {responseOk, responseStatus, StarWarsDataCount, StarWarsDataLength } = await getData((proxyurl + APIurl), fetchData ,QuestionsPeople);
-    //await getData(APIurl);
+    //await getData(APIurl); 
     //await getData(nextUrl);
     console.log("responseok: ",responseOk,"response status: ", responseStatus,"fetched data count, length", StarWarsDataCount ,StarWarsDataLength )
 
@@ -60,8 +70,10 @@ export const Questions = async (APIurl, category) => {
             iterations = Math.ceil(StarWarsDataCount / StarWarsDataLength);
             //console.log("Iterations", iterations)
     }
+
+        //getDataLocaly(APIurl, category);
         //Get rest of data from REST API
-        getAllData(APIurl, responseOk, iterations, category,fetchData, QuestionsPeople);
+        //getAllData(APIurl, responseOk, iterations, category,fetchData, QuestionsPeople);
 
         //Firstly, show question without argument - random question.
         showQuestion();
@@ -160,13 +172,42 @@ export const Questions = async (APIurl, category) => {
             questionsEnd = false;
         }
       }, 1000)   
-      let temparray = [];
-      console.log("try catch json! category: ",setCategory(category, APIurl, true),"data ->", require(setCategory(category, APIurl, true)));
-      transferData(require(setCategory(category, APIurl, true)), temparray, "fields", "name");
-      console.log("resulted array ->>>",temparray);
+
+
+
 }
 
 // ============== Functions definitions ================ /
+
+
+function getDataLocaly(APIurl, category) {
+    let temparray = [];
+console.log("try catch json! category: ",setCategory(category, APIurl, true),"data ->", require(setCategory(category, APIurl, true)));
+transferData(require(setCategory(category, APIurl, true)), temparray, "fields", "name");
+console.log("resulted array ->>>",temparray);
+
+// QuestionsPeople = [];
+// console.log("try catch json! category: ",setCategory(category, APIurl, true),"data ->", require(setCategory(category, APIurl, true)));
+
+// switch (category) {
+//     case "people":
+//         transferData(require(setCategory(category, APIurl, true)), QuestionsPeople, "fields", "name");
+//         console.log("resulted array people->>>",QuestionsPeople);
+//         break;
+//     case "starships":
+//         transferData(require(setCategory(category, APIurl, true)), QuestionsPeople, "fields", "starship_class");
+//         console.log("resulted array starships->>>",QuestionsPeople);
+//         break;
+//     case "vehicles":
+//         transferData(require(setCategory(category, APIurl, true)), QuestionsPeople, "fields", "vehicle_class");
+//         console.log("resulted array vehicles->>>",QuestionsPeople);
+//         break;
+//     default:
+//         transferData(require(setCategory("people", APIurl, true)), QuestionsPeople, "fields", "name");
+//         console.log("resulted array default ->>>",QuestionsPeople);
+//         break;
+// }
+}
 
     //Function with give possibility to wait some time to get properly data.
     //@time - miliseconds
@@ -254,34 +295,26 @@ export const Questions = async (APIurl, category) => {
             }
         }
         else{
+
+
             let data;
+
             switch (category) {
                 case "people":
-                    data = require(`../../swapi-json-server/people.json`);
-                    //console.log("people amount: ", data.length);
-                    for (let i = 0; i < data.length; i++) {
-                        QuestionsPeople.push(data[i].fields.name);
-                    }
+                    transferData(require(setCategory(category, APIurl, true)), QuestionsPeople, "fields", "name");
+                    console.log("resulted array people->>>",QuestionsPeople);
                     break;
                 case "starships":
-                    data = require(`../../swapi-json-server/starships.json`);
-                    //console.log("starships amount: ", data.length);
-                    for (let i = 0; i < data.length; i++) {
-                        QuestionsPeople.push(data[i].fields.starship_class);
-                    }
+                    transferData(require(setCategory(category, APIurl, true)), QuestionsPeople, "fields", "starship_class");
+                    console.log("resulted array starships->>>",QuestionsPeople);
                     break;
                 case "vehicles":
-                    data = require(`../../swapi-json-server/vehicles.json`);
-                    //console.log("vehicles amount: ", data.length);
-                    for (let i = 0; i < data.length; i++) {
-                        QuestionsPeople.push(data[i].fields.vehicle_class);
-                    }
+                    transferData(require(setCategory(category, APIurl, true)), QuestionsPeople, "fields", "vehicle_class");
+                    console.log("resulted array vehicles->>>",QuestionsPeople);
                     break;
                 default:
-                    data = require(`../../swapi-json-server/people.json`);
-                    for (let i = 0; i < data.length; i++) {
-                        QuestionsPeople.push(data[i].fields.name);
-                    }
+                    transferData(require(setCategory("people", APIurl, true)), QuestionsPeople, "fields", "name");
+                    console.log("resulted array default ->>>",QuestionsPeople);
                     break;
             }
 
@@ -300,10 +333,10 @@ export const Questions = async (APIurl, category) => {
                     newAPIurl = APIurl + "/peoples/";
                     break;
                 case "starships":
-                    newAPIurl = APIurl + "/starships/";
+                    newAPIurl = APIurl + "/starshipss/";
                     break;
                 case "vehicles":
-                    newAPIurl = APIurl + "/vehicles/";
+                    newAPIurl = APIurl + "/vehicless/";
                     break;
                 default:
                     newAPIurl = APIurl + "/people/";
