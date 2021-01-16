@@ -19,6 +19,7 @@ export const ProgressBar = () => {
       document.querySelector('.progress-bar-timer>span').innerHTML = `Time left: ${formatTime(timeLeft)}`;
       if (timeLeft === 0) {
         clearInterval(timerInterval);
+        document.querySelector('.progress-bar').style.display = "none";
       }
     }, 1000)
   }
