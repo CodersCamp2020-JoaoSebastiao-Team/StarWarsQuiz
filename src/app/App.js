@@ -8,7 +8,6 @@ export const App = ({options}) => {
   start.addEventListener("click", () => {
     Questions(options.swApiBaseUrl,`${category}`);
     rules.style.display="none";
-    acceptingMode = false;
   
   })
 

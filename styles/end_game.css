@@ -178,7 +178,7 @@ form#hall-of-fame-save p {
     width: 100%;
 }
 
-.end-result-p{
+#end-result-p{
     font-size: 30px;
     color: red;
     font-weight: 600;

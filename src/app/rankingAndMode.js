@@ -68,13 +68,14 @@ export function updateText(item) {
       '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
 }
 
+const MAX_HIGH_SCORES = 5;
 
 const username = document.getElementById("player-name-hall-of-fame");
 const mostRecentScore = localStorage.getItem('mostRecentScore');
+const finalScore = document.getElementById('end-result-p');
 
-// const finalScore = document.getElementById('final-score');
-// finalScore.innerText = mostRecentScore;
-const MAX_HIGH_SCORES = 5;
+console.log(finalScore);
+finalScore.innerText = `YOUR RESULT: ${mostRecentScore}`;
 
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
