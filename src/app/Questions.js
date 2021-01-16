@@ -17,6 +17,7 @@ export const Questions = async (APIurl, category) => {
     const optionWrapper = document.getElementsByClassName('question-content--item');
     const questionError = document.getElementsByClassName('question-api-error__wrapper')[0];
     const questionErrorContent = document.getElementsByClassName('question-api-error--content')[0];
+    const questionHeader = document.getElementsByClassName('p-content--header-question')[0];
     const endGame = document.getElementsByClassName('end-game')[0];
 
     //Starting visibility
@@ -41,6 +42,23 @@ export const Questions = async (APIurl, category) => {
 
     // Use cors-anywhere to avoid blocking trasnfer data from API in browser
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
+
+    //change header display:
+    switch (category) {
+    case "people":
+    questionHeader.innerText = "MODE: Who is this character? ";
+    break;
+    case "starships":
+    questionHeader.innerText = "MODE: What kind of starship is this? "; 
+    break;
+    case "vehicles":
+    questionHeader.innerText = "MODE: What kind of vehicle is this? ";
+    break;
+    default:
+    questionHeader.innerText = "MODE: Who is this character? ";
+    break;
+    }
+
 
     // Get data from API - first 10 elements
     var { responseOk, responseStatus, StarWarsDataCount, StarWarsDataLength } = await getData((proxyurl + APIurl), fetchData, QuestionsPeople);
