@@ -115,6 +115,13 @@ form#hall-of-fame-save label {
     border: none;
     font-weight: 500;
     padding: 1rem 2rem;
+    transition: all 0.5s;
+}
+
+.end-save-button:hover{
+    transform: scale(0.9);
+    transition: 0.5s;
+    background-color: red;
 }
 
 .end-save-button-container {
@@ -197,6 +204,6 @@ form#hall-of-fame-save p {
     }
 }
 
-/* section.end-game {
+section.end-game {
     display: none;
-} */
+}
