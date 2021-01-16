@@ -446,7 +446,6 @@ function randomOption() {
 }
 
 module.exports = { Questions, randomOption, selectQuestion };
-export {acceptingMode};
 
 
 
