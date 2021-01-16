@@ -22,11 +22,6 @@
     }
   ],
   "vehicles":[
-    {
-      "name": "tse",
-      "score": 30,
-      "max_score": 208
-    }
   ],
   "starships":[
     {

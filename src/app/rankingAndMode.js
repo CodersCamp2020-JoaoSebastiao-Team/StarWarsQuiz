@@ -34,7 +34,6 @@ listItems.forEach(item => {
 export function handleRulesButtonClick(e) {
 
   let listItems = document.querySelectorAll('.main-menu--option');
-  console.log(e.target.textContent);
   if (e.target.textContent === 'Rules') {
     e.target.textContent = 'Hall of fame';
   } else if (e.target.textContent === 'Hall of fame') {
@@ -56,14 +55,15 @@ export function updateText(item) {
   ranking[item.id].sort((a, b) =>
     (a.score / a.max_score > b.score / b.max_score) ? -1 :
       ((b.score / b.max_score > a.score / a.max_score) ? 1 : 0));
-  console.log(item.textContent);
   modeTitle.textContent = textToView[item.textContent].title;
   modeContent.innerHTML = rulesRankingButton.textContent === 'Hall of fame' ?
     '<div><h2>Mode rules:</h2><p>' + textToView[item.textContent].Rules + '</p></div>' :
+    ranking[item.id].length?
     '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
+
     ranking[item.id].filter((e, i) => i < 3).map((person, id) => {
       const i = id + 1;
       return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
-    }) +
-    '</table></div>';
+    })+ '</table></div>':
+      '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
 }
