@@ -2,7 +2,7 @@
 export let timeLeft;
 export const ProgressBar = () => {
 
-  const timeLimit = 120;
+  const timeLimit = 20;
   let timePassed = 0;
   timeLeft = timeLimit;
 

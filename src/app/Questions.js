@@ -1,6 +1,5 @@
 import { ProgressBar, timeLeft } from "./ProgressBar";
 
-
 export const Questions = async (APIurl, category) => {
 
     //Adjust API url to category get from menu: // Now temporary get always people
@@ -151,7 +150,8 @@ export const Questions = async (APIurl, category) => {
         if (timeLeft <= 0) {
             questionsEnd = true;
             questionWrapper.style.display = "none";
-            endGame.style.display = "flex"
+            endGame.style.display = "flex";
+            localStorage.setItem('mostRecentScore', score);
         }
         else {
             questionsEnd = false;
@@ -428,5 +428,7 @@ function randomOption() {
 }
 
 module.exports = { Questions, randomOption, selectQuestion };
+export {acceptingMode};
+
 
 

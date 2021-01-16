@@ -67,3 +67,38 @@ export function updateText(item) {
     }) +
     '</table></div>';
 }
+
+
+const username = document.getElementById("player-name-hall-of-fame");
+const mostRecentScore = localStorage.getItem('mostRecentScore');
+
+// const finalScore = document.getElementById('final-score');
+// finalScore.innerText = mostRecentScore;
+const MAX_HIGH_SCORES = 5;
+
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+export function saveHighScore (e) {
+    console.log("clicked");
+    e.preventDefault();
+
+    const lastScore = {
+        score: mostRecentScore,
+        name: username.value
+    };
+
+    console.log(lastScore);
+
+    highScores.push(lastScore);
+
+    //sort all scores
+    highScores.sort((a,b) => {
+        return b.score - a.score;
+    });
+
+    //display only 5 scores
+    highScores.splice(MAX_HIGH_SCORES);
+
+    //add a score to a local storage 
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+}

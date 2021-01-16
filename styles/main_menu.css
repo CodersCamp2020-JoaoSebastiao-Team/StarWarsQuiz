@@ -12,15 +12,14 @@ body {
 
 #swquiz-app {
     max-height: 100vh;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 .main-menu__wrapper {
-    margin-top: 1rem;
+    margin: 1.5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0 3rem;
 }
 
 .main-menu__logo {
