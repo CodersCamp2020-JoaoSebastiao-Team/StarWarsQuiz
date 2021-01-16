@@ -13,6 +13,8 @@
 }
 
 .end-modal-content {
+    margin-top: 30px;
+    margin-bottom: 30px;
     background-color: #fefefe;
     padding: 4rem;
     width: 60%;
@@ -169,6 +171,12 @@ form#hall-of-fame-save p {
     width: 100%;
 }
 
+.end-result-p{
+    font-size: 30px;
+    color: red;
+    font-weight: 600;
+}
+
 @media (max-width: 1230px) {
     div.end-yoda-answers {
         flex-wrap: wrap;
@@ -189,6 +197,6 @@ form#hall-of-fame-save p {
     }
 }
 
-section.end-game {
+/* section.end-game {
     display: none;
-}
+} */
