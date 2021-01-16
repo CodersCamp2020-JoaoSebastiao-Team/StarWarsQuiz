@@ -1,5 +1,6 @@
 
 .rules{
+   
     margin-top: 2rem;
     background: #fff;
     font-size: 1.75rem;
@@ -8,7 +9,7 @@
     width: 85%;
     color: black;
     border-radius: 20px;
-    margin: 10px;
+    margin: 1%;
     min-width: 380px;
     min-height: 300px;
 }
@@ -17,8 +18,10 @@
     justify-content: center;
 }
 .rules-content{
+    
     width: 100%;
     padding-left: 9%;
+    /* justify-content: center; */
   
 }
 
@@ -30,18 +33,19 @@
 
 .buttons{
    
-    margin: 10px;
+    margin: 2%;
     height: 75px;
     display: flex;
     justify-content: space-between;
     width: 84%;
     min-width: 300px;
+    min-width: 375px;
 }
 .hall-of-fame{
 
     background-color: white;
     border-radius: 16px;
-    width: 40%;
+    width: 42%;
     font-size: x-large;
     color: black;
    
@@ -52,13 +56,14 @@
     background-color: red;
     border: 1px solid white;
     border-radius: 16px;
-    width: 40%;
+    width: 42%;
     color: white;
     font-size: x-large;
     
 }
 #swquiz-app {
     height: 100vh;
+    overflow: scroll;
 }
 
 .swquiz-header {
@@ -110,19 +115,7 @@
     0 0 150px rgba(255,0,0,.9);
 }
 
-@media (max-width: 768px) {
-    .swquiz-header {
-        padding: 0 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 
-    .swquiz-menu {
-        margin-top: 1rem;
-        width: 100%;
-        font-size: 1em;
-    }
-}
 
 @media (max-width: 880px) {
     .rules-buttons{
@@ -130,12 +123,22 @@
     }
     .head-img-rules{
         width: 100%;
-        padding-right: 10%;
         height: 300px;
     }
     .rules-buttons{
         justify-content: center;
+        /* padding-right: 6%; */
     }
+    .rules-content{
+         justify-content: center;
+         /* padding-left:0; */
+       
+        
+         width: 100%;
+  
+    }
+ 
+
 }
 
 .rules-head{
@@ -150,18 +153,19 @@
     height: 20px;
     color: black;
     border-radius: 20px;
-    margin: 10px;
+    margin: 1%;
     min-width: 380px;
 }
 
 .rules-buttons{
     display: flex;
-
+    justify-items: center;
 }
 
 .head-img-rules{
-    
-    padding-top: 1%;
+ 
+    padding-top: 2%;
+    padding-bottom: 2%;
     padding-left: 6%;
    
     background-size: cover;
