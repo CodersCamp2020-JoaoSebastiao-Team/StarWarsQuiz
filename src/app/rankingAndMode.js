@@ -149,6 +149,9 @@ export function saveHighScore (e) {
           return b.scorePercents - a.scorePercents;
         });
         localStorage.setItem("highScoresVehicle", JSON.stringify(highScoresVehicle));
+        endSection.style.display = "none";
+        rulesSection.style.display = "inline";
+        modalRankingView(highScoresVehicle)
         break;
       case "starships":
         highScoresStarship.push(lastScore);
@@ -156,6 +159,9 @@ export function saveHighScore (e) {
           return b.scorePercents - a.scorePercents;
         });
         localStorage.setItem("highScoresStarship", JSON.stringify(highScoresStarship));
+        endSection.style.display = "none";
+        rulesSection.style.display = "inline";
+        modalRankingView(highScoresStarship)
     }
 }
 
