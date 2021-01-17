@@ -126,8 +126,15 @@ export const Questions = async (APIurl, category) => {
             optionWrapper[2].removeEventListener("click", queston3Listener, false);
             optionWrapper[3].removeEventListener("click", queston4Listener, false);
 
-            optionWrapper[rightOption].classList.add("answer-good");
-            optionWrapper[select].classList.add("answer-selected");
+
+            // Computer question handle!
+            let {computerChoise, computerPoint }= computerPlay(computerAnswers);
+            computerScore += computerPoint;
+            optionWrapper[computerChoise].classList.add("answer-computer");
+            //console.log("computer choise : ", computerChoise);
+            console.log("computer point",computerPoint);
+            console.log("computer has :", computerScore , " scores");
+
             if (select == rightOption) {
                 score += 1;
                 console.log("Gratualtions! This answer is correct! Your score is: ", score);
@@ -135,21 +142,20 @@ export const Questions = async (APIurl, category) => {
             else {
                 optionWrapper[select].classList.add("answer-bad");
             }
+            optionWrapper[rightOption].classList.add("answer-good");
+            optionWrapper[select].classList.add("answer-selected");
             // We show for one second a selected choise, with good or bad class.
             await waitForData(1000);
             optionWrapper[select].classList.remove("answer-selected");
             optionWrapper[rightOption].classList.remove("answer-good");
             optionWrapper[select].classList.remove("answer-bad");
+            optionWrapper[computerChoise].classList.remove("answer-computer");
 
             //Give eventlisteners back when new question appear after 1 second
             optionWrapper[0].addEventListener("click", queston1Listener);
             optionWrapper[1].addEventListener("click", queston2Listener);
             optionWrapper[2].addEventListener("click", queston3Listener);
             optionWrapper[3].addEventListener("click", queston4Listener);
-
-        // Computer question handle!
-        computerScore += computerPlay(computerAnswers);
-        console.log("computer has :", computerScore , " scores");
 
         }
 
@@ -488,9 +494,9 @@ function computerPlay(computerAnswers){
     let bad = computerAnswers.bad;
     console.log("comp god:",good,"comp bad: ",bad);
     const computerChoise = Math.floor(Math.random() * (max - min + 1) + min);
-    let point;
-    (computerChoise == computerAnswers.good) ? point = 1 : point = 0;
-    return point;
+    let computerPoint;
+    (computerChoise == computerAnswers.good) ? computerPoint = 1 : computerPoint = 0;
+    return {computerChoise, computerPoint};
     //return 0;
 }
 
