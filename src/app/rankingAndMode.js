@@ -71,35 +71,48 @@ export function updateText(item) {
 const MAX_HIGH_SCORES = 5;
 
 const username = document.getElementById("player-name-hall-of-fame");
-const mostRecentScore = localStorage.getItem('mostRecentScore');
-const finalScore = document.getElementById('end-result-p');
+//const mostRecentScore = localStorage.getItem('mostRecentScore');
 
-console.log(finalScore);
-finalScore.innerText = `YOUR RESULT: ${mostRecentScore}`;
+// localStorage.setItem("highScoresPeople", JSON.stringify([]));
+// localStorage.setItem("highScoresVehicle", JSON.stringify([]));
+// localStorage.setItem("highScoresStarship", JSON.stringify([]));
 
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+const highScoresPeople = JSON.parse(localStorage.getItem(`highScoresPeople`)) || [];
+const highScoresVehicle = JSON.parse(localStorage.getItem(`highScoresVehicle`)) || [];
+const highScoresStarship = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
 
 export function saveHighScore (e) {
     console.log("clicked");
     e.preventDefault();
 
     const lastScore = {
-        score: mostRecentScore,
-        name: username.value
+        score: localStorage.getItem('mostRecentScore'),
+        name: username.value,
     };
 
-    console.log(lastScore);
-
-    highScores.push(lastScore);
-
-    //sort all scores
-    highScores.sort((a,b) => {
-        return b.score - a.score;
-    });
-
-    //display only 5 scores
-    highScores.splice(MAX_HIGH_SCORES);
-
-    //add a score to a local storage 
-    localStorage.setItem("highScores", JSON.stringify(highScores));
+    switch(category) {
+      case "people":
+        highScoresPeople.push(lastScore);
+        highScoresPeople.sort((a,b) => {
+          return b.score - a.score;
+        });
+        highScoresPeople.splice(MAX_HIGH_SCORES);
+        localStorage.setItem("highScoresPeople", JSON.stringify(highScoresPeople));
+        break;
+      case "vehicles":
+        highScoresVehicle.push(lastScore);
+        highScoresVehicle.sort((a,b) => {
+          return b.score - a.score;
+        });
+        highScoresVehicle.splice(MAX_HIGH_SCORES);
+        localStorage.setItem("highScoresVehicle", JSON.stringify(highScoresVehicle));
+        break;
+      case "starships":
+        highScoresStarship.push(lastScore);
+        highScoresStarship.sort((a,b) => {
+          return b.score - a.score;
+        });
+        highScoresStarship.splice(MAX_HIGH_SCORES);
+        localStorage.setItem("highScoresStarship", JSON.stringify(highScoresStarship));
+    }
 }
