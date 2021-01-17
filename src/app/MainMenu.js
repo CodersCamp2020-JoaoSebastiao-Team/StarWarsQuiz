@@ -1,10 +1,9 @@
 import {updateText} from './RankingAndMode'
+import {acceptingMode} from './App'
 
 const listItems = document.querySelectorAll('.main-menu--option');
 export let category = "people";
 listItems.forEach(item => item.addEventListener('click', handleModeUpdate));
-
-let acceptingMode = true;
 
 export function handleModeUpdate(e){
     if(!acceptingMode) return;
