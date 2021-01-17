@@ -132,8 +132,8 @@ export const Questions = async (APIurl, category) => {
             computerScore += computerPoint;
             optionWrapper[computerChoise].classList.add("answer-computer");
             //console.log("computer choise : ", computerChoise);
-            console.log("computer point",computerPoint);
-            console.log("computer has :", computerScore , " scores");
+            //console.log("computer point",computerPoint);
+            //console.log("computer has :", computerScore , " scores");
 
             if (select == rightOption) {
                 score += 1;
@@ -492,7 +492,7 @@ function computerPlay(computerAnswers){
     let min = 0;
     let good = computerAnswers.good;
     let bad = computerAnswers.bad;
-    console.log("comp god:",good,"comp bad: ",bad);
+    //console.log("comp god:",good,"comp bad: ",bad);
     const computerChoise = Math.floor(Math.random() * (max - min + 1) + min);
     let computerPoint;
     (computerChoise == computerAnswers.good) ? computerPoint = 1 : computerPoint = 0;
