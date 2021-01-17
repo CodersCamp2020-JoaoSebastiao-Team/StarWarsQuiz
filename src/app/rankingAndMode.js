@@ -69,7 +69,7 @@ export function updateText(category) {
     '<div><h2>Mode rules:</h2><p class="rule-on-change">' + textToView[category].Rules + '</p></div>' :
     ranking.length ?
       '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th><th>Percents</th></tr>' +
-      ranking.filter((e, i) => i < 3).map((person, id) => {
+      ranking.filter((e, i) => i < 5).map((person, id) => {
         const i = id + 1;
         return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
           '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
