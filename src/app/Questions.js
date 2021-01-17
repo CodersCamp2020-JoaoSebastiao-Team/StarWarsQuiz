@@ -206,11 +206,12 @@ export const Questions = async (APIurl, category) => {
 
     const timeToEnd = setInterval(() => {
         if (timeLeft <= 0) {
-            EndGame(AnswersRaport,score, computerScore);
+            EndGame(AnswersRaport, score, computerScore);
             questionsEnd = true;
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";
-            localStorage.setItem('mostRecentScore', score);      
+            localStorage.setItem('mostRecentScore', score);     
+            localStorage.setItem('QuestionsTotal', AnswersRaport.length);  
             clearInterval(timeToEnd);
         }
         else {

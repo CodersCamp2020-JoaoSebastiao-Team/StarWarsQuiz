@@ -1,4 +1,5 @@
 import { category } from './MainMenu';
+import { AnswersRaport } from './Questions';
 
 const ranking = require('./ranking.json');
 
@@ -108,6 +109,8 @@ export function saveHighScore (e) {
 
     const lastScore = {
         score: localStorage.getItem('mostRecentScore'),
+        max_score: localStorage.getItem('QuestionsTotal'),
+        scorePercents : (localStorage.getItem('mostRecentScore') / localStorage.getItem('QuestionsTotal')) * 100,
         name: username.value,
     };
 
@@ -115,7 +118,7 @@ export function saveHighScore (e) {
       case "people":
         highScoresPeople.push(lastScore);
         highScoresPeople.sort((a,b) => {
-          return b.score - a.score;
+          return b.scorePercents - a.scorePercents;
         });
         highScoresPeople.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresPeople", JSON.stringify(highScoresPeople));
@@ -123,7 +126,7 @@ export function saveHighScore (e) {
       case "vehicles":
         highScoresVehicle.push(lastScore);
         highScoresVehicle.sort((a,b) => {
-          return b.score - a.score;
+          return b.scorePercents - a.scorePercents;
         });
         highScoresVehicle.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresVehicle", JSON.stringify(highScoresVehicle));
@@ -131,7 +134,7 @@ export function saveHighScore (e) {
       case "starships":
         highScoresStarship.push(lastScore);
         highScoresStarship.sort((a,b) => {
-          return b.score - a.score;
+          return b.scorePercents - a.scorePercents;
         });
         highScoresStarship.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresStarship", JSON.stringify(highScoresStarship));
