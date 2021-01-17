@@ -15,5 +15,5 @@ export function handleModeUpdate(e){
         console.log(e.target);   
         category = e.target.innerText.toLowerCase();
     }
-    updateText((e.target))
+    updateText(category)
 }

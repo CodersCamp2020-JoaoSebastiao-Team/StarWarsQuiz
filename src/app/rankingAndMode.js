@@ -1,7 +1,6 @@
 import { category } from './MainMenu';
 import { AnswersRaport } from './Questions';
 
-const ranking = require('./ranking.json');
 
 const textToView = {
   'people': {
@@ -28,10 +27,30 @@ const textToView = {
 const listItems = document.querySelectorAll('.main-menu--option');
 listItems.forEach(item => {
   if (item.classList.contains('main-menu--selected')) {
-    updateText(item);
+    updateText(item.id);
   }
 });
 
+
+
+const rp = [{
+  "name":"asdasd",
+  "score": 11,
+  "max_score": 20
+},{
+  "name":"asdd",
+  "score": 1,
+  "max_score": 2
+},{
+  "name":"asd",
+  "score": 101,
+  "max_score": 200
+}, {
+    "name":"asasd",
+    "score": 11,
+    "max_score": 200
+  },
+]
 export function handleRulesButtonClick(e) {
 
   let listItems = document.querySelectorAll('.main-menu--option');
@@ -42,54 +61,69 @@ export function handleRulesButtonClick(e) {
   }
   listItems.forEach(item => {
     if (item.classList.contains('main-menu--selected')) {
-      updateText(item);
+      console.log(item.id);
+      updateText(item.id);
+
     }
   });
 }
 
-export function updateText(item) {
+export function updateText(category) {
   const modeTitle = document.querySelector('.rules-head');//'.swquiz-mode-title'
   const modeContent = document.querySelector('.rules');//'.swquiz-mode-content'
   const rulesRankingButton = document.querySelector('.hall-of-fame');//'.sw-quiz-mode-button-rules'
+  let ranking = []
+  switch (category) {
+    case "people":
+      ranking = JSON.parse(localStorage.getItem(`highScoresPeople`)) || [];
+      break;
+    case "vehicles":
+      ranking = JSON.parse(localStorage.getItem(`highScoresVehicle`)) || [];
+      break;
+    case "starships":
+      ranking = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
+  }
+  /*
   //ranking sort, better if sort while saving score after game in file
   ranking[item.id].sort((a, b) =>
     (a.score / a.max_score > b.score / b.max_score) ? -1 :
-      ((b.score / b.max_score > a.score / a.max_score) ? 1 : 0));
-
-  modeTitle.textContent = textToView[item.textContent].title;
+      ((b.score / b.max_score > a.score / a.max_score) ? 1 : 0));*/
+  console.log(category);
+  modeTitle.textContent = textToView[category].title;
   modeContent.innerHTML = rulesRankingButton.textContent === 'Hall of fame' ?
-    '<div><h2>Mode rules:</h2><p class="rule-on-change">' + textToView[item.textContent].Rules + '</p></div>' :
-    ranking[item.id].length ?
+    '<div><h2>Mode rules:</h2><p class="rule-on-change">' + textToView[category].Rules + '</p></div>' :
+    ranking.length ?
       '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
-      ranking[item.id].filter((e, i) => i < 3).map((person, id) => {
+      ranking.filter((e, i) => i < 3).map((person, id) => {
         const i = id + 1;
         return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
       }) + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
       '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
 
-  if (rulesRankingButton.textContent !== 'Hall of fame' && ranking[item.id].length) {
-    let modal = document.getElementById('Hall-of-fame-modal');
-    let seeAllButton = document.getElementById('all-ranking-btn');
-    let span = document.getElementsByClassName('close')[0];
-    seeAllButton.addEventListener('click', () => {
-      let rankingModalBody = document.querySelector('.modal-body');
-      rankingModalBody.innerHTML = '<div><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
-        ranking[item.id].map((person, id) => {
-          const i = id + 1;
-          return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
-        }) + '</table></div>';
-      modal.style.display = 'block';
-    });
-    span.addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click',
-      (e) => {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-        }
-      });
-
-
+  if (rulesRankingButton.textContent !== 'Hall of fame' && ranking.length) {
+    handleAllRanking(ranking)
   }
+}
+function handleAllRanking(rankingArray) {
+  let modal = document.getElementById('Hall-of-fame-modal');
+  let seeAllButton = document.getElementById('all-ranking-btn');
+  let span = document.getElementsByClassName('close')[0];
+  seeAllButton.addEventListener('click', () => {
+    let rankingModalBody = document.querySelector('.modal-body');
+    rankingModalBody.innerHTML = '<div><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
+      rankingArray.map((person, id) => {
+        const i = id + 1;
+        return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
+      }) + '</table></div>';
+    modal.style.display = 'block';
+  });
+  span.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click',
+    (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
 }
 
 const MAX_HIGH_SCORES = 5;
@@ -138,6 +172,7 @@ export function saveHighScore (e) {
         });
         highScoresStarship.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresStarship", JSON.stringify(highScoresStarship));
+
     }
 }
 
