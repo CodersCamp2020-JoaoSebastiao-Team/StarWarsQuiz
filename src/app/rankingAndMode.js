@@ -31,26 +31,6 @@ listItems.forEach(item => {
   }
 });
 
-
-
-const rp = [{
-  "name":"asdasd",
-  "score": 11,
-  "max_score": 20
-},{
-  "name":"asdd",
-  "score": 1,
-  "max_score": 2
-},{
-  "name":"asd",
-  "score": 101,
-  "max_score": 200
-}, {
-    "name":"asasd",
-    "score": 11,
-    "max_score": 200
-  },
-]
 export function handleRulesButtonClick(e) {
 
   let listItems = document.querySelectorAll('.main-menu--option');
@@ -83,50 +63,53 @@ export function updateText(category) {
     case "starships":
       ranking = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
   }
-  /*
-  //ranking sort, better if sort while saving score after game in file
-  ranking[item.id].sort((a, b) =>
-    (a.score / a.max_score > b.score / b.max_score) ? -1 :
-      ((b.score / b.max_score > a.score / a.max_score) ? 1 : 0));*/
-  console.log(category);
+
   modeTitle.textContent = textToView[category].title;
   modeContent.innerHTML = rulesRankingButton.textContent === 'Hall of fame' ?
     '<div><h2>Mode rules:</h2><p class="rule-on-change">' + textToView[category].Rules + '</p></div>' :
     ranking.length ?
-      '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
+      '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th><th>Percents</th></tr>' +
       ranking.filter((e, i) => i < 3).map((person, id) => {
         const i = id + 1;
-        return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
+        return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
+          '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
       }) + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
       '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
 
   if (rulesRankingButton.textContent !== 'Hall of fame' && ranking.length) {
-    handleAllRanking(ranking)
+    handleAllRankingButton(ranking)
   }
 }
-function handleAllRanking(rankingArray) {
-  let modal = document.getElementById('Hall-of-fame-modal');
-  let seeAllButton = document.getElementById('all-ranking-btn');
-  let span = document.getElementsByClassName('close')[0];
-  seeAllButton.addEventListener('click', () => {
-    let rankingModalBody = document.querySelector('.modal-body');
-    rankingModalBody.innerHTML = '<div><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
-      rankingArray.map((person, id) => {
-        const i = id + 1;
-        return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
-      }) + '</table></div>';
-    modal.style.display = 'block';
+const modal = document.getElementById('Hall-of-fame-modal');
+let span = document.getElementsByClassName('close')[0];
+span.addEventListener('click', () => modal.style.display = 'none');
+
+window.addEventListener('click',
+  (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
   });
-  span.addEventListener('click', () => modal.style.display = 'none');
-  window.addEventListener('click',
-    (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-    });
+
+function handleAllRankingButton(rankingArray) {
+  let seeAllButton = document.getElementById('all-ranking-btn');
+  seeAllButton.addEventListener('click', () => {
+    modalRankingView(rankingArray)
+  });
 }
 
-const MAX_HIGH_SCORES = 5;
+
+function modalRankingView(rankingArray){
+  let rankingModalBody = document.querySelector('.modal-body');
+  rankingModalBody.innerHTML = '<div><table><tr><th>Place</th><th>Player</th><th>Answered</th><th>Percents</th></tr>' +
+    rankingArray.map((person, id) => {
+      const i = id + 1;
+      return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
+        '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
+    }) + '</table></div>';
+  modal.style.display = 'block';
+}
+
 
 const username = document.getElementById("player-name-hall-of-fame");
 //const mostRecentScore = localStorage.getItem('mostRecentScore');
@@ -140,29 +123,31 @@ const highScoresVehicle = JSON.parse(localStorage.getItem(`highScoresVehicle`)) 
 const highScoresStarship = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
 
 export function saveHighScore (e) {
-
+  e.preventDefault();
     const lastScore = {
         score: localStorage.getItem('mostRecentScore'),
         max_score: localStorage.getItem('QuestionsTotal'),
         scorePercents : (localStorage.getItem('mostRecentScore') / localStorage.getItem('QuestionsTotal')) * 100,
         name: username.value,
     };
-
+    let endSection = document.querySelector(".end-game")
+    let rulesSection = document.querySelector("#zasady_gry")
     switch(category) {
       case "people":
         highScoresPeople.push(lastScore);
         highScoresPeople.sort((a,b) => {
           return b.scorePercents - a.scorePercents;
         });
-        highScoresPeople.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresPeople", JSON.stringify(highScoresPeople));
+        endSection.style.display = "none";
+        rulesSection.style.display = "inline";
+        modalRankingView(highScoresPeople)
         break;
       case "vehicles":
         highScoresVehicle.push(lastScore);
         highScoresVehicle.sort((a,b) => {
           return b.scorePercents - a.scorePercents;
         });
-        highScoresVehicle.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresVehicle", JSON.stringify(highScoresVehicle));
         break;
       case "starships":
@@ -170,9 +155,7 @@ export function saveHighScore (e) {
         highScoresStarship.sort((a,b) => {
           return b.scorePercents - a.scorePercents;
         });
-        highScoresStarship.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresStarship", JSON.stringify(highScoresStarship));
-
     }
 }
 

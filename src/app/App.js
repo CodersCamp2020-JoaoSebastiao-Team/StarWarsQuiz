@@ -16,7 +16,6 @@ export const App = ({options}) => {
   rulesRankingButton.addEventListener('click', handleRulesButtonClick);
 
   const saveScoreBtn = document.getElementById("save-hall-of-fame-button");
-  saveScoreBtn.addEventListener('click', saveHighScore);
-
+  saveScoreBtn.addEventListener('click',e =>{ saveHighScore(e); acceptingMode = true;});
 }
 
