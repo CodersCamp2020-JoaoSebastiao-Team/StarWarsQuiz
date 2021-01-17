@@ -82,8 +82,6 @@ const highScoresVehicle = JSON.parse(localStorage.getItem(`highScoresVehicle`)) 
 const highScoresStarship = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
 
 export function saveHighScore (e) {
-    console.log("clicked");
-    e.preventDefault();
 
     const lastScore = {
         score: localStorage.getItem('mostRecentScore'),
