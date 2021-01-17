@@ -41,17 +41,15 @@ export function handleRulesButtonClick(e) {
   }
   listItems.forEach(item => {
     if (item.classList.contains('main-menu--selected')) {
-      console.log(item.id);
       updateText(item.id);
-
     }
   });
 }
 
 export function updateText(category) {
-  const modeTitle = document.querySelector('.rules-head');//'.swquiz-mode-title'
-  const modeContent = document.querySelector('.rules');//'.swquiz-mode-content'
-  const rulesRankingButton = document.querySelector('.hall-of-fame');//'.sw-quiz-mode-button-rules'
+  const modeTitle = document.querySelector('.rules-head');
+  const modeContent = document.querySelector('.rules');
+  const rulesRankingButton = document.querySelector('.hall-of-fame');
   let ranking = []
   switch (category) {
     case "people":
@@ -73,7 +71,7 @@ export function updateText(category) {
         const i = id + 1;
         return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
           '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
-      }) + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
+      }).join('') + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
       '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
 
   if (rulesRankingButton.textContent !== 'Hall of fame' && ranking.length) {
@@ -106,7 +104,7 @@ function modalRankingView(rankingArray){
       const i = id + 1;
       return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
         '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
-    }) + '</table></div>';
+    }).join('') + '</table></div>';
   modal.style.display = 'block';
 }
 

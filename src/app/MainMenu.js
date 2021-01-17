@@ -12,7 +12,6 @@ export function handleModeUpdate(e){
             listItems[i].classList.remove('main-menu--selected');
         }
         e.target.classList.add('main-menu--selected');
-        console.log(e.target);   
         category = e.target.innerText.toLowerCase();
     }
     updateText(category)

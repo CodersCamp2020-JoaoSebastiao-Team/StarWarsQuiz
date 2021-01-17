@@ -15,6 +15,7 @@
 .rules h2{
     display: flex;
     justify-content: center;
+    font-size: 2.5vw;
 }
 .rules-content{
     
@@ -47,24 +48,27 @@
     min-width: 375px;
 }
 .hall-of-fame{
-
     background-color: white;
     border-radius: 16px;
     width: 42%;
     font-size: x-large;
     color: black;
-   
+    cursor: pointer;
     border: 1px solid wheat;
 }
-.play-the-game{
+.hall-of-fame:hover{
+    background-color: red;
+    color: white;
+}
 
+.play-the-game{
     background-color: red;
     border: 1px solid white;
     border-radius: 16px;
     width: 42%;
     color: white;
     font-size: x-large;
-    
+    cursor: pointer;
 }
 #swquiz-app {
     height: 100vh;
@@ -88,6 +92,7 @@
     text-align: center;
     table-layout: fixed;
     width: 100%;
+    font-size: 2vw;
 }
 .swquiz-menu {
     list-style-type: none;
