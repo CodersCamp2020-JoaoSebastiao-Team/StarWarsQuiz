@@ -1,6 +1,9 @@
 import { ProgressBar, timeLeft } from "./ProgressBar";
+import { EndGame} from "./EndGame";
 
-export const Questions = async (APIurl, category) => {
+export let AnswersRaport = [];
+
+export const Questions = async (APIurl, category) => { 
 
     //Adjust API url to category get from menu: // Now temporary get always people
     APIurl = setCategory(category, APIurl);
@@ -39,6 +42,7 @@ export const Questions = async (APIurl, category) => {
     //let responseOk = true;
     let iterations;
     let questionsEnd = false;
+    let numberOfQuestion = 0;
 
     // Use cors-anywhere to avoid blocking trasnfer data from API in browser
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -98,15 +102,28 @@ export const Questions = async (APIurl, category) => {
     async function showQuestion(select) {
         // If we call function with argument (options button)
         if (select >= 0 && select <= 3) {
+
+            let AnswerRaport = {
+                answer: "",
+                user: "",
+                computer: "",
+                numberOfQuestion: 0
+            }
+
+            AnswerRaport.answer = optionWrapper[rightOption].innerText;
+            AnswerRaport.user = optionWrapper[select].innerText;
+            AnswerRaport.numberOfQuestion = numberOfQuestion;
+            AnswersRaport.push(AnswerRaport);
+            //console.log(AnswersRaport);
             //Remove event listeners to avoid situation when somebody click buttons after send answer
             optionWrapper[0].removeEventListener("click", queston1Listener, false);
             optionWrapper[1].removeEventListener("click", queston2Listener, false);
             optionWrapper[2].removeEventListener("click", queston3Listener, false);
             optionWrapper[3].removeEventListener("click", queston4Listener, false);
 
+            optionWrapper[rightOption].classList.add("answer-good");
             optionWrapper[select].classList.add("answer-selected");
             if (select == rightOption) {
-                optionWrapper[select].classList.add("answer-good");
                 score += 1;
                 console.log("Gratualtions! This answer is correct! Your score is: ", score);
             }
@@ -116,7 +133,7 @@ export const Questions = async (APIurl, category) => {
             // We show for one second a selected choise, with good or bad class.
             await waitForData(1000);
             optionWrapper[select].classList.remove("answer-selected");
-            optionWrapper[select].classList.remove("answer-good");
+            optionWrapper[rightOption].classList.remove("answer-good");
             optionWrapper[select].classList.remove("answer-bad");
 
             //Give eventlisteners back when new question appear after 1 second
@@ -127,12 +144,13 @@ export const Questions = async (APIurl, category) => {
         }
         let { answer, selected } = selectQuestion(QuestionsPeople, selectedArray);
         //console.log("selected from function: ",selected);
+
         if (answer != -1) {
             await waitForData(50);
             console.log("Good anser is nr : ", QuestionsPeople[answer.good], "number: ", answer.good)
+            numberOfQuestion = answer.good;
             picture.style.backgroundImage = `url(../static/assets/img/modes/${category}/${answer.good + 1}.jpg)`;
             await waitForData(250);
-            //console.log("Bad choises: ", Answers.bad[0], Answers.bad[1], Answers.bad[2]);
             let indexOption = randomOption();
             options[indexOption.good].innerText = QuestionsPeople[answer.good];
             options[indexOption.bad[0]].innerText = QuestionsPeople[answer.bad[0]];
@@ -146,6 +164,7 @@ export const Questions = async (APIurl, category) => {
             questionContent.style.display = "none";
             console.log("You answered all the questions!")
             await waitForData(4000);
+            EndGame(AnswersRaport,score);
             questionEnd.style.display = "none";
             endGame.style.display = "flex";
         }
@@ -166,10 +185,12 @@ export const Questions = async (APIurl, category) => {
 
     const timeToEnd = setInterval(() => {
         if (timeLeft <= 0) {
+            EndGame(AnswersRaport,score);
             questionsEnd = true;
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";
-            localStorage.setItem('mostRecentScore', score);
+            localStorage.setItem('mostRecentScore', score);      
+            clearInterval(timeToEnd);
         }
         else {
             questionsEnd = false;
