@@ -50,22 +50,45 @@ export function updateText(item) {
   const modeTitle = document.querySelector('.rules-head');//'.swquiz-mode-title'
   const modeContent = document.querySelector('.rules');//'.swquiz-mode-content'
   const rulesRankingButton = document.querySelector('.hall-of-fame');//'.sw-quiz-mode-button-rules'
-
   //ranking sort, better if sort while saving score after game in file
   ranking[item.id].sort((a, b) =>
     (a.score / a.max_score > b.score / b.max_score) ? -1 :
       ((b.score / b.max_score > a.score / a.max_score) ? 1 : 0));
+
   modeTitle.textContent = textToView[item.textContent].title;
   modeContent.innerHTML = rulesRankingButton.textContent === 'Hall of fame' ?
-    '<div><h2>Mode rules:</h2><p>' + textToView[item.textContent].Rules + '</p></div>' :
-    ranking[item.id].length?
-    '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
-
-    ranking[item.id].filter((e, i) => i < 3).map((person, id) => {
-      const i = id + 1;
-      return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
-    })+ '</table></div>':
+    '<div><h2>Mode rules:</h2><p class="rule-on-change">' + textToView[item.textContent].Rules + '</p></div>' :
+    ranking[item.id].length ?
+      '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
+      ranking[item.id].filter((e, i) => i < 3).map((person, id) => {
+        const i = id + 1;
+        return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
+      }) + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
       '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
+
+  if (rulesRankingButton.textContent !== 'Hall of fame' && ranking[item.id].length) {
+    let modal = document.getElementById('Hall-of-fame-modal');
+    let seeAllButton = document.getElementById('all-ranking-btn');
+    let span = document.getElementsByClassName('close')[0];
+    seeAllButton.addEventListener('click', () => {
+      let rankingModalBody = document.querySelector('.modal-body');
+      rankingModalBody.innerHTML = '<div><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
+        ranking[item.id].map((person, id) => {
+          const i = id + 1;
+          return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
+        }) + '</table></div>';
+      modal.style.display = 'block';
+    });
+    span.addEventListener('click', () => modal.style.display = 'none');
+    window.addEventListener('click',
+      (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+
+
+  }
 }
 
 const MAX_HIGH_SCORES = 5;
@@ -114,3 +137,11 @@ export function saveHighScore (e) {
         localStorage.setItem("highScoresStarship", JSON.stringify(highScoresStarship));
     }
 }
+
+
+
+
+
+
+
+
