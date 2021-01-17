@@ -33,6 +33,12 @@ export const Questions = async (APIurl, category) => {
 
     //declaration of used variables
     let score = 0;
+    //Computer Game:
+    let computerScore = 0;
+    let computerAnswers = {
+        good: "",
+        bad: []
+    }
     //var StarWarsData;
     let QuestionsPeople = [];
     let fetchData = [];
@@ -101,20 +107,19 @@ export const Questions = async (APIurl, category) => {
     //This function show question in HTML elements.
     async function showQuestion(select) {
         // If we call function with argument (options button)
+        // USER question handle
         if (select >= 0 && select <= 3) {
-
             let AnswerRaport = {
                 answer: "",
                 user: "",
                 computer: "",
                 numberOfQuestion: 0
             }
-
             AnswerRaport.answer = optionWrapper[rightOption].innerText;
             AnswerRaport.user = optionWrapper[select].innerText;
             AnswerRaport.numberOfQuestion = numberOfQuestion;
             AnswersRaport.push(AnswerRaport);
-            //console.log(AnswersRaport);
+
             //Remove event listeners to avoid situation when somebody click buttons after send answer
             optionWrapper[0].removeEventListener("click", queston1Listener, false);
             optionWrapper[1].removeEventListener("click", queston2Listener, false);
@@ -141,7 +146,15 @@ export const Questions = async (APIurl, category) => {
             optionWrapper[1].addEventListener("click", queston2Listener);
             optionWrapper[2].addEventListener("click", queston3Listener);
             optionWrapper[3].addEventListener("click", queston4Listener);
+
+        // Computer question handle!
+        computerScore += computerPlay(computerAnswers);
+        console.log("computer has :", computerScore , " scores");
+
         }
+
+
+
         let { answer, selected } = selectQuestion(QuestionsPeople, selectedArray);
         //console.log("selected from function: ",selected);
 
@@ -156,6 +169,8 @@ export const Questions = async (APIurl, category) => {
             options[indexOption.bad[0]].innerText = QuestionsPeople[answer.bad[0]];
             options[indexOption.bad[1]].innerText = QuestionsPeople[answer.bad[1]];
             options[indexOption.bad[2]].innerText = QuestionsPeople[answer.bad[2]];
+            computerAnswers.good = indexOption.good;
+            computerAnswers.bad = [indexOption.bad[0],indexOption.bad[1],indexOption.bad[2]];
             rightOption = indexOption.good;
         }
         else {
@@ -164,7 +179,7 @@ export const Questions = async (APIurl, category) => {
             questionContent.style.display = "none";
             console.log("You answered all the questions!")
             await waitForData(4000);
-            EndGame(AnswersRaport,score);
+            EndGame(AnswersRaport,score, computerScore);
             questionEnd.style.display = "none";
             endGame.style.display = "flex";
         }
@@ -185,7 +200,7 @@ export const Questions = async (APIurl, category) => {
 
     const timeToEnd = setInterval(() => {
         if (timeLeft <= 0) {
-            EndGame(AnswersRaport,score);
+            EndGame(AnswersRaport,score, computerScore);
             questionsEnd = true;
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";
@@ -464,6 +479,19 @@ function randomOption() {
     //console.log("Poprawna ma byc: ", obj.good);
     //console.log("zle maja byc: ",obj.bad[0],", ", obj.bad[1],", ", obj.bad[2],", ");
     return obj;
+}
+
+function computerPlay(computerAnswers){
+    let max = computerAnswers.good;
+    let min = 0;
+    let good = computerAnswers.good;
+    let bad = computerAnswers.bad;
+    console.log("comp god:",good,"comp bad: ",bad);
+    const computerChoise = Math.floor(Math.random() * (max - min + 1) + min);
+    let point;
+    (computerChoise == computerAnswers.good) ? point = 1 : point = 0;
+    return point;
+    //return 0;
 }
 
 module.exports = { Questions, randomOption, selectQuestion };
