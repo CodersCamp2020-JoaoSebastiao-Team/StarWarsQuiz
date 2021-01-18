@@ -232,7 +232,7 @@ export const Questions = async (APIurl, category) => {
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";
             localStorage.setItem('mostRecentScore', score);     
-            localStorage.setItem('QuestionsTotal', AnswersRaport.length);  
+            localStorage.setItem('QuestionsTotal', questionsShown);  
             clearInterval(timeToEnd);
         }
         else {
