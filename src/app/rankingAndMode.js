@@ -8,21 +8,21 @@ const textToView = {
       ' possible. During the game on each qustion you need to' +
       ' select who from Star Wars is showed on left (Jar Jar' +
       'Binks ringt now) from available options.',
-    'Src':'/35.d935f726.jpg'
+    'Src':'<img src="/static/assets/img/modes/people/35.jpg" alt="random character" class="img-rules"></img>'
   },
   'vehicles': {
     'title': 'Do you recognize this vehicle?',
     'Rules': 'You have one minute (1m) to answer as many questions as possible.' +
       ' During the game on each question you need to select who from Star Wars' +
       ' is showed on the left (Jar Jar Binks right now) from available options.',
-    'Src':'/13.c1114be4.jpg '
+    'Src':'<img src="/static/assets/img/modes/vehicles/4.jpg" alt="random character" class="img-rules">'
   },
   'starships': {
     'title': 'Do you recognize this starship?',
     'Rules': 'You have one minute (1m) to answer as many questions as possible.' +
       ' During the game on each question you need to select which starship' +
       ' from Star Wars is showed on the left.',
-    'Src': '/4.f5365065.jpg'
+    'Src':  '<img src="/static/assets/img/modes/starships/13.jpg" alt="random character" class="img-rules">'
   },
 };
 
@@ -54,7 +54,7 @@ export function updateText(category) {
   const modeTitle = document.querySelector('.rules-head');//'.swquiz-mode-title'
   const modeContent = document.querySelector('.rules');//'.swquiz-mode-content'
   const rulesRankingButton = document.querySelector('.hall-of-fame');//'.sw-quiz-mode-button-rules'
-  const imageRule = document.querySelector('.img-rules');
+  const headImage = document.querySelector('.head-img-rules');
   let ranking = []
   switch (category) {
     case "people":
@@ -67,7 +67,7 @@ export function updateText(category) {
       ranking = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
   }
 
-  imageRule.attributes.Src.value = textToView[category].Src;
+  headImage.innerHTML =  textToView[category].Src;
   modeTitle.textContent = textToView[category].title;
   modeContent.innerHTML = rulesRankingButton.textContent === 'Hall of fame' ?
     '<div><h2>Mode rules:</h2><p class="rule-on-change">' + textToView[category].Rules + '</p></div>' :
