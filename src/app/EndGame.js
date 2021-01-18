@@ -12,6 +12,7 @@ const endGameImage = document.getElementById('end-img');
 const endGameCorrect = document.getElementById('end-correct');
 const endGameYourAnswer = document.getElementById('end-your-answer');
 const endGameComputerAnswer = document.getElementById('end-computer-answer');
+const button = document.getElementById('save-hall-of-fame-button')
 
 
 export const EndTable = (Answers, category) => {
@@ -21,7 +22,7 @@ export const EndTable = (Answers, category) => {
             newDiv.style = 'height: 130px; text-align: center; padding-left: 1rem; width: 100%; align-items: center; display: grid;grid-template-columns: 0.8fr 1fr 1fr 1fr;'
             document.getElementById(`end-answers-table`).appendChild(newDiv);
 
-            const newDivImg = document.createElement('div');
+                const newDivImg = document.createElement('div');
                 newDivImg.id = `end-img-${i}`
                 document.getElementById(`end-answer-row-${i}`).appendChild(newDivImg);
 
@@ -57,6 +58,38 @@ export const EndTable = (Answers, category) => {
             } else {
                 newDivEndComputerAnswer.style = 'color: red; font-weight: 600;'
             }
+
         }
 
+
 }
+
+// button.onclick = function Clear() {
+//     newDivEndCorrect.remove()
+//     newDivImg.remove()
+//     img.remove()
+//     newDivEndYourAnswer.remove()
+//     newDivEndComputerAnswer.remove()
+// }
+
+
+// function Clear1 (){
+//     newDivEndCorrect.remove();
+// };
+// function Clear2 (){
+//     newDivImg.remove();
+// };
+// function Clear3 (){
+//     img.remove();
+// };
+// function Clear4 (){
+//     newDivEndYourAnswer.remove()
+// }
+// function Clear5 (){
+//     newDivEndComputerAnswer.remove()
+// }
+// button.addEventListener('click', Clear1, false);
+// button.addEventListener('click', Clear2, false);
+// button.addEventListener('click', Clear3, false);
+// button.addEventListener('click', Clear4, false);
+// button.addEventListener('click', Clear5, false);
