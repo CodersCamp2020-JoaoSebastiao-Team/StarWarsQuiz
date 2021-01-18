@@ -7,6 +7,7 @@ export const Questions = async (APIurl, category) => {
 
     //Adjust API url to category get from menu: // Now temporary get always people
     APIurl = setCategory(category, APIurl);
+    AnswersRaport = [];
 
     // Get picture and options HTML element to edit it according to data from API
     const quiz = document.getElementById('swquiz-app');
@@ -45,10 +46,10 @@ export const Questions = async (APIurl, category) => {
     let QuestionsPeople = [];
     let fetchData = [];
     let selectedArray = [];
-    let rightOption;
+    let rightOption = 0;
     //let responseStatus;
     //let responseOk = true;
-    let iterations;
+    let iterations = 0;
     let questionsEnd = false;
     let numberOfQuestion = 0;
     let questionsShown = 0;
@@ -185,7 +186,7 @@ export const Questions = async (APIurl, category) => {
 
         if (answer != -1) {
             await waitForData(50);
-            console.log("Good anser is nr : ", QuestionsPeople[answer.good], "number: ", answer.good)
+            //console.log("Good anser is nr : ", QuestionsPeople[answer.good], "number: ", answer.good)
             numberOfQuestion = answer.good;
             picture.style.backgroundImage = `url(../static/assets/img/modes/${category}/${answer.good + 1}.jpg)`;
             await waitForData(250);
@@ -228,6 +229,7 @@ export const Questions = async (APIurl, category) => {
         if (timeLeft <= 0) {
             EndGame(AnswersRaport,score, computerScore, questionsShown);
             EndTable(AnswersRaport, category, AnswersRaport);
+            console.log(AnswersRaport);
             questionsEnd = true;
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";
