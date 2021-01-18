@@ -76,7 +76,7 @@ export function updateText(category) {
         const i = id + 1;
         return '<tr><td>' + i + '</td><td><div style="overflow:hidden">' + person.name + '</div></td> <td>' + person.score + '/' + person.max_score +
           '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
-      }).join(' ') + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
+      }).join(' ') + '</table><div class="all-ranking-btn-flex"><button class="btn" id="all-ranking-btn">See all</button></div></div>' :
       '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
 
   if (rulesRankingButton.textContent !== 'Hall of fame' && ranking.length) {
@@ -172,7 +172,7 @@ function setRankingToLocalStorage(fileName, lastScore) {
     return b.scorePercents - a.scorePercents;
   });
   let endSection = document.querySelector(".end-game")
-  let rulesSection = document.querySelector("#zasady_gry")
+  let rulesSection = document.querySelector("#rules__wrapper")
   localStorage.setItem(fileName, JSON.stringify(highScores));
   endSection.style.display = "none";
   rulesSection.style.display = "inline";

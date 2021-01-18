@@ -5,7 +5,7 @@ import {setWidth} from "./update_width";
 export let acceptingMode = true;
 export const App = ({options}) => {
   const start = document.getElementsByClassName('play-the-game')[0];
-  const rules = document.getElementById("zasady_gry");
+  const rules = document.getElementById("rules__wrapper");
 
 
   setWidth()
