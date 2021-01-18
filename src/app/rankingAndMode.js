@@ -123,9 +123,9 @@ const username = document.getElementById("player-name-hall-of-fame");
 // localStorage.setItem("highScoresVehicle", JSON.stringify([]));
 // localStorage.setItem("highScoresStarship", JSON.stringify([]));
 
-const highScoresPeople = JSON.parse(localStorage.getItem(`highScoresPeople`)) || [];
-const highScoresVehicle = JSON.parse(localStorage.getItem(`highScoresVehicle`)) || [];
-const highScoresStarship = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
+//const highScoresPeople = JSON.parse(localStorage.getItem(`highScoresPeople`)) || [];
+//const highScoresVehicle = JSON.parse(localStorage.getItem(`highScoresVehicle`)) || [];
+//const highScoresStarship = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
 
 export function saveHighScore (e) {
 
@@ -135,41 +135,31 @@ export function saveHighScore (e) {
         scorePercents : (localStorage.getItem('mostRecentScore') / localStorage.getItem('QuestionsTotal')) * 100,
         name: username.value,
     };
-    let endSection = document.querySelector(".end-game")
-    let rulesSection = document.querySelector("#zasady_gry")
+
     switch(category) {
       case "people":
-        highScoresPeople.push(lastScore);
-        highScoresPeople.sort((a,b) => {
-          return b.scorePercents - a.scorePercents;
-        });
-        localStorage.setItem("highScoresPeople", JSON.stringify(highScoresPeople));
-        endSection.style.display = "none";
-        rulesSection.style.display = "inline";
-        modalRankingView(highScoresPeople)
+        setRankingToLocalStarage("highScoresPeople", lastScore)
         break;
       case "vehicles":
-        highScoresVehicle.push(lastScore);
-        highScoresVehicle.sort((a,b) => {
-          return b.scorePercents - a.scorePercents;
-        });
-        localStorage.setItem("highScoresVehicle", JSON.stringify(highScoresVehicle));
-        endSection.style.display = "none";
-        rulesSection.style.display = "inline";
-        modalRankingView(highScoresVehicle)
+        setRankingToLocalStarage("highScoresVehicle", lastScore)
         break;
       case "starships":
-        highScoresStarship.push(lastScore);
-        highScoresStarship.sort((a,b) => {
-          return b.scorePercents - a.scorePercents;
-        });
-        localStorage.setItem("highScoresStarship", JSON.stringify(highScoresStarship));
-        endSection.style.display = "none";
-        rulesSection.style.display = "inline";
-        modalRankingView(highScoresStarship)
+        setRankingToLocalStarage("highScoresStarship", lastScore)
     }
 }
-
+function setRankingToLocalStarage(fileName, lastScore) {
+  const highScores = JSON.parse(localStorage.getItem(fileName)) || [];
+  highScores.push(lastScore);
+  highScores.sort((a,b) => {
+    return b.scorePercents - a.scorePercents;
+  });
+  let endSection = document.querySelector(".end-game")
+  let rulesSection = document.querySelector("#zasady_gry")
+  localStorage.setItem(fileName, JSON.stringify(highScores));
+  endSection.style.display = "none";
+  rulesSection.style.display = "inline";
+  modalRankingView(highScores)
+}
 
 
 

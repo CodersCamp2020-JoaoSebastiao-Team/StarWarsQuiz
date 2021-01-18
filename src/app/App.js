@@ -16,7 +16,7 @@ export const App = ({options}) => {
     setWidth()
   })
 
-  const rulesRankingButton = document.querySelector('.hall-of-fame');//'.sw-quiz-mode-button-rules'
+  const rulesRankingButton = document.querySelector('.hall-of-fame');
   rulesRankingButton.addEventListener('click', handleRulesButtonClick);
 
   const saveScoreBtn = document.getElementById("save-hall-of-fame-button");
