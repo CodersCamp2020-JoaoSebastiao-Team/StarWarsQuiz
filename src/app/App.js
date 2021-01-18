@@ -1,7 +1,6 @@
 import { Questions} from "./Questions";
 import {handleModeUpdate, category} from "./MainMenu";
 import {handleRulesButtonClick, saveHighScore} from "./rankingAndMode";
-import {setWidth} from "./update_width";
 export let acceptingMode = true;
 export const App = ({options}) => {
   const start = document.getElementsByClassName('play-the-game')[0];

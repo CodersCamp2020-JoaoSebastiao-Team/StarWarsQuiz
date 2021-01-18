@@ -2,7 +2,7 @@
 export let timeLeft;
 export const ProgressBar = () => {
 
-  const timeLimit = 60;
+  const timeLimit = 6;
   let timePassed = 0;
   timeLeft = timeLimit;
 
@@ -14,6 +14,7 @@ export const ProgressBar = () => {
 
   const startTimer = () => {
     const timerInterval = setInterval(() => {
+      document.querySelector('.progress-bar').style.display = "block";
       timePassed += 1;
       timeLeft = timeLimit - timePassed;
       document.querySelector('.progress-bar-timer>span').innerHTML = `Time left: ${formatTime(timeLeft)}`;
