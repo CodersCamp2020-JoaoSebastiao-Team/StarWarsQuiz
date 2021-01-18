@@ -10,6 +10,10 @@ body {
     background-size: cover;
 }
 
+.btn:focus{
+    outline: none;
+}
+
 #swquiz-app {
     max-height: 100vh;
     /* overflow-y: hidden; */
@@ -23,7 +27,7 @@ body {
 }
 
 .main-menu__logo {
-    height: 120px;
+    height: 150px;
 }
 
 .logo-image {
@@ -36,12 +40,13 @@ body {
     box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
     border-radius: 23px;
     width: 60%;
-    height: 4rem;
+    height: 5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     text-transform: uppercase;
     font-weight: 600;
+    font-size: 1.4rem;
 
 }
 
