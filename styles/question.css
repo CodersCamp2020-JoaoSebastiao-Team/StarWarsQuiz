@@ -165,6 +165,32 @@
     cursor: default;
 }
 
+/* Computer answer: */
+.question-content--computer{
+  width: 80%;
+  background-color: #fff;
+  min-height: 100px;
+  margin: 40px auto;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 4px 5px 4px rgba(0, 0, 0, 0.5);
+  transition:0.5s all;
+  -webkit-transition:0.5s all;
+}
+
+.p-content--computer-question{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.625rem;
+  text-align: center;
+  padding: 3px;
+  transition:0.5s all;
+  -webkit-transition:0.5s all;
+}
+
 /* Questions: */
 
 .p-content--header-question {
@@ -211,12 +237,14 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 30px #eaff00;
 }
 
-.question-content--item.answer-good {
+.question-content--item.answer-good,
+.question-content--computer.answer-good {
     background: #41ED25;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 30px #51FC00;
 }
 
-.question-content--item.answer-bad {
+.question-content--item.answer-bad,
+.question-content--computer.answer-bad {
     background: #FF0000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 30px #FF0000;
 }
