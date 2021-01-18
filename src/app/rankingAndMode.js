@@ -8,7 +8,7 @@ const textToView = {
       ' possible. During the game on each qustion you need to' +
       ' select who from Star Wars is showed on left (Jar Jar' +
       'Binks ringt now) from available options.',
-    'Src':'<img src="/static/assets/img/modes/people/35.jpg" alt="random character" class="img-rules"></img>'
+    'Src':'<img src="/static/assets/img/modes/people/35.jpg" alt="random character" class="img-rules">'
   },
   'vehicles': {
     'title': 'Do you recognize this vehicle?',
@@ -43,7 +43,6 @@ export function handleRulesButtonClick(e) {
   }
   listItems.forEach(item => {
     if (item.classList.contains('main-menu--selected')) {
-      console.log(item.id);
       updateText(item.id);
 
     }
@@ -75,9 +74,9 @@ export function updateText(category) {
       '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th><th>Percents</th></tr>' +
       ranking.filter((e, i) => i < 5).map((person, id) => {
         const i = id + 1;
-        return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
+        return '<tr><td>' + i + '</td><td><div style="overflow:hidden">' + person.name + '</div></td> <td>' + person.score + '/' + person.max_score +
           '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
-      }) + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
+      }).join(' ') + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
       '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
 
   if (rulesRankingButton.textContent !== 'Hall of fame' && ranking.length) {
@@ -110,7 +109,7 @@ function modalRankingView(rankingArray){
       const i = id + 1;
       return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
         '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
-    }) + '</table></div>';
+    }).join(' ') + '</table></div>';
   modal.style.display = 'block';
 }
 
@@ -127,6 +126,7 @@ const username = document.getElementById("player-name-hall-of-fame");
 //const highScoresStarship = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
 
 export function saveHighScore (e) {
+  e.preventDefault()
 
     const lastScore = {
         score: localStorage.getItem('mostRecentScore'),
