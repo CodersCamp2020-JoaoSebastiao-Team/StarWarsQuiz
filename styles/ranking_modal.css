@@ -47,6 +47,8 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    max-height: 100%;
+    line-height: 29px;
 }
 
 .close:hover,
@@ -60,13 +62,17 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     text-align: center;
-    padding: 2px 16px;
+    padding: 0 16px;
     background-color: red;
     color: white;
 }
 
 .modal-body {
-    padding: 2px 16px;
+    width: 100%;
+    padding: 0 16px;
+    max-height:30vw;
+    overflow: auto;
+    margin-bottom: 16px;
 }
 
 .modal-body table{
@@ -74,6 +80,7 @@
     width: 100%;
     font-size: 2vw;
     text-align: center;
+
 }
 .all-ranking-btn-flex{
     margin-top: 10px;
