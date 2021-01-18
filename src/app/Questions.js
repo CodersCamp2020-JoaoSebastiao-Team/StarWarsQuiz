@@ -51,6 +51,7 @@ export const Questions = async (APIurl, category) => {
     let iterations;
     let questionsEnd = false;
     let numberOfQuestion = 0;
+    let questionsShown = 0;
 
     // Use cors-anywhere to avoid blocking trasnfer data from API in browser
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -112,6 +113,7 @@ export const Questions = async (APIurl, category) => {
         cleanAnswers(optionWrapper);
         computerAnswer.innerText = "";
         computerWrapper.style.opacity = "0";
+        questionsShown++;
 
 
         // USER question handle
@@ -202,7 +204,7 @@ export const Questions = async (APIurl, category) => {
             questionContent.style.display = "none";
             console.log("You answered all the questions!")
             await waitForData(4000);
-            EndGame(AnswersRaport,score, computerScore);
+            EndGame(AnswersRaport,score, computerScore, questionsShown);
             EndTable(AnswersRaport,category);
             questionEnd.style.display = "none";
             endGame.style.display = "flex";
@@ -224,7 +226,7 @@ export const Questions = async (APIurl, category) => {
 
     const timeToEnd = setInterval(() => {
         if (timeLeft <= 0) {
-            EndGame(AnswersRaport,score, computerScore);
+            EndGame(AnswersRaport,score, computerScore, questionsShown);
             EndTable(AnswersRaport, category, AnswersRaport);
             questionsEnd = true;
             questionWrapper.style.display = "none";
