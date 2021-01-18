@@ -1,6 +1,6 @@
 import { category } from './MainMenu';
+import { AnswersRaport } from './Questions';
 
-const ranking = require('./ranking.json');
 
 const textToView = {
   'people': {
@@ -27,7 +27,7 @@ const textToView = {
 const listItems = document.querySelectorAll('.main-menu--option');
 listItems.forEach(item => {
   if (item.classList.contains('main-menu--selected')) {
-    updateText(item);
+    updateText(item.id);
   }
 });
 
@@ -41,34 +41,73 @@ export function handleRulesButtonClick(e) {
   }
   listItems.forEach(item => {
     if (item.classList.contains('main-menu--selected')) {
-      updateText(item);
+      updateText(item.id);
     }
   });
 }
 
-export function updateText(item) {
-  const modeTitle = document.querySelector('.rules-head');//'.swquiz-mode-title'
-  const modeContent = document.querySelector('.rules');//'.swquiz-mode-content'
-  const rulesRankingButton = document.querySelector('.hall-of-fame');//'.sw-quiz-mode-button-rules'
+export function updateText(category) {
+  const modeTitle = document.querySelector('.rules-head');
+  const modeContent = document.querySelector('.rules');
+  const rulesRankingButton = document.querySelector('.hall-of-fame');
+  let ranking = []
+  switch (category) {
+    case "people":
+      ranking = JSON.parse(localStorage.getItem(`highScoresPeople`)) || [];
+      break;
+    case "vehicles":
+      ranking = JSON.parse(localStorage.getItem(`highScoresVehicle`)) || [];
+      break;
+    case "starships":
+      ranking = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
+  }
 
-  //ranking sort, better if sort while saving score after game in file
-  ranking[item.id].sort((a, b) =>
-    (a.score / a.max_score > b.score / b.max_score) ? -1 :
-      ((b.score / b.max_score > a.score / a.max_score) ? 1 : 0));
-  modeTitle.textContent = textToView[item.textContent].title;
+  modeTitle.textContent = textToView[category].title;
   modeContent.innerHTML = rulesRankingButton.textContent === 'Hall of fame' ?
-    '<div><h2>Mode rules:</h2><p>' + textToView[item.textContent].Rules + '</p></div>' :
-    ranking[item.id].length?
-    '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th></tr>' +
-
-    ranking[item.id].filter((e, i) => i < 3).map((person, id) => {
-      const i = id + 1;
-      return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score + '</td></tr>';
-    })+ '</table></div>':
+    '<div><h2>Mode rules:</h2><p class="rule-on-change">' + textToView[category].Rules + '</p></div>' :
+    ranking.length ?
+      '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th><th>Percents</th></tr>' +
+      ranking.filter((e, i) => i < 5).map((person, id) => {
+        const i = id + 1;
+        return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
+          '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
+      }).join('') + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
       '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
+
+  if (rulesRankingButton.textContent !== 'Hall of fame' && ranking.length) {
+    handleAllRankingButton(ranking)
+  }
+}
+const modal = document.getElementById('Hall-of-fame-modal');
+let span = document.getElementsByClassName('close')[0];
+span.addEventListener('click', () => modal.style.display = 'none');
+
+window.addEventListener('click',
+  (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+function handleAllRankingButton(rankingArray) {
+  let seeAllButton = document.getElementById('all-ranking-btn');
+  seeAllButton.addEventListener('click', () => {
+    modalRankingView(rankingArray)
+  });
 }
 
-const MAX_HIGH_SCORES = 5;
+
+function modalRankingView(rankingArray){
+  let rankingModalBody = document.querySelector('.modal-body');
+  rankingModalBody.innerHTML = '<div><table><tr><th>Place</th><th>Player</th><th>Answered</th><th>Percents</th></tr>' +
+    rankingArray.map((person, id) => {
+      const i = id + 1;
+      return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
+        '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
+    }).join('') + '</table></div>';
+  modal.style.display = 'block';
+}
+
 
 const username = document.getElementById("player-name-hall-of-fame");
 //const mostRecentScore = localStorage.getItem('mostRecentScore');
@@ -82,37 +121,52 @@ const highScoresVehicle = JSON.parse(localStorage.getItem(`highScoresVehicle`)) 
 const highScoresStarship = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
 
 export function saveHighScore (e) {
-    console.log("clicked");
-    e.preventDefault();
 
     const lastScore = {
         score: localStorage.getItem('mostRecentScore'),
+        max_score: localStorage.getItem('QuestionsTotal'),
+        scorePercents : (localStorage.getItem('mostRecentScore') / localStorage.getItem('QuestionsTotal')) * 100,
         name: username.value,
     };
-
+    let endSection = document.querySelector(".end-game")
+    let rulesSection = document.querySelector("#zasady_gry")
     switch(category) {
       case "people":
         highScoresPeople.push(lastScore);
         highScoresPeople.sort((a,b) => {
-          return b.score - a.score;
+          return b.scorePercents - a.scorePercents;
         });
-        highScoresPeople.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresPeople", JSON.stringify(highScoresPeople));
+        endSection.style.display = "none";
+        rulesSection.style.display = "inline";
+        modalRankingView(highScoresPeople)
         break;
       case "vehicles":
         highScoresVehicle.push(lastScore);
         highScoresVehicle.sort((a,b) => {
-          return b.score - a.score;
+          return b.scorePercents - a.scorePercents;
         });
-        highScoresVehicle.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresVehicle", JSON.stringify(highScoresVehicle));
+        endSection.style.display = "none";
+        rulesSection.style.display = "inline";
+        modalRankingView(highScoresVehicle)
         break;
       case "starships":
         highScoresStarship.push(lastScore);
         highScoresStarship.sort((a,b) => {
-          return b.score - a.score;
+          return b.scorePercents - a.scorePercents;
         });
-        highScoresStarship.splice(MAX_HIGH_SCORES);
         localStorage.setItem("highScoresStarship", JSON.stringify(highScoresStarship));
+        endSection.style.display = "none";
+        rulesSection.style.display = "inline";
+        modalRankingView(highScoresStarship)
     }
 }
+
+
+
+
+
+
+
+

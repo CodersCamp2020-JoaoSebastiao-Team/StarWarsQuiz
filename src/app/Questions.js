@@ -186,7 +186,7 @@ export const Questions = async (APIurl, category) => {
             console.log("You answered all the questions!")
             await waitForData(4000);
             EndGame(AnswersRaport,score, computerScore);
-            EndTable(AnswersRaport,category, 5  );
+            EndTable(AnswersRaport,category, 5 );
             questionEnd.style.display = "none";
             endGame.style.display = "flex";
         }
@@ -212,7 +212,8 @@ export const Questions = async (APIurl, category) => {
             questionsEnd = true;
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";
-            localStorage.setItem('mostRecentScore', score);      
+            localStorage.setItem('mostRecentScore', score);     
+            localStorage.setItem('QuestionsTotal', AnswersRaport.length);  
             clearInterval(timeToEnd);
         }
         else {

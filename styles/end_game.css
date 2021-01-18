@@ -134,6 +134,10 @@ form#hall-of-fame-save label {
     background-color: red;
 }
 
+.end-save-button:focus{
+    outline: none;
+}
+
 .end-save-button-container {
     text-align: center;
     margin-top: 2rem;
