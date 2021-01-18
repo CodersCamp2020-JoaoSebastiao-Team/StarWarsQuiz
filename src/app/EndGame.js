@@ -4,7 +4,7 @@ const endGameScore = document.getElementById('end-result-p');
 const endGameSummary = document.getElementById('end-summary');
 export const EndGame = (Answers,score, computerScore, questionsShown) => { 
     endGameScore.innerText = `YOUR RESULT: ${score}`;
-    endGameSummary.innerText = `The force is strong in you young Padawan! During 2 minutes you have answered ${score} / ${questionsShown} questions and Computer guessed ${computerScore} / ${questionsShown} .`;
+    endGameSummary.innerText = `The force is strong in you, young Padawan! During 1 minute you have answered ${score}/${questionsShown} questions and computer guessed ${computerScore}/${questionsShown}.`;
 }
 
 
