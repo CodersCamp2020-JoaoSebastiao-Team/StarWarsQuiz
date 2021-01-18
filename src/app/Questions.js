@@ -115,17 +115,12 @@ export const Questions = async (APIurl, category) => {
                 computer: "",
                 numberOfQuestion: 0
             }
-            AnswerRaport.answer = optionWrapper[rightOption].innerText;
-            AnswerRaport.user = optionWrapper[select].innerText;
-            AnswerRaport.numberOfQuestion = numberOfQuestion;
-            AnswersRaport.push(AnswerRaport);
 
             //Remove event listeners to avoid situation when somebody click buttons after send answer
             optionWrapper[0].removeEventListener("click", queston1Listener, false);
             optionWrapper[1].removeEventListener("click", queston2Listener, false);
             optionWrapper[2].removeEventListener("click", queston3Listener, false);
             optionWrapper[3].removeEventListener("click", queston4Listener, false);
-
 
             // Computer question handle!
             let {computerChoise, computerPoint }= computerPlay(computerAnswers);
@@ -134,6 +129,13 @@ export const Questions = async (APIurl, category) => {
             //console.log("computer choise : ", computerChoise);
             //console.log("computer point",computerPoint);
             //console.log("computer has :", computerScore , " scores");
+
+            AnswerRaport.answer = optionWrapper[rightOption].innerText;
+            AnswerRaport.user = optionWrapper[select].innerText;
+            AnswerRaport.numberOfQuestion = numberOfQuestion;
+            AnswerRaport.computer = optionWrapper[computerChoise].innerText;
+            AnswersRaport.push(AnswerRaport);
+
 
             if (select == rightOption) {
                 score += 1;
