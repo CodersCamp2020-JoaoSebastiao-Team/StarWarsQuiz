@@ -8,12 +8,12 @@ export const App = ({options}) => {
   const rules = document.getElementById("rules__wrapper");
 
 
-  setWidth()
+ 
   start.addEventListener("click", () => {
     Questions(options.swApiBaseUrl,`${category}`);
     rules.style.display="none";
     acceptingMode = false;
-    setWidth()
+   
   })
 
   const rulesRankingButton = document.querySelector('.hall-of-fame');
@@ -21,7 +21,7 @@ export const App = ({options}) => {
 
   const saveScoreBtn = document.getElementById("save-hall-of-fame-button");
   saveScoreBtn.addEventListener('click',e =>{ saveHighScore(e); acceptingMode = true;});
-  setWidth()
+ 
 
 }
 

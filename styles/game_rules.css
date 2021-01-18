@@ -15,19 +15,12 @@
 .rules h2{
     display: flex;
     justify-content: center;
-    font-size: 2.5vw;
 }
 .rules-content{
     
-    /* width: 100%; */
-    /* padding-left: 9%; */
-    /* justify-content: center; */
-    /* min-height: 400px;
-    width: 100%;
-    margin-bottom: 2rem; */
     display: block;
-    margin-right: 8.375vw;
-    flex-basis: 66.785%;
+    margin-right: 9.375vw;
+    flex-basis:  69.785%;
   
 }
 
@@ -48,28 +41,27 @@
     min-width: 375px;
 }
 .hall-of-fame{
+
     background-color: white;
     border-radius: 16px;
     width: 42%;
     font-size: x-large;
     color: black;
-    cursor: pointer;
+   
     border: 1px solid wheat;
 }
-.hall-of-fame:hover{
-    background-color: red;
-    color: white;
-}
-
 .play-the-game{
+
     background-color: red;
     border: 1px solid white;
     border-radius: 16px;
     width: 42%;
     color: white;
     font-size: x-large;
-    cursor: pointer;
+    
 }
+
+
 #swquiz-app {
     height: 100vh;
     overflow: scroll;
@@ -92,7 +84,10 @@
     text-align: center;
     table-layout: fixed;
     width: 100%;
+<<<<<<< Updated upstream
     font-size: 1.7vw;
+=======
+>>>>>>> Stashed changes
 }
 .swquiz-menu {
     list-style-type: none;
@@ -148,7 +143,14 @@
     margin-bottom: 2rem;
 }
 
-
+.play-the-game:hover{
+    background-color: white;
+    color: red;
+}
+.hall-of-fame:hover{
+    background-color: red;
+    color: white;
+}
 
 
 .head-img-rules{
@@ -179,6 +181,48 @@
     min-height: calc(200px * 1.32);
 }
 
+
+
+@media (max-width: 1700px) {
+    .rules-content{
+        display: block;
+        margin-right: 9.375vw;
+        flex-basis:  67.785%;
+
+    }
+
+}
+@media (max-width: 1521px) {
+    .rules-content{
+        display: block;
+        margin-right: 8.375vw;
+        flex-basis:  66.785%;
+
+    }
+
+}
+
+
+@media (max-width: 1300px) {
+    .rules-content{
+        display: block;
+        margin-right: 7.375vw;
+        flex-basis:  64.785%;
+
+    }
+}
+
+@media (max-width: 1116px) {
+    .rules-content{
+        display: block;
+        margin-right: 8.375vw;
+        flex-basis:  64.785%;
+
+    }
+}
+
+
+
 @media (max-width: 880px) {
     .rules-buttons{
         flex-wrap: wrap;
@@ -204,7 +248,6 @@
     .rules-head{
         margin: 5%;
     }
- 
 
 }
 
