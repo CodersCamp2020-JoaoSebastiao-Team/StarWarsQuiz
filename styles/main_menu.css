@@ -45,8 +45,12 @@ body {
 
 }
 
+
 .main-menu--option {
     cursor: pointer;
+}
+.main-menu--option:hover{
+    color: red;
 }
 
 .main-menu--selected {
