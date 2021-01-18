@@ -16,6 +16,7 @@
 .rules h2{
     display: flex;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 .rules-content{
     
@@ -28,7 +29,8 @@
 .rules p{
     display: flex;
     justify-content: left;
-    padding-left: 5%;
+    /* padding-left: 5%; */
+    text-align: center;
 }
 
 .buttons{
@@ -132,7 +134,7 @@
     border-radius: 20px;
     margin: 2%;
     min-width: 380px;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
 }
 
 .rules-buttons{
@@ -255,6 +257,7 @@
     }
     .rules-head{
         margin: 5%;
+        text-align: center;
     }
 
 }
