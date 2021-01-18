@@ -1,5 +1,5 @@
 import { ProgressBar, timeLeft } from "./ProgressBar";
-import { EndGame} from "./EndGame";
+import { EndGame, EndTable} from "./EndGame";
 
 export let AnswersRaport = [];
 
@@ -186,6 +186,7 @@ export const Questions = async (APIurl, category) => {
             console.log("You answered all the questions!")
             await waitForData(4000);
             EndGame(AnswersRaport,score, computerScore);
+            EndTable(AnswersRaport,category, 5  );
             questionEnd.style.display = "none";
             endGame.style.display = "flex";
         }
@@ -207,6 +208,7 @@ export const Questions = async (APIurl, category) => {
     const timeToEnd = setInterval(() => {
         if (timeLeft <= 0) {
             EndGame(AnswersRaport,score, computerScore);
+            EndTable(AnswersRaport, category, 5);
             questionsEnd = true;
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";
