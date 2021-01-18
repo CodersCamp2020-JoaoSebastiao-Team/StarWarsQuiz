@@ -1,28 +1,28 @@
-<!DOCTYPE html>
-<html lang="pl">
+<!DOCTYPE HTML>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CodersCamp2020 | Star Wars API QUIZ</title>
-    <link rel="stylesheet" href="styles/App.css"/>
+    <link rel="stylesheet" href="styles/App.css" />
+    <link rel="stylesheet" href="styles/progress_bar.css">
+    <link rel="stylesheet" href="styles/main_menu.css"/>
+    <link rel="stylesheet" href="styles/ranking_modal.css"/>
+    <link rel="stylesheet" href="styles/question.css" />
+    <link rel="stylesheet" href="styles/end_game.css">
+    <link rel="stylesheet" href="styles/game_rules.css"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+    <div id="swquiz-app">
 
-<div id="swquiz-app">
-    <div class="swquiz-header">
-        <a href="/index.html" class="swquiz-logo">
-            <img src="/static/assets/ui/StarWarsLogo.png" alt="Star Wars logo" class="swquiz-logo"></a>
-        <ul class="swquiz-menu">
-            <li class="menu-option selected" id="people">people</li>
-            <li class="menu-option" id="vehicles">vehicles</li>
-            <li class="menu-option" id="starships">starships</li>
-        </ul>
-    </div>
-
+<<<<<<< HEAD
     <div class="flex-container">
         <img src="/static/assets/img/modes/people/4.jpg" alt="Star Wars logo" style="width: 142px; height: 50%">
         <div class="flex-item-ranking">
@@ -42,5 +42,156 @@
 </div>
 
 <script src="src/index.js"></script>
+=======
+        <nav class="main-menu__wrapper">
+            <div class="main-menu__logo">
+                <a href="/index.html" class="logo-image">
+                    <img src="/static/assets/ui/StarWarsLogo.png" alt="Star Wars logo" class="logo-image">
+                </a>
+            </div>
+            <ul class="main-menu__modes">
+                <li class="main-menu--option main-menu--selected" id="people">people</li>
+                <li class="main-menu--option" id="vehicles">vehicles</li>
+                <li class="main-menu--option" id="starships">starships</li>
+            </ul>
+        </nav>
+
+        <section id="rules__wrapper">
+            <div class="rules-buttons">
+                <div class="head-img-rules">
+                    <img src="/static/assets/img/modes/people/35.jpg" alt="random character" class="img-rules">
+                </div>
+                <div class="rules-content">
+                    <div class="rules-head">
+                        <p> Who is this character? </p>
+                    </div>
+                    <div class="rules">
+                        <h2> Mode Rules</h2>
+                        <p class="rule-on-change">
+                          4
+                        </p>
+                    </div>
+                    <div class="buttons">
+                        <button class="hall-of-fame btn">Hall of fame</button>
+                        <button class="play-the-game btn">PLAY THE GAME</button>
+                    </div>
+                </div>
+             
+            </div>
+        </section>
+        <section>
+            <div id="Hall-of-fame-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Hall of Fame</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>asd</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="main-question__wrapper">
+            <div class="loader">
+                <div class="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="question-api-error__wrapper">
+                <div class="question-api-error--content">
+                        <img src="./static/assets/404-api-error.png">
+                        <h2>404 Error - API not found - try refresh page!</h2>
+                </div>
+            </div>
+            <div class="question-image__wrapper">
+                <div class="question-image__image" title="StarWars picture!"><span role="img"
+                        aria-label="[place alt text here]"> </span> </div>
+            </div>
+            <div class="question-content__wrapper">
+                <div class="question-content--header"
+                    title="Check your knowledge about Star Wars! This is your question.">
+                    <p class="p-content--header-question"></p>
+                </div>
+                <div class="question-content--variants">
+                    <div class="question-content--item" title="Click mouse to choose this option!">
+                        <p class="p-content--item"></p>
+                    </div>
+                    <div class="question-content--item" title="Click mouse to choose this option!">
+                        <p class="p-content--item"></p>
+                    </div>
+                    <div class="question-content--item" title="Click mouse to choose this option!">
+                        <p class="p-content--item"></p>
+                    </div>
+                    <div class="question-content--item" title="Click mouse to choose this option!">
+                        <p class="p-content--item"></p>
+                    </div>
+                </div>
+                <div class="question-content--computer"
+                title="Check what answer computer guessed!">
+                <p class="p-content--computer-question"></p>
+            </div>
+            </div>
+            <div class="question-finish">
+                <div class="question-content--header"
+                    title="Check your knowledge about Star Wars! This is your question.">
+                    <p class="p-content--header-question">Congrats! you answered all the questions!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="progress-bar"></section>
+
+        <section class="end-game">
+            <div id="end-result-modal" class="end-result-modal">
+                <div class="end-modal-content">
+                    <h2>GAME OVER</h2>
+                    <p id="end-summary" class="end-sub-title">The force is strong in you young Padawan! During 2 minutes you have answered x / x questions. And Computer guessed x /  x.</p>
+                    <br>
+                    <p id="end-result-p"></p>
+                    <br>
+                    <div class="end-hall-off-fame">
+                        <div class="end-yoda-answers">
+                            <div class="end-yoda-container">
+                            <img class="end-yoda" src="static/assets/ui/MasterYodaLeft.png" alt="Master Yoda">
+                            </div>
+                            <div class="end-answers">
+                                <div class="end-answers-header">
+                                    <p></p>
+                                    <p>Correct</p>
+                                    <p>You</p>
+                                    <p>Computer</p>
+                                </div>
+                                <div id="end-answers-table">
+                                    <div id="end-answer-row">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="hall-of-fame-save">
+                            <label for="end-player-name">
+                                <input id="player-name-hall-of-fame" name="player-name-hall-of-fame" class="end-player-name" type="text" minlength="3" maxlength="15" required="">
+                            </label>
+                            <p>Please fill your name in order to receive eternal glory in the whole Galaxy!</p>
+                        </form>
+                    </div>
+                    <div class="end-save-button-container">
+                        <button type="submit" form="hall-of-fame-save" class="end-save-button btn" id="save-hall-of-fame-button">MAY THE FORCE BE WITH YOU!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script src="src/index.js"></script>
+>>>>>>> develop
 </body>
+
 </html>

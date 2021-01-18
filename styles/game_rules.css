@@ -1,0 +1,213 @@
+
+.rules{
+    margin-top: 2rem;
+    background: #fff;
+    font-size: 1.75rem;
+    padding: 2rem;
+    /* max-width: 1000px; */
+    width: 100%;
+    color: black;
+    border-radius: 20px;
+    margin: 2%;
+    min-width: 380px;
+    min-height: 300px;
+}
+.rules h2{
+    display: flex;
+    justify-content: center;
+    font-size: 2.5vw;
+}
+.rules-content{
+    
+    /* width: 100%; */
+    /* padding-left: 9%; */
+    /* justify-content: center; */
+    /* min-height: 400px;
+    width: 100%;
+    margin-bottom: 2rem; */
+    display: block;
+    margin-right: 8.375vw;
+    flex-basis: 66.785%;
+  
+}
+
+.rules p{
+    display: flex;
+    justify-content: left;
+    padding-left: 5%;
+}
+
+.buttons{
+   
+    margin: 2%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 300px;
+    min-width: 375px;
+}
+.hall-of-fame{
+    background-color: white;
+    border-radius: 16px;
+    width: 42%;
+    font-size: x-large;
+    color: black;
+    cursor: pointer;
+    border: 1px solid wheat;
+}
+.hall-of-fame:hover{
+    background-color: red;
+    color: white;
+}
+
+.play-the-game{
+    background-color: red;
+    border: 1px solid white;
+    border-radius: 16px;
+    width: 42%;
+    color: white;
+    font-size: x-large;
+    cursor: pointer;
+}
+#swquiz-app {
+    height: 100vh;
+    overflow: scroll;
+}
+
+.swquiz-header {
+    margin-top: 1rem;
+    height: 5em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+.swquiz-logo {
+    height: 100%;
+}
+
+.rules table{
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+    font-size: 1.7vw;
+}
+.swquiz-menu {
+    list-style-type: none;
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
+    border-radius: 23px;
+    width: 60%;
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 700;
+
+}
+
+.menu-option {
+    cursor: pointer;
+}
+
+.selected {
+    color: white;
+    text-shadow:
+    0 0 5px rgba(255,0,0,.9),
+    0 0 10px rgba(255,0,0,.9),
+    0 0 20px rgba(255,0,0,.9),
+    0 0 40px rgba(255,0,0,.9),
+    0 0 80px rgba(255,0,0,.9),
+    0 0 90px rgba(255,0,0,.9),
+    0 0 100px rgba(255,0,0,.9),
+    0 0 150px rgba(255,0,0,.9);
+}
+.rules-head{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top: 2rem;
+    background: #fff;
+    font-size: 1.75rem;
+    padding: 2rem;
+    width: 100%;
+    height: 20px;
+    color: black;
+    border-radius: 20px;
+    margin: 2%;
+    min-width: 380px;
+}
+
+.rules-buttons{
+    display: flex;
+    min-height: 400px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+
+
+
+.head-img-rules{
+ 
+    /* padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 6%;
+   
+    background-size: cover;
+    width: auto; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-basis: 33.125%;
+    margin-left: 4.74vw;
+}
+.img-rules{
+    /* width: 100%; */
+    /* height: 100%; */
+    max-height: 100%;
+    /* position: relative; */
+    /* height: auto; */
+    box-shadow: 0 4px 4px rgba(0,0,0,.25),4px 4px 40px rgba(255,0,0,.9);
+    border-radius: 16px;
+    height: calc(21.4vw * 1.32);
+    width: 21.4vw;
+    min-width: 200px;
+    min-height: calc(200px * 1.32);
+}
+
+@media (max-width: 880px) {
+    .rules-buttons{
+        flex-wrap: wrap;
+    }
+    .head-img-rules{
+        width: 100%;
+        height: 300px;
+    }
+    .rules-buttons{
+        justify-content: center;
+    }
+    .rules-content{
+         justify-content: center;
+         width: 100%;
+    }
+    .buttons{
+        margin: 5%;
+    }
+  
+    .rules{
+        margin: 5%;
+    }
+    .rules-head{
+        margin: 5%;
+    }
+ 
+
+}
+
+
+
+
