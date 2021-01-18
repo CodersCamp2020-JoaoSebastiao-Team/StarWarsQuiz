@@ -15,13 +15,12 @@ export const ProgressBar = () => {
 
   const startTimer = () => {
     const timerInterval = setInterval(() => {
-      document.querySelector('.progress-bar').style.display = "block";
       timePassed += 1;
       timeLeft = timeLimit - timePassed;
       document.querySelector('.progress-bar-timer>span').innerHTML = `Time left: ${formatTime(timeLeft)}`;
       if (timeLeft === 0) {
         clearInterval(timerInterval);
-        // document.querySelector('.progress-bar').style.display = "none";
+        document.querySelector('.progress-bar').style.display = "none";
       }
     }, 1000)
   }
