@@ -15,6 +15,7 @@ const endGameComputerAnswer = document.getElementById('end-computer-answer');
 const button = document.getElementById('save-hall-of-fame-button')
 
 
+
 export const EndTable = (Answers, category) => {
         for (let i = 0; i < Answers.length ; i++){
             const newDiv = document.createElement('div');
@@ -57,6 +58,13 @@ export const EndTable = (Answers, category) => {
                 newDivEndComputerAnswer.style = 'color: green; font-weight: 600'
             } else {
                 newDivEndComputerAnswer.style = 'color: red; font-weight: 600;'
+            }
+            button.onclick = function Clear() {
+                console.log('cleaning...')
+                for (let p = 0; p <= Answers.length + 2; p++) {
+                    const element = document.getElementById("end-answers-table");
+                    element.removeChild(element.childNodes[0]);
+                }
             }
 
         }
