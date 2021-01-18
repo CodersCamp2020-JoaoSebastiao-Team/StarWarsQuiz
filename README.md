@@ -1,10 +1,10 @@
 # CodersCamp 2020 - Projekt JavaScript
 Wykorzystanie asynchronicznego JavaScript oraz korzystanie z REST API.
 
-W ramach drugiego projektu, zadaniem naszego zespołu było opracowanie quizu z populrnej serii filmów Star Wars. Jest to aplikacja webowa działająca w przeglądarce, bez potrzeby instalacji. Językiem domyślnym aplikacji jest język angielski, sama aplikacja oferuje rozgrywkę w 3 dostępnych kategoriach: 
+W ramach drugiego projektu, zadaniem naszego zespołu było opracowanie quizu z popularnej serii filmów Star Wars. Jest to aplikacja webowa działająca w przeglądarce bez potrzeby instalacji. Językiem domyślnym aplikacji jest język angielski. Sama aplikacja oferuje rozgrywkę w 3 dostępnych kategoriach: 
  - People, 
  - Vehicles, 
- - Spaceships
+ - Spaceships.
 
 ![StarWarsQuiz](./static/assets/ui/strona_glowna.png)
 
@@ -52,13 +52,15 @@ Po upływie zadanego czasu, lub wyczerpaniu puli pytań pokazywany jest ekran za
  
 ## Ranking rywalizacji
 
-W aplikacji dostępny jest także ranking, pokazujący wyniki 5 najlepszych graczy:
+W aplikacji dostępny jest także ranking, pokazujący wyniki 5 najlepszych graczy w danej przeglądarce:
 
  ![StarWarsQuiz](./static/assets/ui/ranking.png)
  
-Istnieje również możliwość przejścia do listy ze wszystkimi uzyskanymi wynikami:
+Istnieje również możliwość przejścia do listy ze wszystkimi uzyskanymi wynikami w danej przeglądarce:
 
  ![StarWarsQuiz](./static/assets/ui/ranking_wszyscy.png)
+
+ Jeśli gracz o podanym username istnieje już na liście rankingowej to jego wcześniejszy wynik jest porównywany z obecnym. W przypadku uzyskania lepszego wyniku, jest on nadpisywany.
 
 #### W projekcie każdy z uczestników zaprezentował praktyczną znajomość poniższych zagadnień związanych z JavaScript:
 - zmienne
