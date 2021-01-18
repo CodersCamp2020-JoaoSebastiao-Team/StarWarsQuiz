@@ -1,5 +1,4 @@
 import { category } from './MainMenu';
-import { AnswersRaport } from './Questions';
 
 
 const textToView = {
@@ -138,19 +137,38 @@ export function saveHighScore (e) {
 
     switch(category) {
       case "people":
-        setRankingToLocalStarage("highScoresPeople", lastScore)
+        setRankingToLocalStorage("highScoresPeople", lastScore)
         break;
       case "vehicles":
-        setRankingToLocalStarage("highScoresVehicle", lastScore)
+        setRankingToLocalStorage("highScoresVehicle", lastScore)
         break;
       case "starships":
-        setRankingToLocalStarage("highScoresStarship", lastScore)
+        setRankingToLocalStorage("highScoresStarship", lastScore)
     }
 }
-function setRankingToLocalStarage(fileName, lastScore) {
+function setRankingToLocalStorage(fileName, lastScore) {
   const highScores = JSON.parse(localStorage.getItem(fileName)) || [];
-  highScores.push(lastScore);
-  highScores.sort((a,b) => {
+  if (localStorage.getItem(fileName)) {
+    const matched = highScores.filter(user => {
+      return username.value === user.name;
+    });
+    if (matched.length > 0) {
+      if (matched[0].scorePercents < lastScore.scorePercents) {
+        matched[0].score = localStorage.getItem('mostRecentScore');
+        matched[0].max_score = localStorage.getItem('QuestionsTotal');
+        matched[0].scorePercents = (localStorage.getItem('mostRecentScore') / (localStorage.getItem('QuestionsTotal'))) * 100;
+
+        const index = highScores.findIndex(user => user.name == username.value);
+        highScores.splice(index, 1);
+        highScores.push(matched[0]);
+      }
+    } else {
+      highScores.push(lastScore);
+    }
+  } else {
+    highScores.push(lastScore);
+  }
+  highScores.sort((a, b) => {
     return b.scorePercents - a.scorePercents;
   });
   let endSection = document.querySelector(".end-game")
