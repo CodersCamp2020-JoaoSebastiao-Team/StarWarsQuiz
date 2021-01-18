@@ -34,5 +34,12 @@ export const ProgressBar = () => {
       <div class="progress-bar-timer">
         <span>Time left: ${formatTime(timeLeft)}</span>
       </div>`
+
+  const animationBar = document.getElementsByClassName('progress-bar-lightsaber-full')[0];
+  const animationBarTimer = document.getElementsByClassName('progress-bar-timer')[0];
+
+  animationBar.style.animation = `progress-bar ${timeLimit}s linear forwards`;
+  animationBarTimer.style.animation = `text-color ${timeLimit}s linear forwards`;
+
   startTimer();
 }
