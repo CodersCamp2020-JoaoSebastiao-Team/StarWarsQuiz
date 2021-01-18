@@ -9,18 +9,21 @@ const textToView = {
       'possible. During the game on each qustion you need to' +
       'select who from Star Wars is showed on left (Jar Jar' +
       'Binks ringt now) from available options.',
+    'Src':'/35.d935f726.jpg'
   },
   'vehicles': {
     'title': 'Do you recognize this vehicle?',
     'Rules': 'You have one minute (1m) to answer as many questions as possible.' +
       ' During the game on each question you need to select who from Star Wars' +
       ' is showed on the left (Jar Jar Binks right now) from available options.',
+    'Src':'/13.c1114be4.jpg '
   },
   'starships': {
     'title': 'Do you recognize this starship?',
     'Rules': 'You have one minute (1m) to answer as many questions as possible.' +
       ' During the game on each question you need to select which starship' +
       ' from Star Wars is showed on the left.',
+    'Src': '/4.f5365065.jpg'
   },
 };
 
@@ -41,15 +44,18 @@ export function handleRulesButtonClick(e) {
   }
   listItems.forEach(item => {
     if (item.classList.contains('main-menu--selected')) {
+      console.log(item.id);
       updateText(item.id);
+
     }
   });
 }
 
 export function updateText(category) {
-  const modeTitle = document.querySelector('.rules-head');
-  const modeContent = document.querySelector('.rules');
-  const rulesRankingButton = document.querySelector('.hall-of-fame');
+  const modeTitle = document.querySelector('.rules-head');//'.swquiz-mode-title'
+  const modeContent = document.querySelector('.rules');//'.swquiz-mode-content'
+  const rulesRankingButton = document.querySelector('.hall-of-fame');//'.sw-quiz-mode-button-rules'
+  const imageRule = document.querySelector('.img-rules');
   let ranking = []
   switch (category) {
     case "people":
@@ -62,6 +68,7 @@ export function updateText(category) {
       ranking = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
   }
 
+  imageRule.attributes.Src.value = textToView[category].Src;
   modeTitle.textContent = textToView[category].title;
   modeContent.innerHTML = rulesRankingButton.textContent === 'Hall of fame' ?
     '<div><h2>Mode rules:</h2><p class="rule-on-change">' + textToView[category].Rules + '</p></div>' :
@@ -71,7 +78,7 @@ export function updateText(category) {
         const i = id + 1;
         return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
           '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
-      }).join('') + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
+      }) + '</table><div class="all-ranking-btn-flex"><button id="all-ranking-btn">See all</button></div></div>' :
       '<div><h2>Mode ranking:</h2><p>The leadership is empty</p></div>';
 
   if (rulesRankingButton.textContent !== 'Hall of fame' && ranking.length) {
@@ -104,7 +111,7 @@ function modalRankingView(rankingArray){
       const i = id + 1;
       return '<tr><td>' + i + '</td><td>' + person.name + '</td> <td>' + person.score + '/' + person.max_score +
         '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
-    }).join('') + '</table></div>';
+    }) + '</table></div>';
   modal.style.display = 'block';
 }
 
