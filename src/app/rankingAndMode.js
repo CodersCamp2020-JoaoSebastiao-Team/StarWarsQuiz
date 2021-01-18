@@ -66,6 +66,7 @@ export function updateText(category) {
       ranking = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
   }
 
+
   headImage.innerHTML =  textToView[category].Src;
   modeTitle.textContent = textToView[category].title;
   modeContent.innerHTML = rulesRankingButton.textContent === 'Hall of fame' ?
@@ -74,6 +75,7 @@ export function updateText(category) {
       '<div><h2>Mode ranking:</h2><table><tr><th>Place</th><th>Player</th><th>Answered</th><th>Percents</th></tr>' +
       ranking.filter((e, i) => i < 5).map((person, id) => {
         const i = id + 1;
+        if (person.scorePercents == null){person.scorePercents=0}
         return '<tr><td>' + i + '</td><td><div style="overflow:hidden">' + person.name + '</div></td> <td>' + person.score + '/' + person.max_score +
           '</td><td>'+person.scorePercents.toFixed(2)+'%'+'</td></tr>';
       }).join(' ') + '</table><div class="all-ranking-btn-flex"><button class="btn" id="all-ranking-btn">See all</button></div></div>' :
