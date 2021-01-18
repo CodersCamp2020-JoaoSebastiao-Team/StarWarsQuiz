@@ -166,6 +166,7 @@ export const Questions = async (APIurl, category) => {
             computerWrapper.classList.remove("answer-bad");
             computerWrapper.classList.remove("answer-good");
             computerWrapper.style.opacity = "0";
+            cleanAnswers(optionWrapper);
 
             //Give eventlisteners back when new question appear after 1 second
             optionWrapper[0].addEventListener("click", queston1Listener);
