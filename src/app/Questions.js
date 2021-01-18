@@ -236,6 +236,10 @@ export const Questions = async (APIurl, category) => {
             localStorage.setItem('mostRecentScore', score);     
             localStorage.setItem('QuestionsTotal', questionsShown);  
             clearInterval(timeToEnd);
+
+            //delete data:
+            score = 0;
+
         }
         else {
             questionsEnd = false;

@@ -31,7 +31,7 @@
     min-height: calc(200px * 1.32);
     background-color: #fff;
     /* background: url("../static/assets/img/modes/people/4.jpg") no-repeat 0px/cover; */
-    background: transparent no-repeat center center;
+    background: #000 no-repeat 0px/cover;
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
     -o-background-size: cover;      /* Opera*/
@@ -311,12 +311,14 @@
         margin-right: 7.375vw;
     }
     .p-content--item,
-    .p-content--header-question {
+    .p-content--header-question,
+    .p-content--computer-question {
         font-size: 1.5rem;
     }
 
     .question-content--item,
-    .question-content--header {
+    .question-content--header,
+    .question-content--computer {
         min-height: 70px;
     }
 
@@ -358,6 +360,9 @@
         align-items: center;
         justify-content: center;
     }
+    .question-content--computer{
+      width: 100%;
+    }
 
     .question-image__wrapper {
         display: flex;
@@ -377,12 +382,14 @@
 @media only screen and (max-width: 550px) {
 
     .p-content--item,
-    .p-content--header-question {
+    .p-content--header-question,
+    .p-content--computer-question {
         font-size: 1.2rem;
     }
 
     .question-content--item,
-    .question-content--header {
+    .question-content--header,
+    .question-content--computer {
         min-height: 60px;
     }
 
