@@ -2,7 +2,7 @@
 export let timeLeft;
 export const ProgressBar = () => {
 
-  const timeLimit = 6;
+  const timeLimit = 60;
   let timePassed = 0;
   timeLeft = timeLimit;
 
@@ -20,7 +20,7 @@ export const ProgressBar = () => {
       document.querySelector('.progress-bar-timer>span').innerHTML = `Time left: ${formatTime(timeLeft)}`;
       if (timeLeft === 0) {
         clearInterval(timerInterval);
-        document.querySelector('.progress-bar').style.display = "none";
+        // document.querySelector('.progress-bar').style.display = "none";
       }
     }, 1000)
   }
