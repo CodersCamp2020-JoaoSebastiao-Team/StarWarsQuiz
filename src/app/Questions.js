@@ -186,7 +186,7 @@ export const Questions = async (APIurl, category) => {
             console.log("You answered all the questions!")
             await waitForData(4000);
             EndGame(AnswersRaport,score, computerScore);
-            EndTable(AnswersRaport,category, 5 );
+            EndTable(AnswersRaport,category);
             questionEnd.style.display = "none";
             endGame.style.display = "flex";
         }
@@ -208,7 +208,7 @@ export const Questions = async (APIurl, category) => {
     const timeToEnd = setInterval(() => {
         if (timeLeft <= 0) {
             EndGame(AnswersRaport,score, computerScore);
-            EndTable(AnswersRaport, category, 5);
+            EndTable(AnswersRaport, category, AnswersRaport);
             questionsEnd = true;
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";

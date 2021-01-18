@@ -16,7 +16,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
     background-color: #fefefe;
-    padding: 4rem;
+    padding: 3rem;
     width: 60%;
     box-shadow: 0 4px 4px rgba(0, 0, 0, .25), 4px 4px 40px rgba(255, 0, 0, .9);
     border-radius: 16px;
@@ -62,7 +62,7 @@ div.end-yoda-answers {
 }
 
 .end-answers-header {
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 0.8fr 1fr 1fr 1fr;
     width: 100%;
 }
 
@@ -198,6 +198,10 @@ form#hall-of-fame-save p {
     font-weight: 600;
 }
 
+div.end-answers-header p {
+    text-align: center;
+}
+
 @media (max-width: 1230px) {
     div.end-yoda-answers {
         flex-wrap: wrap;
@@ -209,12 +213,20 @@ form#hall-of-fame-save p {
 
     div.end-modal-content {
         width: 70%;
+        padding: 2.5rem;
     }
 }
 
 @media (max-width: 680px) {
     div.end-modal-content {
         width: 90%;
+    }
+}
+
+@media (max-width: 780px) {
+    div.end-modal-content {
+        width: 85%;
+        padding: 1rem;
     }
 }
 
