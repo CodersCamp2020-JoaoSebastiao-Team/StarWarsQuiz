@@ -6,18 +6,7 @@ W ramach drugiego projektu, zadaniem naszego zespołu było opracowanie quizu z 
  - Vehicles, 
  - Spaceships
 
-## Wykorzystane technologie:
-- JavaScript
-- HTML
-- CSS
-- Star Wars API
-
-## Opis rozgrywki
-Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w określonym czasie (1m). Podczas quizu gracz po zaznaczeniu odpowiedzi dostaje informacje o poprawności swojej odpowiedzi poprzez zmianę koloru przycisku na zielony, w przypadku błędnego wyboru przycisk zmienia się na czerwony, natomiast pokazywana jest również poprawna odpowiedź w kolorze zielonym.
-
-## Rywalizacja z komputerem
-Jednak gracz nie jest pozostawiony sam sobie! Równocześnie z graczem swoją grę rozgrywa komputer, który również zaznacza swoje odpowiedzi kolorem żółtym.
-Po upływie zadanego czasu, lub wyczerpaniu puli pytań pokazywany jest ekran zakończenia gry, który zawiera podsumowanie gry i liczbę punktów uzyskanych przez gracza oraz komputer. Dostępny jest także pełny spis kolejno udzielanych odpowiedzi przez gracza i komputer wraz ze wskazaniem właściwej odpowiedzi.
+![StarWarsQuiz](./static/assets/ui/strona_glowna.png)
 
 ### Lista funkcjonalności aplikacji
 
@@ -32,6 +21,44 @@ Po upływie zadanego czasu, lub wyczerpaniu puli pytań pokazywany jest ekran za
     - losowane są 3 pozostałe odpowiedzi z zapytania do StarWars API.
 6. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywany jest ranking 5 najlepszych wyników.
 
+
+## Wykorzystane technologie:
+- JavaScript
+- HTML
+- CSS
+- Star Wars API
+
+## Opis rozgrywki
+Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w określonym czasie (1m). Podczas quizu gracz po zaznaczeniu odpowiedzi dostaje informacje o poprawności swojej odpowiedzi poprzez zmianę koloru przycisku na zielony, w przypadku błędnego wyboru przycisk zmienia się na czerwony, natomiast pokazywana jest również poprawna odpowiedź w kolorze zielonym.
+
+Przykładowa dobra odpowiedź na pytanie:
+
+ ![StarWarsQuiz](./static/assets/ui/gra_pytania_dobre.png)
+ 
+Przykładowa zła odpowiedź na pytanie:
+
+ ![StarWarsQuiz](./static/assets/ui/gra_pytania_zle.png)
+
+
+## Rywalizacja z komputerem
+
+Jednak gracz nie jest pozostawiony sam sobie! Równocześnie z graczem swoją grę rozgrywa komputer, który również zaznacza swoje odpowiedzi kolorem żółtym.
+
+ ![StarWarsQuiz](./static/assets/ui/gra_pytania_komputer.png)
+
+Po upływie zadanego czasu, lub wyczerpaniu puli pytań pokazywany jest ekran zakończenia gry, który zawiera podsumowanie gry i liczbę punktów uzyskanych przez gracza oraz komputer. Dostępny jest także pełny spis kolejno udzielanych odpowiedzi przez gracza i komputer wraz ze wskazaniem właściwej odpowiedzi.
+
+ ![StarWarsQuiz](./static/assets/ui/zakonczenie_gry.png)
+ 
+## Ranking rywalizacji
+
+W aplikacji dostępny jest także ranking, pokazujący wyniki 5 najlepszych graczy:
+
+ ![StarWarsQuiz](./static/assets/ui/ranking.png)
+ 
+Istnieje również możliwość przejścia do listy ze wszystkimi uzyskanymi wynikami:
+
+ ![StarWarsQuiz](./static/assets/ui/ranking_wszyscy.png)
 
 #### W projekcie każdy z uczestników zaprezentował praktyczną znajomość poniższych zagadnień związanych z JavaScript:
 - zmienne
