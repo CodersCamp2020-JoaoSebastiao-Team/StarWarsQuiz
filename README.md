@@ -108,4 +108,5 @@ Kod testów umieszczony został w katalogu `test`.
 
 ##### Dodatkowe zadania (wykraczające poza zakres kursu):
 1. Do projektu poza wyświetlaniem 5 najlepszych wyników dodaliśmy także wyświetlanie listy wszystkich wyników uzyskanych przez graczy.
+2. Projekt został oddatkowo zabezpieczony w przypadku problemów z dostaniem się do Rest API, po zgłoszeniu błędu ze strony API, lub zbyt długim oczekiwaniu na odpowiedź, pytania zostają zaczerpnięte z lokalnych plików .json, aby zredukować czas oczekiwania użytkownika na rozpoczęcie gry.
 
