@@ -22,6 +22,8 @@ export const Questions = async (APIurl, category) => {
     const questionErrorContent = document.getElementsByClassName('question-api-error--content')[0];
     const questionHeader = document.getElementsByClassName('p-content--header-question')[0];
     const endGame = document.getElementsByClassName('end-game')[0];
+    const computerAnswer = document.getElementsByClassName('p-content--computer-question')[0];
+    const computerWrapper = document.getElementsByClassName('question-content--computer')[0];
 
     //Starting visibility
     questionError.style.display = "none";
@@ -107,6 +109,11 @@ export const Questions = async (APIurl, category) => {
     //This function show question in HTML elements.
     async function showQuestion(select) {
         // If we call function with argument (options button)
+        cleanAnswers(optionWrapper);
+        computerAnswer.innerText = "";
+        computerWrapper.style.opacity = "0";
+
+
         // USER question handle
         if (select >= 0 && select <= 3) {
             let AnswerRaport = {
@@ -125,10 +132,7 @@ export const Questions = async (APIurl, category) => {
             // Computer question handle!
             let {computerChoise, computerPoint }= computerPlay(computerAnswers);
             computerScore += computerPoint;
-            optionWrapper[computerChoise].classList.add("answer-computer");
-            //console.log("computer choise : ", computerChoise);
-            //console.log("computer point",computerPoint);
-            //console.log("computer has :", computerScore , " scores");
+            //optionWrapper[computerChoise].classList.add("answer-computer");
 
             AnswerRaport.answer = optionWrapper[rightOption].innerText;
             AnswerRaport.user = optionWrapper[select].innerText;
@@ -136,6 +140,13 @@ export const Questions = async (APIurl, category) => {
             AnswerRaport.computer = optionWrapper[computerChoise].innerText;
             AnswersRaport.push(AnswerRaport);
 
+            computerAnswer.innerText = `Computer: ${AnswerRaport.computer}`;
+            computerWrapper.style.opacity = "1";
+            if (computerPoint){
+                computerWrapper.classList.add("answer-good");
+            }else {
+                computerWrapper.classList.add("answer-bad");
+            }
 
             if (select == rightOption) {
                 score += 1;
@@ -152,6 +163,9 @@ export const Questions = async (APIurl, category) => {
             optionWrapper[rightOption].classList.remove("answer-good");
             optionWrapper[select].classList.remove("answer-bad");
             optionWrapper[computerChoise].classList.remove("answer-computer");
+            computerWrapper.classList.remove("answer-bad");
+            computerWrapper.classList.remove("answer-good");
+            computerWrapper.style.opacity = "0";
 
             //Give eventlisteners back when new question appear after 1 second
             optionWrapper[0].addEventListener("click", queston1Listener);
@@ -474,6 +488,7 @@ function selectQuestion(questions, selectedArray = []) {
     
 }
 
+
 // Function to put good answer in random option (1 of 4 element)
 function randomOption() {
     let max = 3;
@@ -503,6 +518,16 @@ function computerPlay(computerAnswers){
     (computerChoise == computerAnswers.good) ? computerPoint = 1 : computerPoint = 0;
     return {computerChoise, computerPoint};
     //return 0;
+}
+
+function cleanAnswers(optionWrapper){
+    for (let i = 0; i < optionWrapper.length; i++){
+        optionWrapper[i].classList.remove("answer-selected");
+        optionWrapper[i].classList.remove("answer-good");
+        optionWrapper[i].classList.remove("answer-bad");
+        optionWrapper[i].classList.remove("answer-computer");
+    }
+
 }
 
 module.exports = { Questions, randomOption, selectQuestion };
