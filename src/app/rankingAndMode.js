@@ -6,8 +6,8 @@ const textToView = {
   'people': {
     'title': 'Who is this character?',
     'Rules': 'You have one minute (1m) to answer as many queestions as' +
-      'possible. During the game on each qustion you need to' +
-      'select who from Star Wars is showed on left (Jar Jar' +
+      ' possible. During the game on each qustion you need to' +
+      ' select who from Star Wars is showed on left (Jar Jar' +
       'Binks ringt now) from available options.',
     'Src':'/35.d935f726.jpg'
   },
