@@ -1,6 +1,6 @@
-import { Questions} from "./Questions.js";
-import {handleModeUpdate, category} from "./MainMenu.js";
-import {handleRulesButtonClick, saveHighScore} from "./rankingAndMode.js";
+import { Questions} from "./Questions";
+import {handleModeUpdate, category} from "./MainMenu";
+import {handleRulesButtonClick, saveHighScore} from "./rankingAndMode";
 export let acceptingMode = true;
 export const App = ({options}) => {
   const start = document.getElementsByClassName('play-the-game')[0];

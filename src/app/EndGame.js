@@ -1,4 +1,4 @@
-import { AnswersRaport } from "./Questions.js";
+import { AnswersRaport } from "./Questions";
 
 const endGameScore = document.getElementById('end-result-p');
 const endGameSummary = document.getElementById('end-summary');
