@@ -4,24 +4,24 @@ import { category } from './MainMenu';
 const textToView = {
   'people': {
     'title': 'Who is this character?',
-    'Rules': 'You have one minute (1m) to answer as many queestions as' +
-      ' possible. During the game on each qustion you need to' +
-      ' select who from Star Wars is showed on left (Jar Jar' +
-      'Binks ringt now) from available options.',
+    'Rules': 'You have one minute (1m) to answer as many questions as' +
+      ' possible. You get a point if you correctly guess' +
+      ' which character from Star Wars is shown in a picture on your left' +
+      ' (Jar Jar Binks right now).',
     'Src':'<img src="/static/assets/img/modes/people/35.jpg" alt="random character" class="img-rules">'
   },
   'vehicles': {
     'title': 'Do you recognize this vehicle?',
     'Rules': 'You have one minute (1m) to answer as many questions as possible.' +
-      ' During the game on each question you need to select who from Star Wars' +
-      ' is showed on the left (Jar Jar Binks right now) from available options.',
+      ' You get a point if you correctly guess which vehicle from Star Wars' +
+      ' is shown in a picture on your left.',
     'Src':'<img src="/static/assets/img/modes/vehicles/4.jpg" alt="random character" class="img-rules">'
   },
   'starships': {
     'title': 'Do you recognize this starship?',
     'Rules': 'You have one minute (1m) to answer as many questions as possible.' +
-      ' During the game on each question you need to select which starship' +
-      ' from Star Wars is showed on the left.',
+      ' You get a point if you correctly guess which starship' +
+      ' from Star Wars is shown in a picture on your left.',
     'Src':  '<img src="/static/assets/img/modes/starships/13.jpg" alt="random character" class="img-rules">'
   },
 };
@@ -128,7 +128,8 @@ const username = document.getElementById("player-name-hall-of-fame");
 //const highScoresStarship = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
 
 export function saveHighScore (e) {
-  e.preventDefault()
+  e.preventDefault();
+  if((!username.value)) {username.value = 'noname'};
 
     const lastScore = {
         score: localStorage.getItem('mostRecentScore'),
@@ -148,6 +149,7 @@ export function saveHighScore (e) {
         setRankingToLocalStorage("highScoresStarship", lastScore)
     }
 }
+
 function setRankingToLocalStorage(fileName, lastScore) {
   const highScores = JSON.parse(localStorage.getItem(fileName)) || [];
   if (localStorage.getItem(fileName)) {
