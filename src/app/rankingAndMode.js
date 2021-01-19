@@ -1,4 +1,4 @@
-import { category } from './MainMenu';
+import { category } from './MainMenu.js';
 
 
 const textToView = {
