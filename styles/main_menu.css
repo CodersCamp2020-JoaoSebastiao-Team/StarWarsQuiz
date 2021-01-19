@@ -12,6 +12,16 @@
 
 .logo-image {
     height: 100%;
+    text-decoration: none;
+}
+
+.main-menu__logo p {
+    color: rgb(243, 176, 52);
+    text-shadow:  0px 0px 16px red;
+    text-align: center;
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: 2px;
 }
 
 .main-menu__modes {
