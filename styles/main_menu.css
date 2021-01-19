@@ -17,7 +17,7 @@
 .main-menu__modes {
     list-style-type: none;
     background-color: white;
-    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px var(--shadow-color-red);
     border-radius: 23px;
     width: 60%;
     height: 5rem;
@@ -41,14 +41,14 @@
 .main-menu--selected {
     color: white;
     text-shadow:
-    0 0 5px rgba(255,0,0,.9),
-    0 0 10px rgba(255,0,0,.9),
-    0 0 20px rgba(255,0,0,.9),
-    0 0 40px rgba(255,0,0,.9),
-    0 0 80px rgba(255,0,0,.9),
-    0 0 90px rgba(255,0,0,.9),
-    0 0 100px rgba(255,0,0,.9),
-    0 0 150px rgba(255,0,0,.9);
+    0 0 5px var(--shadow-color-red),
+    0 0 10px var(--shadow-color-red),
+    0 0 20px var(--shadow-color-red),
+    0 0 40px var(--shadow-color-red),
+    0 0 80px var(--shadow-color-red),
+    0 0 90px var(--shadow-color-red),
+    0 0 100px var(--shadow-color-red),
+    0 0 150px var(--shadow-color-red);
 }
 
 @media (max-width: 768px) {

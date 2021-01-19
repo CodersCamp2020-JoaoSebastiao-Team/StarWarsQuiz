@@ -37,7 +37,7 @@
     -o-background-size: cover;      /* Opera*/
     background-size: cover;        
     border-radius: 16px;
-    box-shadow: 4px 4px 40px rgba(255, 0, 0, 0.9);
+    box-shadow: 4px 4px 40px var(--shadow-color-red);
     transition:1s all;
     -webkit-transition:1s all;
 
@@ -153,7 +153,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(4px 4px 40px rgba(255, 0, 0, 0.9));
+    filter: drop-shadow(4px 4px 40px var(--shadow-color-red));
     box-shadow: inset 4px 5px 4px rgba(0, 0, 0, 0.5);
 }
 

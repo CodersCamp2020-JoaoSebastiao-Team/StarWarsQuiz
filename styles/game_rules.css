@@ -1,6 +1,6 @@
 
 .rules{
-    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px var(--shadow-color-red);
     margin-top: 2rem;
     background: #fff;
     font-size: 1.75rem;
@@ -42,7 +42,7 @@
     min-width: 375px;
 }
 .hall-of-fame{
-    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px var(--shadow-color-red);
     background-color: white;
     border-radius: 16px;
     width: 42%;
@@ -52,7 +52,7 @@
     border: 1px solid wheat;
 }
 .play-the-game{
-    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px var(--shadow-color-red);
     background-color: red;
     border: 1px solid white;
     border-radius: 16px;
@@ -90,7 +90,7 @@
 .swquiz-menu {
     list-style-type: none;
     background-color: white;
-    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px var(--shadow-color-red);
     border-radius: 23px;
     width: 60%;
     height: 70%;
@@ -109,17 +109,17 @@
 .selected {
     color: white;
     text-shadow:
-    0 0 5px rgba(255,0,0,.9),
-    0 0 10px rgba(255,0,0,.9),
-    0 0 20px rgba(255,0,0,.9),
-    0 0 40px rgba(255,0,0,.9),
-    0 0 80px rgba(255,0,0,.9),
-    0 0 90px rgba(255,0,0,.9),
-    0 0 100px rgba(255,0,0,.9),
-    0 0 150px rgba(255,0,0,.9);
+    0 0 5px var(--shadow-color-red),
+    0 0 10px var(--shadow-color-red),
+    0 0 20px var(--shadow-color-red),
+    0 0 40px var(--shadow-color-red),
+    0 0 80px var(--shadow-color-red),
+    0 0 90px var(--shadow-color-red),
+    0 0 100px var(--shadow-color-red),
+    0 0 150px var(--shadow-color-red);
 }
 .rules-head{
-    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px rgba(255,0,0,.9);
+    box-shadow: 0 4px 4px rgba(0,0,0,.25), 4px 4px 40px var(--shadow-color-red);
     display: flex;
     justify-content: center;
     align-items:center;
@@ -164,7 +164,7 @@
 }
 .img-rules{
     max-height: 100%;
-    box-shadow: 0 4px 4px rgba(0,0,0,.25),4px 4px 40px rgba(255,0,0,.9);
+    box-shadow: 0 4px 4px rgba(0,0,0,.25),4px 4px 40px var(--shadow-color-red);
     border-radius: 16px;
     height: calc(21.4vw * 1.32);
     width: 21.4vw;

@@ -10,6 +10,10 @@ body {
     background-size: cover;
 }
 
+:root {
+    --shadow-color-red: rgba(255,0,0,.9);
+  }
+
 #swquiz-app {
     max-height: 100vh;
     /* overflow-y: hidden; */
