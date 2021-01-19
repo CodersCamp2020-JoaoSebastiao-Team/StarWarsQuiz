@@ -258,6 +258,7 @@ export const Questions = async (APIurl, category) => {
             endGame.style.display = "flex";
             localStorage.setItem('mostRecentScore', score);
             localStorage.setItem('QuestionsTotal', questionsShown);
+            document.getElementById("hall-of-fame-save").reset();
             clearInterval(timeToEnd);
 
             //clear all variables 
