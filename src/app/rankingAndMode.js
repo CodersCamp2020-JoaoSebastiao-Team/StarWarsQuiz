@@ -115,17 +115,7 @@ function modalRankingView(rankingArray){
   modal.style.display = 'block';
 }
 
-
 const username = document.getElementById("player-name-hall-of-fame");
-//const mostRecentScore = localStorage.getItem('mostRecentScore');
-
-// localStorage.setItem("highScoresPeople", JSON.stringify([]));
-// localStorage.setItem("highScoresVehicle", JSON.stringify([]));
-// localStorage.setItem("highScoresStarship", JSON.stringify([]));
-
-//const highScoresPeople = JSON.parse(localStorage.getItem(`highScoresPeople`)) || [];
-//const highScoresVehicle = JSON.parse(localStorage.getItem(`highScoresVehicle`)) || [];
-//const highScoresStarship = JSON.parse(localStorage.getItem(`highScoresStarship`)) || [];
 
 export function saveHighScore (e) {
   e.preventDefault();

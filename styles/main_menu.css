@@ -62,4 +62,8 @@
         width: 100%;
         font-size: 1em;
     }
+
+    .main-menu__logo {
+        margin-bottom: 1rem;
+    }
 }
