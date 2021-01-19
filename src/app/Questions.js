@@ -113,7 +113,7 @@ export const Questions = async (APIurl, category) => {
         // If we call function with argument (options button)
         cleanAnswers(optionWrapper);
         computerAnswer.innerText = "";
-        computerWrapper.style.opacity = "0";
+        //computerWrapper.style.opacity = "0";
         questionsShown++;
 
 
@@ -143,12 +143,12 @@ export const Questions = async (APIurl, category) => {
             AnswerRaport.computer = optionWrapper[computerChoise].innerText;
             AnswersRaport.push(AnswerRaport);
 
-            computerAnswer.innerText = `Computer: ${AnswerRaport.computer}`;
-            computerWrapper.style.opacity = "1";
+            computerAnswer.innerText = `${AnswerRaport.computer}`;
+            //computerWrapper.style.opacity = "1";
             if (computerPoint){
-                computerWrapper.classList.add("answer-good");
+                computerAnswer.classList.add("answer-good");
             }else {
-                computerWrapper.classList.add("answer-bad");
+                computerAnswer.classList.add("answer-bad");
             }
 
             if (select == rightOption) {
@@ -166,9 +166,10 @@ export const Questions = async (APIurl, category) => {
             optionWrapper[rightOption].classList.remove("answer-good");
             optionWrapper[select].classList.remove("answer-bad");
             optionWrapper[computerChoise].classList.remove("answer-computer");
-            computerWrapper.classList.remove("answer-bad");
-            computerWrapper.classList.remove("answer-good");
-            computerWrapper.style.opacity = "0";
+            computerAnswer.classList.remove("answer-bad");
+            computerAnswer.classList.remove("answer-good");
+            computerAnswer.innerText = "";
+            //computerWrapper.style.opacity = "0";
             cleanAnswers(optionWrapper);
 
             //Give eventlisteners back when new question appear after 1 second
@@ -188,7 +189,7 @@ export const Questions = async (APIurl, category) => {
             await waitForData(50);
             //console.log("Good anser is nr : ", QuestionsPeople[answer.good], "number: ", answer.good)
             numberOfQuestion = answer.good;
-            picture.style.backgroundImage = `url(../static/assets/img/modes/${category}/${answer.good + 1}.jpg)`;
+            picture.style.backgroundImage = `url(../static/assets/img/modes/${category}/${answer.good + 1}.png)`;
             await waitForData(250);
             let indexOption = randomOption();
             options[indexOption.good].innerText = QuestionsPeople[answer.good];
@@ -236,10 +237,6 @@ export const Questions = async (APIurl, category) => {
             localStorage.setItem('mostRecentScore', score);     
             localStorage.setItem('QuestionsTotal', questionsShown);  
             clearInterval(timeToEnd);
-
-            //delete data:
-            score = 0;
-
         }
         else {
             questionsEnd = false;
