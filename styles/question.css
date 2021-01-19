@@ -167,7 +167,7 @@ margin: 0 auto;
 
 /* Computer answer: */
 .question-content--computer{
-width: 80%;
+width: 100%;
 background-color: #fff;
 min-height: 100px;
 margin: 40px auto;
@@ -175,7 +175,7 @@ border-radius: 16px;
 display: flex;
 align-items: center;
 justify-content: center;
-box-shadow: inset 4px 5px 4px rgba(0, 0, 0, 0.5);
+//box-shadow: inset 4px 5px 4px rgba(0, 0, 0, 0.5);
 transition:0.5s all;
 -webkit-transition:0.5s all;
 }
@@ -192,7 +192,7 @@ padding: 3px;
 -webkit-transition:0.5s all; */
 }
 
-.question-content--computer span{
+.question-content--computer span:first-child{
   display: flex;
   align-items: center;
   justify-content: center;
