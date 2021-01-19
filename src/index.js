@@ -1,6 +1,6 @@
-import '../node_modules/regenerator-runtime/runtime' //async/await with Parcel
-import {App} from "./app/App";
-import {ProgressBar} from "./app/ProgressBar";
+import '../node_modules/regenerator-runtime/runtime.js' //async/await with Parcel
+import {App} from "./app/App.js";
+import {ProgressBar} from "./app/ProgressBar.js";
 
 const ONE_SECOND_MILLIS = 1000;
 const SW_API_BASE_URL = process.env.SW_API_BASE_URL || "https://swapi.dev/api";
