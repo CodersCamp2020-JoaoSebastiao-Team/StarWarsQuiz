@@ -334,7 +334,7 @@ max-height: 40vh;
   .p-content--item,
   .p-content--header-question,
   .p-content--computer-question,
-  .question-content--computer span {
+  .question-content--computer span:first-child {
       font-size: 1.5rem;
   }
 
@@ -406,7 +406,7 @@ max-height: 40vh;
   .p-content--item,
   .p-content--header-question,
   .p-content--computer-question,
-  .question-content--computer span {
+  .question-content--computer span:first-child {
       font-size: 1.2rem;
   }
 

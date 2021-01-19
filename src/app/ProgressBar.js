@@ -3,7 +3,7 @@ export let timeLeft;
 export const ProgressBar = () => {
 
   document.querySelector('.progress-bar').style.display = "block"; 
-  const timeLimit = 15;
+  const timeLimit = 60;
   let timePassed = 0;
   timeLeft = timeLimit;
 

@@ -3,7 +3,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "60",
-        "starship_class": "corvette",
+        "starship_class": "CR90 corvette",
         "hyperdrive_rating": "2.0"
     },
     "model": "resources.starship",
@@ -23,7 +23,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "70",
-        "starship_class": "landing craft",
+        "starship_class": "Sentinel-class landing craft",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -33,7 +33,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "10",
-        "starship_class": "Deep Space Mobile Battlestation",
+        "starship_class": "Death Star",
         "hyperdrive_rating": "4.0"
     },
     "model": "resources.starship",
@@ -48,7 +48,7 @@
             31
         ],
         "MGLT": "75",
-        "starship_class": "Light freighter",
+        "starship_class": "Millennium Falcon",
         "hyperdrive_rating": "0.5"
     },
     "model": "resources.starship",
@@ -58,7 +58,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "80",
-        "starship_class": "assault starfighter",
+        "starship_class": "Y-wing",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -73,7 +73,7 @@
             19
         ],
         "MGLT": "100",
-        "starship_class": "Starfighter",
+        "starship_class": "X-wing",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -85,7 +85,7 @@
             4
         ],
         "MGLT": "105",
-        "starship_class": "Starfighter",
+        "starship_class": "TIE Advanced x1",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -95,7 +95,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "40",
-        "starship_class": "Star dreadnought",
+        "starship_class": "Executor",
         "hyperdrive_rating": "2.0"
     },
     "model": "resources.starship",
@@ -105,7 +105,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "20",
-        "starship_class": "Medium transport",
+        "starship_class": "Rebel transport",
         "hyperdrive_rating": "4.0"
     },
     "model": "resources.starship",
@@ -117,7 +117,7 @@
             22
         ],
         "MGLT": "70",
-        "starship_class": "Patrol craft",
+        "starship_class": "Slave 1",
         "hyperdrive_rating": "3.0"
     },
     "model": "resources.starship",
@@ -131,7 +131,7 @@
             14
         ],
         "MGLT": "50",
-        "starship_class": "Armed government transport",
+        "starship_class": "Imperial shuttle",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -141,7 +141,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "40",
-        "starship_class": "Escort ship",
+        "starship_class": "EF76 Nebulon-B escort frigate",
         "hyperdrive_rating": "2.0"
     },
     "model": "resources.starship",
@@ -151,7 +151,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "60",
-        "starship_class": "Star Cruiser",
+        "starship_class": "Calamari Cruiser",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -163,7 +163,7 @@
             29
         ],
         "MGLT": "120",
-        "starship_class": "Starfighter",
+        "starship_class": "A-wing",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -173,7 +173,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "91",
-        "starship_class": "Assault Starfighter",
+        "starship_class": "B-wing",
         "hyperdrive_rating": "2.0"
     },
     "model": "resources.starship",
@@ -183,7 +183,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "unknown",
-        "starship_class": "Space cruiser",
+        "starship_class": "Republic Cruiser",
         "hyperdrive_rating": "2.0"
     },
     "model": "resources.starship",
@@ -207,7 +207,7 @@
             60
         ],
         "MGLT": "unknown",
-        "starship_class": "Starfighter",
+        "starship_class": "Naboo fighter",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -219,7 +219,7 @@
             39
         ],
         "MGLT": "unknown",
-        "starship_class": "yacht",
+        "starship_class": "Naboo Royal Starship",
         "hyperdrive_rating": "1.8"
     },
     "model": "resources.starship",
@@ -231,7 +231,7 @@
             44
         ],
         "MGLT": "unknown",
-        "starship_class": "Space Transport",
+        "starship_class": "Scimitar",
         "hyperdrive_rating": "1.5"
     },
     "model": "resources.starship",
@@ -241,7 +241,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "unknown",
-        "starship_class": "Diplomatic barge",
+        "starship_class": "J-type diplomatic barge",
         "hyperdrive_rating": "0.7"
     },
     "model": "resources.starship",
@@ -251,7 +251,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "unknown",
-        "starship_class": "freighter",
+        "starship_class": "AA-9 Coruscant freighter",
         "hyperdrive_rating": "unknown"
     },
     "model": "resources.starship",
@@ -264,7 +264,7 @@
             58
         ],
         "MGLT": "unknown",
-        "starship_class": "Starfighter",
+        "starship_class": "Jedi starfighter",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -276,7 +276,7 @@
             35
         ],
         "MGLT": "unknown",
-        "starship_class": "yacht",
+        "starship_class": "H-type Nubian yacht",
         "hyperdrive_rating": "0.9"
     },
     "model": "resources.starship",
@@ -286,7 +286,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "unknown",
-        "starship_class": "assault ship",
+        "starship_class": "Republic Assault ship",
         "hyperdrive_rating": "0.6"
     },
     "model": "resources.starship",
@@ -296,7 +296,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "unknown",
-        "starship_class": "yacht",
+        "starship_class": "Solar Sailer",
         "hyperdrive_rating": "1.5"
     },
     "model": "resources.starship",
@@ -309,7 +309,7 @@
             11
         ],
         "MGLT": "unknown",
-        "starship_class": "capital ship",
+        "starship_class": "Trade Federation cruiser",
         "hyperdrive_rating": "1.5"
     },
     "model": "resources.starship",
@@ -319,7 +319,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "unknown",
-        "starship_class": "transport",
+        "starship_class": "Theta-class T-2c shuttle",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -329,7 +329,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "unknown",
-        "starship_class": "star destroyer",
+        "starship_class": "Republic attack cruiser",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -342,7 +342,7 @@
             35
         ],
         "MGLT": "unknown",
-        "starship_class": "yacht",
+        "starship_class": "Naboo star skiff",
         "hyperdrive_rating": "0.5"
     },
     "model": "resources.starship",
@@ -355,7 +355,7 @@
             11
         ],
         "MGLT": "unknown",
-        "starship_class": "starfighter",
+        "starship_class": "Jedi Interceptor",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -365,7 +365,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "100",
-        "starship_class": "starfighter",
+        "starship_class": "arc-170",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -375,7 +375,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "unknown",
-        "starship_class": "cruiser",
+        "starship_class": "Banking clan frigte",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
@@ -388,7 +388,7 @@
             79
         ],
         "MGLT": "unknown",
-        "starship_class": "starfighter",
+        "starship_class": "Belbullab-22 starfighter",
         "hyperdrive_rating": "6"
     },
     "model": "resources.starship",
@@ -398,7 +398,7 @@
     "fields": {
         "pilots": [],
         "MGLT": "unknown",
-        "starship_class": "starfighter",
+        "starship_class": "V-wing",
         "hyperdrive_rating": "1.0"
     },
     "model": "resources.starship",
