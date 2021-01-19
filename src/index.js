@@ -1,4 +1,4 @@
-import '../node_modules/regenerator-runtime/runtime.js' //async/await with Parcel
+import '../node_modules/regenerator-runtime/runtime' //async/await with Parcel
 import {App} from "./app/App";
 import {ProgressBar} from "./app/ProgressBar";
 
