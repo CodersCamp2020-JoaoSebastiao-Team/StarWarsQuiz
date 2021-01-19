@@ -184,7 +184,7 @@ export const Questions = async (APIurl, category) => {
 
         let { answer, selected } = selectQuestion(QuestionsPeople, selectedArray);
         //console.log("selected from function: ",selected);
-        console.log("QuestionsPeople: ",QuestionsPeople, "selected question", selected);
+        //console.log("QuestionsPeople: ",QuestionsPeople, "selected question", selected);
 
         if (answer != -1) {
             await waitForData(50);
@@ -216,15 +216,22 @@ export const Questions = async (APIurl, category) => {
             //clear all variables 
             score = 0;
             computerScore = 0;
-            QuestionsPeople = [];
-            fetchData = [];
-            selectedArray = [];
-            rightOption = 0;
-            iterations = 0;
-            questionsEnd = false;
-            numberOfQuestion = 0;
-            questionsShown = 0;
+            // QuestionsPeople = [];
+            // fetchData = [];
+            // selectedArray = [];
+            // rightOption = 0;
+            // iterations = 0;
+            // questionsEnd = false;
+            // numberOfQuestion = 0;
+            // questionsShown = 0;
             AnswersRaport = [];
+            AnswersRaport.length = 0;
+            selectedArray.length = 0;
+            selectedArray = [];
+            optionWrapper[0].removeEventListener("click", queston1Listener, false);
+            optionWrapper[1].removeEventListener("click", queston2Listener, false);
+            optionWrapper[2].removeEventListener("click", queston3Listener, false);
+            optionWrapper[3].removeEventListener("click", queston4Listener, false);
         }
     }
 
@@ -256,15 +263,22 @@ export const Questions = async (APIurl, category) => {
             //clear all variables 
             score = 0;
             computerScore = 0;
-            QuestionsPeople = [];
-            fetchData = [];
-            selectedArray = [];
-            rightOption = 0;
-            iterations = 0;
-            questionsEnd = false;
-            numberOfQuestion = 0;
-            questionsShown = 0;
+            // QuestionsPeople = [];
+            // fetchData = [];
+            // selectedArray = [];
+            // rightOption = 0;
+            // iterations = 0;
+            // questionsEnd = false;
+            // numberOfQuestion = 0;
+            // questionsShown = 0;
             AnswersRaport = [];
+            AnswersRaport.length = 0;
+            selectedArray.length = 0;
+            selectedArray = [];
+            optionWrapper[0].removeEventListener("click", queston1Listener, false);
+            optionWrapper[1].removeEventListener("click", queston2Listener, false);
+            optionWrapper[2].removeEventListener("click", queston3Listener, false);
+            optionWrapper[3].removeEventListener("click", queston4Listener, false);
         }
         else {
             questionsEnd = false;
@@ -457,6 +471,7 @@ function transferData(input = [], output = [], prefix1 = "", prefix2 = "") {
 // Function created to select unique questions
 // @questions - array with data from API , @selected - array with already shown questions
 function selectQuestion(questions, selectedArray = []) {
+    console.log("Select question once!");
     // defeinitions of some used variables
     let dubbled = false;
     let selectedQuestion;
