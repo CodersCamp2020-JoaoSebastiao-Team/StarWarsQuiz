@@ -30,7 +30,7 @@
     min-width: 200px;
     min-height: calc(200px * 1.32);
     background-color: #fff;
-    /* background: url("../static/assets/img/modes/people/4.jpg") no-repeat 0px/cover; */
+    /* background: url("../static/assets/modes/people/4.jpg") no-repeat 0px/cover; */
     background: transparent no-repeat center center;
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
