@@ -188,7 +188,7 @@ export const Questions = async (APIurl, category) => {
             await waitForData(50);
             //console.log("Good anser is nr : ", QuestionsPeople[answer.good], "number: ", answer.good)
             numberOfQuestion = answer.good;
-            picture.style.backgroundImage = `url(../static/assets/img/modes/${category}/${answer.good + 1}.jpg)`;
+            picture.style.backgroundImage = `url(../static/assets/img/modes/${category}/${answer.good + 1}.png)`;
             await waitForData(250);
             let indexOption = randomOption();
             options[indexOption.good].innerText = QuestionsPeople[answer.good];
