@@ -87,9 +87,7 @@ Przykładowa zła odpowiedź na pytanie:
 
 ## Rywalizacja z komputerem
 
-Jednak gracz nie jest pozostawiony sam sobie! Równocześnie z graczem swoją grę rozgrywa komputer, który również zaznacza swoje odpowiedzi kolorem żółtym.
-
- ![StarWarsQuiz](./static/assets/ui/gra_pytania_komputer.png)
+Jednak gracz nie jest pozostawiony sam sobie! Równocześnie z graczem swoją grę rozgrywa komputer, który również zaznacza swoje odpowiedzi, które są wyświetlane pod odpowiedziami użytkownika. W przypadku udzielenia prawidłowej odpowiedzi przez komputer, wyświetlana jest odpowiedź w kolorze zielonym, jeżeli zostanie udzielona błędna odpowiedź wtedy odpowiedź będzie w kolorze czerwonym.
 
 Po upływie zadanego czasu, lub wyczerpaniu puli pytań pokazywany jest ekran zakończenia gry, który zawiera podsumowanie gry i liczbę punktów uzyskanych przez gracza oraz komputer. Dostępny jest także pełny spis kolejno udzielanych odpowiedzi przez gracza i komputer wraz ze wskazaniem właściwej odpowiedzi.
 
