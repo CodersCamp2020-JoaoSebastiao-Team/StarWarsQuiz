@@ -25,22 +25,21 @@
 }
 
 .question-image__image {
-  height: calc(21.4vw * 1.32);
-  width: 21.4vw;
-  min-width: 200px;
-  min-height: calc(200px * 1.32);
-  background-color: #fff;
-  /* background: url("../static/assets/img/modes/people/4.jpg") no-repeat 0px/cover; */
-  background: #000 no-repeat 0px/cover;
-  -webkit-background-size: cover; /* For WebKit*/
-  -moz-background-size: cover;    /* Mozilla*/
-  -o-background-size: cover;      /* Opera*/
-  background-size: cover;        
-  border-radius: 16px;
-  box-shadow: 4px 4px 40px var(--shadow-color-red);
-  transition:1s all;
-  -webkit-transition:1s all;
-
+    height: calc(21.4vw * 1.32);
+    width: 21.4vw;
+    min-width: 200px;
+    min-height: calc(200px * 1.32);
+    background-color: #fff;
+    /* background: url("../static/assets/modes/people/4.jpg") no-repeat 0px/cover; */
+    background: transparent no-repeat center center;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;        
+    border-radius: 16px;
+    box-shadow: 4px 4px 40px rgba(255, 0, 0, 0.9);
+    transition:1s all;
+    -webkit-transition:1s all;
 }
 /* Loading animation */
 

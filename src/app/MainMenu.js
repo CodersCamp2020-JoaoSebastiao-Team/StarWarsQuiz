@@ -1,4 +1,4 @@
-import {updateText} from './RankingAndMode'
+import {updateText} from './rankingAndMode'
 import {acceptingMode} from './App'
 
 const listItems = document.querySelectorAll('.main-menu--option');

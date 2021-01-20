@@ -28,7 +28,7 @@ export const EndTable = (Answers, category) => {
                 document.getElementById(`end-answer-row-${i}`).appendChild(newDivImg);
 
                 const img = document.createElement('img');
-                img.src = `../static/assets/img/modes/${category}/${Answers[i].numberOfQuestion + 1}.jpg`;
+                img.src = `../static/assets/modes/${category}/${Answers[i].numberOfQuestion + 1}.png`;
                 img.style = 'object-fit: cover; max-width: 100px; max-height: 100px; border-radius: 20px'
                 document.getElementById(`end-img-${i}`).appendChild(img);
 

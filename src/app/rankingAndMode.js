@@ -4,25 +4,25 @@ import { category } from './MainMenu';
 const textToView = {
   'people': {
     'title': 'Who is this character?',
-    'Rules': 'You have one minute (1m) to answer as many questions as' +
-      ' possible. You get a point if you correctly guess' +
-      ' which character from Star Wars is shown in a picture on your left' +
-      ' (Jar Jar Binks right now).',
-    'Src':'<img src="/static/assets/img/modes/people/35.jpg" alt="random character" class="img-rules">'
+    'Rules': 'You have one minute (1m) to answer as many queestions as' +
+      ' possible. During the game on each qustion you need to' +
+      ' select who from Star Wars is showed on left (Jar Jar' +
+      'Binks ringt now) from available options.',
+    'Src':'<img src="/static/assets/modes/people/35.png" alt="random character" class="img-rules">'
   },
   'vehicles': {
     'title': 'Do you recognize this vehicle?',
     'Rules': 'You have one minute (1m) to answer as many questions as possible.' +
-      ' You get a point if you correctly guess which vehicle from Star Wars' +
-      ' is shown in a picture on your left.',
-    'Src':'<img src="/static/assets/img/modes/vehicles/4.jpg" alt="random character" class="img-rules">'
+      ' During the game on each question you need to select who from Star Wars' +
+      ' is showed on the left (Jar Jar Binks right now) from available options.',
+    'Src':'<img src="/static/assets/modes/vehicles/4.png" alt="random character" class="img-rules">'
   },
   'starships': {
     'title': 'Do you recognize this starship?',
     'Rules': 'You have one minute (1m) to answer as many questions as possible.' +
-      ' You get a point if you correctly guess which starship' +
-      ' from Star Wars is shown in a picture on your left.',
-    'Src':  '<img src="/static/assets/img/modes/starships/13.jpg" alt="random character" class="img-rules">'
+      ' During the game on each question you need to select which starship' +
+      ' from Star Wars is showed on the left.',
+    'Src':  '<img src="/static/assets/modes/starships/13.png" alt="random character" class="img-rules">'
   },
 };
 
