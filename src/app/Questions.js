@@ -472,7 +472,7 @@ function transferData(input = [], output = [], prefix1 = "", prefix2 = "") {
 // Function created to select unique questions
 // @questions - array with data from API , @selected - array with already shown questions
 function selectQuestion(questions, selectedArray = []) {
-    console.log("Select question once!");
+    //console.log("Select question once!");
     // defeinitions of some used variables
     let dubbled = false;
     let selectedQuestion;
