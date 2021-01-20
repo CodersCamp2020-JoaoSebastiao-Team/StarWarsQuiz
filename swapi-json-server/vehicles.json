@@ -1,7 +1,7 @@
 [
 {
     "fields": {
-        "vehicle_class": "wheeled",
+        "vehicle_class": "Sand Crawler",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -9,7 +9,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "repulsorcraft",
+        "vehicle_class": "T-16 skyhopper",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -17,7 +17,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "repulsorcraft",
+        "vehicle_class": "X-34 landspeeder",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -25,7 +25,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "starfighter",
+        "vehicle_class": "TIE/LN starfighter",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -33,7 +33,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "airspeeder",
+        "vehicle_class": "Snowspeeder",
         "pilots": [
             1,
             18
@@ -44,7 +44,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "space/planetary bomber",
+        "vehicle_class": "TIE bomber",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -52,7 +52,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "assault walker",
+        "vehicle_class": "AT-AT",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -60,7 +60,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "walker",
+        "vehicle_class": "Storm IV Twin-Pod cloud car",
         "pilots": [
             13
         ]
@@ -70,7 +70,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "repulsorcraft",
+        "vehicle_class": "Sail barge",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -78,7 +78,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "sail barge",
+        "vehicle_class": "Bantha-II cargo skiff",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -86,7 +86,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "repulsorcraft cargo skiff",
+        "vehicle_class": "TIE/IN interceptor",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -94,7 +94,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "starfighter",
+        "vehicle_class": "Imperial Speeder Bike",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -102,7 +102,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "speeder",
+        "vehicle_class": "Vulture Droid",
         "pilots": [
             1,
             5
@@ -113,7 +113,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "starfighter",
+        "vehicle_class": "Multi-Troop Transport",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -121,7 +121,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "repulsorcraft",
+        "vehicle_class": "Armored Assault Tank",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -129,7 +129,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "repulsorcraft",
+        "vehicle_class": "Single Trooper Aerial Platform",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -137,7 +137,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "repulsorcraft",
+        "vehicle_class": "C-9979 landing craft",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -145,7 +145,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "landing craft",
+        "vehicle_class": "Tribubble bongo",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -153,7 +153,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "submarine",
+        "vehicle_class": "Sith speeder",
         "pilots": [
             10,
             32
@@ -164,7 +164,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "speeder",
+        "vehicle_class": "Zephyr-G swoop bike",
         "pilots": [
             44
         ]
@@ -174,7 +174,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "repulsorcraft",
+        "vehicle_class": "Koro-2 Exodrive airspeeder",
         "pilots": [
             11
         ]
@@ -184,7 +184,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "airspeeder",
+        "vehicle_class": "XJ-6 airspeeder",
         "pilots": [
             70
         ]
@@ -194,7 +194,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "airspeeder",
+        "vehicle_class": "LAAT/i",
         "pilots": [
             11
         ]
@@ -204,7 +204,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "gunship",
+        "vehicle_class": "LAAT/c",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -212,7 +212,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "gunship",
+        "vehicle_class": "AT-TE",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -220,7 +220,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "walker",
+        "vehicle_class": "SPHA",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -228,7 +228,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "walker",
+        "vehicle_class": "Flitknot speeder",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -236,7 +236,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "speeder",
+        "vehicle_class": "Neimoidian shuttle",
         "pilots": [
             67
         ]
@@ -246,7 +246,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "transport",
+        "vehicle_class": "Geonosian starfighter",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -254,7 +254,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "starfighter",
+        "vehicle_class": "Tsmeu-6 personal wheel bike",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -262,7 +262,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "wheeled walker",
+        "vehicle_class": "Emergency Firespeeder",
         "pilots": [
             79
         ]
@@ -272,7 +272,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "fire suppression ship",
+        "vehicle_class": "Droid tri-fighter",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -288,7 +288,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "airspeeder",
+        "vehicle_class": "Oevvaor jet catamaran",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -296,7 +296,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "air speeder",
+        "vehicle_class": "Raddaugh Gnasp fluttercraft",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -304,7 +304,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "wheeled walker",
+        "vehicle_class": "Clone turbo tank",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -320,7 +320,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "airspeeder",
+        "vehicle_class": "Corporate Alliance tank droid",
         "pilots": []
     },
     "model": "resources.vehicle",
@@ -328,7 +328,7 @@
 },
 {
     "fields": {
-        "vehicle_class": "walker",
+        "vehicle_class": "Droid gunship",
         "pilots": []
     },
     "model": "resources.vehicle",

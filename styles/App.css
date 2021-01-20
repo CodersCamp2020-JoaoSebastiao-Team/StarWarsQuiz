@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(../static/assets/ui/QuizBackground.png);
+    background-size: cover;
+}
+
+:root {
+    --shadow-color-red: rgba(255,0,0,.9);
+  }
+
+#swquiz-app {
+    min-height: 100vh;
+    /* overflow-y: hidden; */
+}
+
+.btn:focus{
+    outline: none;
+}

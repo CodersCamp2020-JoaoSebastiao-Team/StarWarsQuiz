@@ -27,6 +27,7 @@
                 <a href="/index.html" class="logo-image">
                     <img src="./static/assets/ui/StarWarsLogo.png" alt="Star Wars logo" class="logo-image">
                 </a>
+               
             </div>
             <ul class="main-menu__modes">
                 <li class="main-menu--option main-menu--selected" id="people">people</li>
@@ -115,7 +116,7 @@
                 </div>
                 <div class="question-content--computer"
                 title="Check what answer computer guessed!">
-                <p class="p-content--computer-question"></p>
+                <span>Computer: </span><span class="p-content--computer-question"></span>
             </div>
             </div>
             <div class="question-finish">
@@ -156,9 +157,10 @@
                         </div>
                         <form id="hall-of-fame-save">
                             <label for="end-player-name">
-                                <input id="player-name-hall-of-fame" name="player-name-hall-of-fame" class="end-player-name" type="text" minlength="3" maxlength="15" required="">
+                                <input id="player-name-hall-of-fame" name="player-name-hall-of-fame" class="end-player-name" type="text" minlength="3" placeholder="username" required>
                             </label>
                             <p>Please fill your name in order to receive eternal glory in the whole Galaxy!</p>
+    
                         </form>
                     </div>
                     <div class="end-save-button-container">

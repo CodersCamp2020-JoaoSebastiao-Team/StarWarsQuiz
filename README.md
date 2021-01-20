@@ -1,12 +1,45 @@
-# CodersCamp 2020 - Projekt JavaScript
+# CodersCamp 2020 | Projekt Zespołowy | JavaScript
 Wykorzystanie asynchronicznego JavaScript oraz korzystanie z REST API.
+
+## Zespół projektowy
+
+Zespół pracował w ramach kursu [CodersCamp](CodersCamp.pl). 
+Aplikację wykonali uczestnicy kursu przy pomocy mentora.
+Zachęcamy do odwiedzenia profili członków zespołu, w celu zapoznania się z ich portfolio.
+
+**Mentor**: [João Kiakumbo Sebastião](https://github.com/JK-Sebastiao)
+
+**Uczestnicy**:
+- [Bartlomiej Kaminski](https://github.com/BartlomiejKaminski)
+- [Hubert Siewior](https://github.com/HubertSiewior)
+- [Adrian Kotliński](https://github.com/Kotlinski95) (Development Manager)
+- [Magdalena Socha](https://github.com/magdalena-socha) (Product Owner)
+- [Mateusz Murat](https://github.com/mmurat7) (Tech Lead)
+- [Tomasz Smolarski](https://github.com/TomaszSmolarski)
+
+## Star Wars Quiz
 
 W ramach drugiego projektu, zadaniem naszego zespołu było opracowanie quizu z popularnej serii filmów Star Wars. Jest to aplikacja webowa działająca w przeglądarce bez potrzeby instalacji. Językiem domyślnym aplikacji jest język angielski. Sama aplikacja oferuje rozgrywkę w 3 dostępnych kategoriach: 
  - People, 
  - Vehicles, 
  - Spaceships.
 
+### Demo
+Wersja demonstracyjna aplikacji jest dostępna [TUTAJ](https://coderscamp2020-joaosebastiao-team.github.io/StarWarsQuiz/).
+
+Powodzenia, niech Moc będzie z Tobą!
+
 ![StarWarsQuiz](./static/assets/ui/strona_glowna.png)
+
+### Cel projektu
+
+Celem projektu było dostarczenie aplikacji pozwalającej sprawdzić swoją wiedzę o postaciach, 
+pojazdach oraz statkach kosmicznych występujących w Gwiezdnych Wojnach.
+Dodatkowo gracz rywalizował z komputerem w trakcie grania w quiz.
+Komputer — odpowiadający losowo na pytania
+
+Aplikacja została wykonana wg dostarczonych przez organizatorów CodersCamp wymagań.
+Szablon projektu dostępny jest [TUTAJ](https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz).
 
 ### Lista funkcjonalności aplikacji
 
@@ -22,13 +55,25 @@ W ramach drugiego projektu, zadaniem naszego zespołu było opracowanie quizu z 
 6. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywany jest ranking 5 najlepszych wyników.
 
 
-## Wykorzystane technologie:
+### Wykorzystywane technologie
+W trakcie developmentu wykorzystujemy:
 - JavaScript
-- HTML
-- CSS
-- Star Wars API
+- Web APi dla JavaScript (nie stosujemy żadnych frameworków, czy jQuery)
+- CSS, do stylowania aplikacji
+- HTML, do definiowania struktury aplikacji
+- LocalStorage, do zapisywania najlepszych wyników graczy
+- Jest.js do pisania testów jednostkowych
+- Fetch, do łączenia z SWApi i oraz pobierania obrazów z zasobów aplikacji
+- JSON Server — do działania aplikacji lokalnie, jeśli zostanie wykorzystany limit na zapytania do SWApi
 
-## Opis rozgrywki
+### Działanie aplikacji
+
+#### Menu Główne
+W menu głównym należy wybrać tryb gry (domyślnie jest to People):
+- People — rozpoznawanie jaka postać z uniwersum Star Wars została wyświetlona
+- Vehicles — rozpoznawanie jaki pojazd z uniwersum Star Wars został wyświetlony
+- Starships — rozpoznawanie jaki statek kosmiczny z uniwersum Star Wars został wyświetlony
+
 Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w określonym czasie (1m). Podczas quizu gracz po zaznaczeniu odpowiedzi dostaje informacje o poprawności swojej odpowiedzi poprzez zmianę koloru przycisku na zielony, w przypadku błędnego wyboru przycisk zmienia się na czerwony, natomiast pokazywana jest również poprawna odpowiedź w kolorze zielonym.
 
 Przykładowa dobra odpowiedź na pytanie:
@@ -42,9 +87,7 @@ Przykładowa zła odpowiedź na pytanie:
 
 ## Rywalizacja z komputerem
 
-Jednak gracz nie jest pozostawiony sam sobie! Równocześnie z graczem swoją grę rozgrywa komputer, który również zaznacza swoje odpowiedzi kolorem żółtym.
-
- ![StarWarsQuiz](./static/assets/ui/gra_pytania_komputer.png)
+Jednak gracz nie jest pozostawiony sam sobie! Równocześnie z graczem swoją grę rozgrywa komputer, który również zaznacza swoje odpowiedzi, które są wyświetlane pod odpowiedziami użytkownika. W przypadku udzielenia prawidłowej odpowiedzi przez komputer, wyświetlana jest odpowiedź w kolorze zielonym, jeżeli zostanie udzielona błędna odpowiedź wtedy odpowiedź będzie w kolorze czerwonym.
 
 Po upływie zadanego czasu, lub wyczerpaniu puli pytań pokazywany jest ekran zakończenia gry, który zawiera podsumowanie gry i liczbę punktów uzyskanych przez gracza oraz komputer. Dostępny jest także pełny spis kolejno udzielanych odpowiedzi przez gracza i komputer wraz ze wskazaniem właściwej odpowiedzi.
 
@@ -88,9 +131,6 @@ Istnieje również możliwość przejścia do listy ze wszystkimi uzyskanymi wyn
 
 Zadaniem projektu była realizacja wymagań klienta, z którym konsultowane były wprowadzane funkcjonalności. Utworzona aplikacja jest responsywna (dostosowana do wyświetlania na Tabletach i Telefonach). Wymogiem klienta było nie tylko działanie aplikacji, ale też napisanie testów, w tym celu aplikacja posiada napisanych kilka testżów jednostkowych sprawdzających poprawność napisanych funkcji.
 
-W celu zaprezentowania działania aplikacja ostateczna wersja została zaprezentowana na Github Pages - link do demo:
- https:...
-
 
 #### Uruchomienie projektu
 Aby uruchomić aplikację na lokalnej maszynie, należy wykonać następujące kroki:
@@ -112,3 +152,8 @@ Kod testów umieszczony został w katalogu `test`.
 1. Do projektu poza wyświetlaniem 5 najlepszych wyników dodaliśmy także wyświetlanie listy wszystkich wyników uzyskanych przez graczy.
 2. Projekt został oddatkowo zabezpieczony w przypadku problemów z dostaniem się do Rest API, po zgłoszeniu błędu ze strony API, lub zbyt długim oczekiwaniu na odpowiedź, pytania zostają zaczerpnięte z lokalnych plików .json, aby zredukować czas oczekiwania użytkownika na rozpoczęcie gry.
 
+### Organizacja pracy
+Praca zespołu była organizowana przy użyciu narzędzi dostarczanych przez GitHub. 
+Zadania opisywaliśmy za pomocą GitHub Issues i dzieliśmy czas ich wykonania na tygodnie za pomocą GitHub Projects.
+Każde z zadań było estymowane przez mentora, dzięki czemu staraliśmy się, aby liczba punktów przypadająca w danym tygodniu na każdą osobę w zespole była podobna.
+Jeśli chcesz zaproponować, jakąś zmianę w aplikacji, utwórz nowy Issue, wzorując się na poprzednich.

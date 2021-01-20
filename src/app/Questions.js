@@ -1,9 +1,9 @@
 import { ProgressBar, timeLeft } from "./ProgressBar";
-import { EndGame, EndTable} from "./EndGame";
+import { EndGame, EndTable } from "./EndGame";
 
 export let AnswersRaport = [];
 
-export const Questions = async (APIurl, category) => { 
+export const Questions = async (APIurl, category) => {
 
     //Adjust API url to category get from menu: // Now temporary get always people
     APIurl = setCategory(category, APIurl);
@@ -59,18 +59,18 @@ export const Questions = async (APIurl, category) => {
 
     //change header display:
     switch (category) {
-    case "people":
-    questionHeader.innerText = "MODE: Who is this character? ";
-    break;
-    case "starships":
-    questionHeader.innerText = "MODE: What kind of starship is this? "; 
-    break;
-    case "vehicles":
-    questionHeader.innerText = "MODE: What kind of vehicle is this? ";
-    break;
-    default:
-    questionHeader.innerText = "MODE: Who is this character? ";
-    break;
+        case "people":
+            questionHeader.innerText = "MODE: Who is this character? ";
+            break;
+        case "starships":
+            questionHeader.innerText = "MODE: What kind of starship is this? ";
+            break;
+        case "vehicles":
+            questionHeader.innerText = "MODE: What kind of vehicle is this? ";
+            break;
+        default:
+            questionHeader.innerText = "MODE: Who is this character? ";
+            break;
     }
 
 
@@ -113,7 +113,7 @@ export const Questions = async (APIurl, category) => {
         // If we call function with argument (options button)
         cleanAnswers(optionWrapper);
         computerAnswer.innerText = "";
-        computerWrapper.style.opacity = "0";
+        //computerWrapper.style.opacity = "0";
         questionsShown++;
 
 
@@ -133,7 +133,7 @@ export const Questions = async (APIurl, category) => {
             optionWrapper[3].removeEventListener("click", queston4Listener, false);
 
             // Computer question handle!
-            let {computerChoise, computerPoint }= computerPlay(computerAnswers);
+            let { computerChoise, computerPoint } = computerPlay(computerAnswers);
             computerScore += computerPoint;
             //optionWrapper[computerChoise].classList.add("answer-computer");
 
@@ -143,12 +143,12 @@ export const Questions = async (APIurl, category) => {
             AnswerRaport.computer = optionWrapper[computerChoise].innerText;
             AnswersRaport.push(AnswerRaport);
 
-            computerAnswer.innerText = `Computer: ${AnswerRaport.computer}`;
-            computerWrapper.style.opacity = "1";
-            if (computerPoint){
-                computerWrapper.classList.add("answer-good");
-            }else {
-                computerWrapper.classList.add("answer-bad");
+            computerAnswer.innerText = `${AnswerRaport.computer}`;
+            //computerWrapper.style.opacity = "1";
+            if (computerPoint) {
+                computerAnswer.classList.add("answer-good");
+            } else {
+                computerAnswer.classList.add("answer-bad");
             }
 
             if (select == rightOption) {
@@ -166,9 +166,10 @@ export const Questions = async (APIurl, category) => {
             optionWrapper[rightOption].classList.remove("answer-good");
             optionWrapper[select].classList.remove("answer-bad");
             optionWrapper[computerChoise].classList.remove("answer-computer");
-            computerWrapper.classList.remove("answer-bad");
-            computerWrapper.classList.remove("answer-good");
-            computerWrapper.style.opacity = "0";
+            computerAnswer.classList.remove("answer-bad");
+            computerAnswer.classList.remove("answer-good");
+            computerAnswer.innerText = "";
+            //computerWrapper.style.opacity = "0";
             cleanAnswers(optionWrapper);
 
             //Give eventlisteners back when new question appear after 1 second
@@ -183,6 +184,7 @@ export const Questions = async (APIurl, category) => {
 
         let { answer, selected } = selectQuestion(QuestionsPeople, selectedArray);
         //console.log("selected from function: ",selected);
+        //console.log("QuestionsPeople: ",QuestionsPeople, "selected question", selected);
 
         if (answer != -1) {
             await waitForData(50);
@@ -196,7 +198,7 @@ export const Questions = async (APIurl, category) => {
             options[indexOption.bad[1]].innerText = QuestionsPeople[answer.bad[1]];
             options[indexOption.bad[2]].innerText = QuestionsPeople[answer.bad[2]];
             computerAnswers.good = indexOption.good;
-            computerAnswers.bad = [indexOption.bad[0],indexOption.bad[1],indexOption.bad[2]];
+            computerAnswers.bad = [indexOption.bad[0], indexOption.bad[1], indexOption.bad[2]];
             rightOption = indexOption.good;
         }
         else {
@@ -205,10 +207,31 @@ export const Questions = async (APIurl, category) => {
             questionContent.style.display = "none";
             console.log("You answered all the questions!")
             await waitForData(4000);
-            EndGame(AnswersRaport,score, computerScore, questionsShown);
-            EndTable(AnswersRaport,category);
+            EndGame(AnswersRaport, score, computerScore, questionsShown);
+            EndTable(AnswersRaport, category);
             questionEnd.style.display = "none";
             endGame.style.display = "flex";
+
+
+            //clear all variables 
+            score = 0;
+            computerScore = 0;
+            // QuestionsPeople = [];
+            // fetchData = [];
+            // selectedArray = [];
+            // rightOption = 0;
+            // iterations = 0;
+            // questionsEnd = false;
+            // numberOfQuestion = 0;
+            // questionsShown = 0;
+            AnswersRaport = [];
+            AnswersRaport.length = 0;
+            selectedArray.length = 0;
+            selectedArray = [];
+            optionWrapper[0].removeEventListener("click", queston1Listener, false);
+            optionWrapper[1].removeEventListener("click", queston2Listener, false);
+            optionWrapper[2].removeEventListener("click", queston3Listener, false);
+            optionWrapper[3].removeEventListener("click", queston4Listener, false);
         }
     }
 
@@ -227,15 +250,36 @@ export const Questions = async (APIurl, category) => {
 
     const timeToEnd = setInterval(() => {
         if (timeLeft <= 0) {
-            EndGame(AnswersRaport,score, computerScore, questionsShown);
+            EndGame(AnswersRaport, score, computerScore, questionsShown);
             EndTable(AnswersRaport, category, AnswersRaport);
-            console.log(AnswersRaport);
+            console.log("raport: ",AnswersRaport);
             questionsEnd = true;
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";
-            localStorage.setItem('mostRecentScore', score);     
-            localStorage.setItem('QuestionsTotal', questionsShown);  
+            localStorage.setItem('mostRecentScore', score);
+            localStorage.setItem('QuestionsTotal', questionsShown);
+            document.getElementById("hall-of-fame-save").reset();
             clearInterval(timeToEnd);
+
+            //clear all variables 
+            score = 0;
+            computerScore = 0;
+            // QuestionsPeople = [];
+            // fetchData = [];
+            // selectedArray = [];
+            // rightOption = 0;
+            // iterations = 0;
+            // questionsEnd = false;
+            // numberOfQuestion = 0;
+            // questionsShown = 0;
+            AnswersRaport = [];
+            AnswersRaport.length = 0;
+            selectedArray.length = 0;
+            selectedArray = [];
+            optionWrapper[0].removeEventListener("click", queston1Listener, false);
+            optionWrapper[1].removeEventListener("click", queston2Listener, false);
+            optionWrapper[2].removeEventListener("click", queston3Listener, false);
+            optionWrapper[3].removeEventListener("click", queston4Listener, false);
         }
         else {
             questionsEnd = false;
@@ -275,15 +319,17 @@ async function getData(url, fetchData, QuestionsPeople) {
     const controller = new AbortController();
     const signal = controller.signal;
 
-        waitForFetchEnd = setTimeout(() => {
-            //console.log('Now aborting');
-            // Abort.
-            controller.abort();
-            responseStatus = -1;
-        }, 5000)
+    waitForFetchEnd = setTimeout(() => {
+        //console.log('Now aborting');
+        // Abort.
+        controller.abort();
+        responseStatus = -1;
+    }, 5000)
 
-    await fetch(url,{method: 'get',
-                signal: signal})
+    await fetch(url, {
+        method: 'get',
+        signal: signal
+    })
         .then(async response => {
             if (response.ok) {
                 let data = response.json();
@@ -291,7 +337,7 @@ async function getData(url, fetchData, QuestionsPeople) {
                 responseOk = true;
                 responseStatus = response.status;
                 return data;
-                
+
             }
         })
         .then(data => {
@@ -426,6 +472,7 @@ function transferData(input = [], output = [], prefix1 = "", prefix2 = "") {
 // Function created to select unique questions
 // @questions - array with data from API , @selected - array with already shown questions
 function selectQuestion(questions, selectedArray = []) {
+    //console.log("Select question once!");
     // defeinitions of some used variables
     let dubbled = false;
     let selectedQuestion;
@@ -434,7 +481,7 @@ function selectQuestion(questions, selectedArray = []) {
     let max = questions.length - 1;
     let min = 0;
     // this is done only if we have questions to show. If we show all of questions function returns -1;
-    if (questions.length > selectedArray.length) {
+    if ((questions.length > selectedArray.length) && (questions.length > 0)) {
         do {
             // get random value from min to max
             const randomQuestion = Math.floor(Math.random() * (max - min + 1) + min);
@@ -483,6 +530,7 @@ function selectQuestion(questions, selectedArray = []) {
         return obj;
     }
     else {
+        console.log("end of questions");
         let obj = {
             answer: -1,
             selected: selectedArray,
@@ -490,7 +538,7 @@ function selectQuestion(questions, selectedArray = []) {
         }
         return obj;
     }
-    
+
 }
 
 
@@ -512,7 +560,7 @@ function randomOption() {
     return obj;
 }
 
-function computerPlay(computerAnswers){
+function computerPlay(computerAnswers) {
     let max = computerAnswers.good;
     let min = 0;
     let good = computerAnswers.good;
@@ -521,12 +569,12 @@ function computerPlay(computerAnswers){
     const computerChoise = Math.floor(Math.random() * (max - min + 1) + min);
     let computerPoint;
     (computerChoise == computerAnswers.good) ? computerPoint = 1 : computerPoint = 0;
-    return {computerChoise, computerPoint};
+    return { computerChoise, computerPoint };
     //return 0;
 }
 
-function cleanAnswers(optionWrapper){
-    for (let i = 0; i < optionWrapper.length; i++){
+function cleanAnswers(optionWrapper) {
+    for (let i = 0; i < optionWrapper.length; i++) {
         optionWrapper[i].classList.remove("answer-selected");
         optionWrapper[i].classList.remove("answer-good");
         optionWrapper[i].classList.remove("answer-bad");

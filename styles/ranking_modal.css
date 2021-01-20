@@ -93,11 +93,13 @@
 #all-ranking-btn{
     background-color: white;
     border-radius: 16px;
-    width: 40%;
-    font-size: x-large;
+    width: 30%;
+    font-size: 1.25rem;
+    height: 3.5rem;
     color: black;
     cursor: pointer;
     border: 1px solid black;
+    margin-top: 1rem;
 }
 #all-ranking-btn:hover{
     background-color: red;
