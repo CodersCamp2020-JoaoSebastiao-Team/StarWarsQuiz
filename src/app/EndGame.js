@@ -60,7 +60,6 @@ export const EndTable = (Answers, category) => {
                 newDivEndComputerAnswer.style = 'color: red; font-weight: 600;'
             }
             button.onclick = function Clear() {
-                console.log('cleaning...')
                 for (let p = 0; p <= Answers.length + 2; p++) {
                     const element = document.getElementById("end-answers-table");
                     element.removeChild(element.childNodes[0]);

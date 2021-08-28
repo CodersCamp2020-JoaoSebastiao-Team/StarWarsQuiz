@@ -4,7 +4,6 @@ import { EndGame, EndTable } from "./EndGame";
 export let AnswersRaport = [];
 
 export const Questions = async (APIurl, category) => {
-
     //Adjust API url to category get from menu: // Now temporary get always people
     APIurl = setCategory(category, APIurl);
     AnswersRaport = [];
@@ -75,17 +74,12 @@ export const Questions = async (APIurl, category) => {
 
 
     // Get data from API - first 10 elements
-    var { responseOk, responseStatus, StarWarsDataCount, StarWarsDataLength } = await getData((proxyurl + APIurl), fetchData, QuestionsPeople);
+    var { responseOk, responseStatus, StarWarsDataCount, StarWarsDataLength } = await getData((APIurl), fetchData, QuestionsPeople);
 
     // If data fetched properly with status 200 -> success
     if (responseOk) {
         // get amount of whole questions and divided it into packages of 10 elements
-        //const questionsAmount = StarWarsDataCount;
-        //console.log("Amount of all questions", questionsAmount)
-        //const questionsLength = StarWarsDataLength;
-        //console.log("Length of each package", questionsLength)
         iterations = Math.ceil(StarWarsDataCount / StarWarsDataLength);
-        //console.log("Iterations", iterations)
     }
 
     //Get rest of data from REST API
@@ -153,7 +147,6 @@ export const Questions = async (APIurl, category) => {
 
             if (select == rightOption) {
                 score += 1;
-                console.log("Gratualtions! This answer is correct! Your score is: ", score);
             }
             else {
                 optionWrapper[select].classList.add("answer-bad");
@@ -183,12 +176,9 @@ export const Questions = async (APIurl, category) => {
 
 
         let { answer, selected } = selectQuestion(QuestionsPeople, selectedArray);
-        //console.log("selected from function: ",selected);
-        //console.log("QuestionsPeople: ",QuestionsPeople, "selected question", selected);
 
         if (answer != -1) {
             await waitForData(50);
-            //console.log("Good anser is nr : ", QuestionsPeople[answer.good], "number: ", answer.good)
             numberOfQuestion = answer.good;
             picture.style.backgroundImage = `url(/static/assets/modes/${category}/${answer.good + 1}.png)`;
             await waitForData(250);
@@ -205,7 +195,6 @@ export const Questions = async (APIurl, category) => {
             questionEnd.style.display = "flex";
             questionImage.style.display = "none";
             questionContent.style.display = "none";
-            console.log("You answered all the questions!")
             await waitForData(4000);
             EndGame(AnswersRaport, score, computerScore, questionsShown);
             EndTable(AnswersRaport, category);
@@ -252,7 +241,6 @@ export const Questions = async (APIurl, category) => {
         if (timeLeft <= 0) {
             EndGame(AnswersRaport, score, computerScore, questionsShown);
             EndTable(AnswersRaport, category, AnswersRaport);
-            console.log("raport: ",AnswersRaport);
             questionsEnd = true;
             questionWrapper.style.display = "none";
             endGame.style.display = "flex";
@@ -293,9 +281,7 @@ export const Questions = async (APIurl, category) => {
 
 function getDataLocaly(APIurl, category) {
     let temparray = [];
-    //console.log("try catch json! category: ", setCategory(category, APIurl, true), "data ->", require(setCategory(category, APIurl, true)));
     transferData(require(setCategory(category, APIurl, true)), temparray, "fields", "name");
-    //console.log("resulted array ->>>", temparray);
 }
 
 //Function with give possibility to wait some time to get properly data.
@@ -320,7 +306,6 @@ async function getData(url, fetchData, QuestionsPeople) {
     const signal = controller.signal;
 
     waitForFetchEnd = setTimeout(() => {
-        //console.log('Now aborting');
         // Abort.
         controller.abort();
         responseStatus = -1;
@@ -342,36 +327,20 @@ async function getData(url, fetchData, QuestionsPeople) {
         })
         .then(data => {
             fetchedData = data;
-            //console.log("result of fetched data", fetchedData.results, "counted elements: ", fetchedData.count)
             for (const element of data.results) {
                 fetchData.push(element);
             }
-            //console.log("fetch data: ", fetchData)
         })
         .catch(() => {
-            //const questionMessage = questionErrorContent.querySelector('h2');
-            console.log("Ups... something wrong with Rest API");
-            if (!responseOk) {
-                //  questionContent.style.display = "none";
-                //  questionImage.style.display = "none";
-                //  loader.style.display = "none";
-                //  questionError.style.display = "flex";
-                //  questionMessage.innerText = `${responseStatus} Error - sorry we have problem with API, try again later!`
-                //console.log(`${responseStatus} Error - sorry we have problem with API, try again later!`)
-            }
+            alert("Ups... something wrong with Rest API");
             if (responseStatus != 200) {
                 responseOk = false;
-            }
-            if (responseStatus == -1) {
-                console.log("API doesn't respond within the declared time");
             }
         });
 
     // Get from data objects only names and put it to one array.
     if (responseOk) {
         transferData(fetchData, QuestionsPeople, "name");
-        // console.log("Data before transfer: ", fetchData, "DAta after transfer!", QuestionsPeople)
-        // console.log("Return count, length :", fetchedData.count, fetchedData.results.length)
         return {
             responseOk: responseOk,
             responseStatus: responseStatus,
@@ -399,7 +368,6 @@ async function getAllData(APIurl, responseOk, iterations, category, fetchData, Q
             getData(nextUrl, fetchData, QuestionsPeople);
             await waitForData(800);
         }
-        //console.log("Finish getting all data : ", QuestionsPeople)
     }
     else {
         let data;
@@ -451,7 +419,6 @@ function setCategory(category = "people", APIurl = "", useLocal = false) {
             newAPIurl = `../../swapi-json-server/${category}.json`;
         }
         else {
-            console.log("Something wrong with category name in local json api")
             newAPIurl = `../../swapi-json-server/people.JSON`;
         }
     }
@@ -465,14 +432,12 @@ function transferData(input = [], output = [], prefix1 = "", prefix2 = "") {
     for (let i = 0; i < input.length; i++) {
         prefix1.length > 0 ? (prefix2.length > 0 ? output[i] = input[i][transferArea1][transferArea2] : output[i] = input[i][transferArea1]) : output[i] = input[i];
     }
-    //console.log("Inside transfer! : area, sample data name", transferArea1, input[0][transferArea1]);
     return output;
 }
 
 // Function created to select unique questions
 // @questions - array with data from API , @selected - array with already shown questions
 function selectQuestion(questions, selectedArray = []) {
-    //console.log("Select question once!");
     // defeinitions of some used variables
     let dubbled = false;
     let selectedQuestion;
@@ -489,7 +454,6 @@ function selectQuestion(questions, selectedArray = []) {
             // If we get value that already exist, we have to draw again
             for (let number of selectedArray) {
                 if (number == randomQuestion) {
-                    //console.log("Dubbled!")
                     dubbled = true;
                 }
             }
@@ -526,11 +490,9 @@ function selectQuestion(questions, selectedArray = []) {
             selected: selectedArray,
             questions: questions
         }
-        //console.log("selected inside function: ",selectedArray);
         return obj;
     }
     else {
-        console.log("end of questions");
         let obj = {
             answer: -1,
             selected: selectedArray,
@@ -554,9 +516,6 @@ function randomOption() {
         good: randomGood,
         bad: rest
     }
-    //console.log("good: ", randomGood, "bad: " , obj.bad)
-    //console.log("Poprawna ma byc: ", obj.good);
-    //console.log("zle maja byc: ",obj.bad[0],", ", obj.bad[1],", ", obj.bad[2],", ");
     return obj;
 }
 
@@ -565,7 +524,6 @@ function computerPlay(computerAnswers) {
     let min = 0;
     let good = computerAnswers.good;
     let bad = computerAnswers.bad;
-    //console.log("comp god:",good,"comp bad: ",bad);
     const computerChoise = Math.floor(Math.random() * (max - min + 1) + min);
     let computerPoint;
     (computerChoise == computerAnswers.good) ? computerPoint = 1 : computerPoint = 0;
