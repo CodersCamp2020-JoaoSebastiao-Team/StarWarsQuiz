@@ -528,7 +528,6 @@ function computerPlay(computerAnswers) {
     let computerPoint;
     (computerChoise == computerAnswers.good) ? computerPoint = 1 : computerPoint = 0;
     return { computerChoise, computerPoint };
-    //return 0;
 }
 
 function cleanAnswers(optionWrapper) {
