@@ -30,7 +30,6 @@
     min-width: 200px;
     min-height: calc(200px * 1.32);
     background-color: #fff;
-    /* background: url("../static/assets/modes/people/4.jpg") no-repeat 0px/cover; */
     background: transparent no-repeat center center;
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
@@ -297,7 +296,6 @@ justify-content: center;
 }
 
 .question-api-error--content{
-/*background: transparent url('../static/assets/404-api-error.png') no-repeat center center;*/
 display: flex;
 align-items: center;
 justify-content: center;
